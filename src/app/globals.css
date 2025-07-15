@@ -1,42 +1,117 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  --primary-color: #5F2D8B;
+  --primary-light: #ECE6F3;
+  --secondary-color:#07E994;
+  --secondary-light:#C9F1E2;
+  --paragraph-color:#555;
+  --third-color:#6C63FF;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter';
+  background-color: #FAFAFA;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+h1{
+  font-size: 48px !important;
+  font-weight: 700 !important;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+h2{
+  font-size: 39px !important;
+  font-weight: 600 !important;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.para{
+  font-size: 16px ;
+  color: var(--paragraph-color);
+  font-weight: 400 ;
+line-height: normal;
+}
+
+.paraPrimary{
+  font-size: 17px !important;
+  color: var(--primary-color) !important;
+  font-weight: 400;
+line-height: normal;
+}
+
+.bgPrimary{
+  background-color: var(--primary-color);
+}
+
+/* Navbar css */
+
+.logo-img{
+  height: 45px;
+}
+
+.nav-line{
+  color: rgba(98, 95, 95, 0.50);
+font-family: Inter;
+font-size: 28px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.nav-link{
+  font-weight: 500 !important;
+}
+
+/* home Page css */
+
+.homeHeroSection{
+   position: relative;
+   background: url("/assets/homepage/herosection-backround.jpg") lightgray 50% / cover no-repeat;
+}
+.homeHeroSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(255, 255, 255);
+  opacity: 0.9; 
+  z-index: 1;
+}
+.homeHeroSection > * {
+  position: relative;
+  z-index: 2;
+}
+
+.leftBackground{
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+}
+
+.viewButton , .bookButton {
+  border-radius: 8px;
+}
+
+.viewButton p , .bookButton p{
+  font-weight: 600;
+  font-size:18px;
+}
+  
+.viewButton{
+  border: 1px solid var(--primary-color);
+}
+.bookButton{
+  background: #5F2D8B;
+}
+.ratings{
+  background-color: var(--primary-light);
+  border-radius: 4px;
+}
+
+.homeCard{
+  border-radius: 20px;
+  color: var(--primary-light);
+  box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.10);
+}
+.learnMore{
+  color: var(--third-color);
+  font-weight: 600;
+  font-size: 18px;
 }
