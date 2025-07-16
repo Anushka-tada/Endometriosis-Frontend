@@ -31,7 +31,7 @@ const Navbar = () => {
   ];
   return (
     <>
-      <div className="navbarOuter d-flex justify-content-between p-3 px-5">
+      <div className="navbarOuter d-flex justify-content-between p-3 px-sm-5 px-3">
         <div className="logo">
           <img src="/assets/logo.png" alt="logo" className="logo-img" />
         </div>
@@ -75,8 +75,8 @@ const Navbar = () => {
           data-bs-target="#mobileMenu"
           aria-controls="mobileMenu"
         >
-          {/* <img src="/assets/hamburger.svg" alt="menu" /> */}
-          <p>menu</p>
+          <img src="/assets/menu_icon.png" alt="menu" />
+          
         </button>
 
       </div>
