@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   const navArr = [
@@ -45,8 +46,8 @@ const Navbar = () => {
           {navArr?.map((v, i) => {
             return (
               <li key={i} className="d-flex gap-xl-3 gap-2">
-               <a href={v.link} style={{textDecoration:"none", color:"black"}}>
-                 <div className="d-flex gap-xl-2 gap-1 align-items-center">
+                 <Link href={v.link} className="text-decoration-none d-flex text-black">
+                <div className="d-flex gap-xl-2 gap-1 align-items-center">
                   <img src={v?.icon}></img>
 
                   <p className="mb-0 nav-link"> {v?.name} </p>
@@ -57,7 +58,7 @@ const Navbar = () => {
                     <p className="nav-line mb-0 mx-2">|</p>
                   )}
                 </div>
-               </a>
+                </Link>
               </li>
             );
           })}
@@ -101,12 +102,10 @@ const Navbar = () => {
         <div className="offcanvas-body">
           <ul className="list-unstyled">
             {navArr?.map((v, i) => (
-              <a href={v.link} style={{textDecoration:"none", color:"black"}}>
-                <li key={i} className="mb-3 d-flex align-items-center gap-2">
+              <li key={i} className="mb-3 d-flex align-items-center gap-2">
                 <img src={v?.icon} alt="" />
                 <p className="mb-0">{v?.name}</p>
               </li>
-              </a>
             ))}
           </ul>
           <button
