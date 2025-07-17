@@ -9,7 +9,7 @@ const Navbar = () => {
     },
     {
       name: "Company",
-      link: "/",
+      link: "/how-we-help",
       icon: "/assets/Nav_icon_2.svg",
     },
     {
@@ -33,7 +33,7 @@ const Navbar = () => {
     <>
       <div className="navbarOuter d-flex justify-content-between p-3 px-sm-5 px-3">
         <div className="logo">
-          <img src="/assets/logo.png" alt="logo" className="logo-img" />
+          <a href="/"><img src="/assets/logo.png" alt="logo" className="logo-img" /></a>
         </div>
         <ul
           className="nav-links list-unstyled mb-0 d-none d-lg-flex gap-3 px-3"
@@ -45,7 +45,8 @@ const Navbar = () => {
           {navArr?.map((v, i) => {
             return (
               <li key={i} className="d-flex gap-xl-3 gap-2">
-                <div className="d-flex gap-xl-2 gap-1 align-items-center">
+               <a href={v.link} style={{textDecoration:"none", color:"black"}}>
+                 <div className="d-flex gap-xl-2 gap-1 align-items-center">
                   <img src={v?.icon}></img>
 
                   <p className="mb-0 nav-link"> {v?.name} </p>
@@ -56,6 +57,7 @@ const Navbar = () => {
                     <p className="nav-line mb-0 mx-2">|</p>
                   )}
                 </div>
+               </a>
               </li>
             );
           })}
@@ -99,10 +101,12 @@ const Navbar = () => {
         <div className="offcanvas-body">
           <ul className="list-unstyled">
             {navArr?.map((v, i) => (
-              <li key={i} className="mb-3 d-flex align-items-center gap-2">
+              <a href={v.link} style={{textDecoration:"none", color:"black"}}>
+                <li key={i} className="mb-3 d-flex align-items-center gap-2">
                 <img src={v?.icon} alt="" />
                 <p className="mb-0">{v?.name}</p>
               </li>
+              </a>
             ))}
           </ul>
           <button

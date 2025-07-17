@@ -3,29 +3,29 @@ import React from 'react'
 const RequestConsultation = () => {
   return (
     <div>
-       <div className="bg-white p-5">
-            <h1 className="mt-3 mb-3">Request Consultation</h1>
+       <div className="bg-white p-sm-5 p-3">
+            <h1 className="mt-3 mb-4 text-md-start text-center">Request Consultation</h1>
             <p className="para text-dark mb-0">
               Fill out this form to request a consultation with a member our
               medical team
             </p>
 
-            <p style={{ fontSize: "18px", fontWeight: "400", color: "#F00;" }}>
+            <p className='para ' style={{ fontSize: "18px", fontWeight: "400", color: "#F00;" }}>
               Health Insurance Information
             </p>
 
-            <h5 className="medium-text">
+            <h5 className="medium-text mt-4 mb-1">
               Already Been Diagnosed with Endometriosis?
             </h5>
-            <p className="para text-dark">
+            <p className="para text-black">
               If you've already been diagnosed with Endometriosis and need
               surgery, please click below.
             </p>
 
-            <div className="d-flex gap-3 align-items-center ms-2 mb-4 ">
+            <div className="d-flex gap-3 align-items-center ms-2 mb-4 pb-2 ">
               <input type="checkbox" className="custom-checkbox" />
-              <p className="para text-dark mb-0">
-                <span className="fw-medium" style={{ fontSize: "18px" }}>
+              <p className="para text-black mb-0">
+                <span className="fw-sm-medium fw-normal para text-black" style={{ fontSize: "18px" }}>
                   Fast Track Me -
                 </span>{" "}
                 I've been diagnosed with Endometriosis and need surgery.
@@ -52,7 +52,7 @@ const RequestConsultation = () => {
             <div className="row align-items-center mt-4">
               <div className="col-md-6 col-12">
                 <div>
-                  <h2 className="mb-4 mt-2">Tell Us About Yourself</h2>
+                  <h2 className="mb-4 mt-2 text-md-start text-center">Tell Us About Yourself</h2>
                   <div className="row">
                     <div className="col-6 mb-4">
                       <input
@@ -183,7 +183,7 @@ const RequestConsultation = () => {
             </div>
              <p className="para text-dark mb-5"> I consent to receive appointment reminders and communications related to my patient care via SMS. Message frequency may vary. I understand I can reply STOP to unsubscribe at any time. </p>
 
-             <p className="para text-dark mb-4"><span className="small-bolder" style={{color:"#F00"}}>IMPORTANT</span> Do not make multiple consultation requests. This will delay our team from reaching out to you.</p>
+             <p className="para text-dark mb-4"><span className="important" style={{color:"#F00"}}>IMPORTANT</span> Do not make multiple consultation requests. This will delay our team from reaching out to you.</p>
 
              <div className="d-flex gap-sm-3 gap-1 bookButton p-2" style={{maxWidth:"240px"}}>
                       <img
