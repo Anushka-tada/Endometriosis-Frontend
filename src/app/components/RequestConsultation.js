@@ -50,7 +50,7 @@ const RequestConsultation = () => {
             </div>
 
             <div className="row align-items-center mt-4">
-              <div className="col-md-6 col-12">
+              <div className="col-lg-6 col-12">
                 <div>
                   <h2 className="mb-4 mt-2 text-md-start text-center">Tell Us About Yourself</h2>
                   <div className="row">
@@ -161,8 +161,8 @@ const RequestConsultation = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-12 ">
-                <img src="/assets/homepage/Request_Consultation.png" className='img-fluid d-md-block d-none'></img>
+              <div className="col-lg-6 col-12 ">
+                <img src="/assets/homepage/Request_Consultation.png" className='img-fluid d-lg-block d-none'></img>
               </div>
             </div>
 
@@ -185,7 +185,7 @@ const RequestConsultation = () => {
 
              <p className="para text-dark mb-4"><span className="important" style={{color:"#F00"}}>IMPORTANT</span> Do not make multiple consultation requests. This will delay our team from reaching out to you.</p>
 
-             <div className="d-flex gap-sm-3 gap-1 bookButton p-2" style={{maxWidth:"240px"}}>
+             <div className="d-flex gap-sm-3 gap-1 bookButton p-2" style={{width:"fit-content"}}>
                       <img
                         src="/assets/button_icon_1.svg"
                         style={{ width: "16px" }}

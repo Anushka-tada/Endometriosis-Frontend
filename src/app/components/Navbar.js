@@ -1,5 +1,7 @@
+"use client"
 import React from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 const Navbar = () => {
   const navArr = [
@@ -7,6 +9,14 @@ const Navbar = () => {
       name: "Treatment",
       link: "/",
       icon: "/assets/Nav_icon_1.svg",
+      subItems: [
+        { name: "How We Help", link: "/how-we-help" },
+        { name: "Appointment Form", link: "/appointment-form" },
+        { name: "Our Team", link: "/our-team", },
+        { name: "Endometriosis Mapping", link: "endometriosis-mapping" },
+        { name: "Why ESSI", link: "/why-esis", },
+      ],
+
     },
     {
       name: "Company",
@@ -30,7 +40,20 @@ const Navbar = () => {
       icon: "/assets/Nav_icon_5.svg",
     },
   ];
+
+   const [activeDropdown, setActiveDropdown] = useState(null);
+   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
+
+  const handleDropdownToggle = (index) => {
+    setActiveDropdown(activeDropdown === index ? null : index);
+  };
+
+  const handleMobileDropdownToggle = (index) => {
+  setActiveMobileDropdown(activeMobileDropdown === index ? null : index);
+};
+
   return (
+    
     <>
       <div className="navbarOuter d-flex justify-content-between p-3 px-sm-5 px-3">
         <div className="logo">
@@ -43,25 +66,52 @@ const Navbar = () => {
             borderRadius: "10px",
           }}
         >
-          {navArr?.map((v, i) => {
-            return (
-              <li key={i} className="d-flex gap-xl-3 gap-2">
-                 <Link href={v.link} className="text-decoration-none d-flex text-black">
-                <div className="d-flex gap-xl-2 gap-1 align-items-center">
-                  <img src={v?.icon}></img>
+          {navArr.map((v, i) => (
+            <li key={i} className="position-relative d-flex align-items-center">
+              <div
+                onClick={() => v.subItems ? handleDropdownToggle(i) : null}
+                className="d-flex align-items-center gap-2 px-3 py-2 cursor-pointer"
+                style={{ cursor: v.subItems ? "pointer" : "default" }}
+              >
+                <img src={v?.icon} alt={v.name} />
+                <p className="mb-0 nav-link text-black">{v.name}</p>
+               <img src="/assets/Nav_dropdown.svg" alt="dropdown"   style={{
+                transform: activeDropdown === i ? "rotate(180deg)" : "rotate(0)",
+                transition: "0.3s",
+              }} />
+              </div>
 
-                  <p className="mb-0 nav-link"> {v?.name} </p>
+              {/* Submenu dropdown */}
+              {v.subItems && activeDropdown === i && (
+                <ul
+                  className="position-absolute  shadow p-3 rounded"
+                  style={{
+                    top: "100%",
+                    left: -13,
+                    zIndex: 100,
+                    minWidth: "200px",
+                    backgroundColor:"rgba(250, 250, 250, 1)"
+                  }}
+                >
+                  {v.subItems.map((sub, j) => (
+                    <li key={j} className="mb-2" style={{listStyle:"none"}}>
+                      <Link
+                        href={sub.link}
+                        className="d-flex align-items-center gap-2 text-decoration-none text-dark"
+                      >
+                        <span className="textPrimary">{sub.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
-                  <img src="/assets/Nav_dropdown.svg"></img>
-
-                  {i !== navArr.length - 1 && (
-                    <p className="nav-line mb-0 mx-2">|</p>
-                  )}
-                </div>
-                </Link>
-              </li>
-            );
-          })}
+              {/* Divider */}
+              {i !== navArr.length - 1 && (
+                <p className="nav-line mb-0 mx-2">|</p>
+              )}
+            </li>
+          ))}
         </ul>
 
         <button
@@ -101,13 +151,47 @@ const Navbar = () => {
         </div>
         <div className="offcanvas-body">
           <ul className="list-unstyled">
-            {navArr?.map((v, i) => (
-              <li key={i} className="mb-3 d-flex align-items-center gap-2">
-                <img src={v?.icon} alt="" />
-                <p className="mb-0">{v?.name}</p>
+    {navArr?.map((v, i) => (
+      <li key={i} className="mb-3">
+        <div
+          className="d-flex align-items-center gap-2 justify-content-between"
+          onClick={() => v.subItems ? handleMobileDropdownToggle(i) : null}
+          style={{ cursor: v.subItems ? "pointer" : "default" }}
+        >
+          <div className="d-flex align-items-center gap-2">
+            <img src={v?.icon} alt="" />
+            <p className="mb-0">{v?.name}</p>
+          </div>
+          {v.subItems && (
+            <img
+              src="/assets/Nav_dropdown.svg"
+              alt="dropdown"
+              style={{
+                transform: activeMobileDropdown === i ? "rotate(180deg)" : "rotate(0)",
+                transition: "0.3s",
+              }}
+            />
+          )}
+        </div>
+
+        {/* Submenu for mobile */}
+        {v.subItems && activeMobileDropdown === i && (
+          <ul className="mt-2 ms-4">
+            {v.subItems.map((sub, j) => (
+              <li key={j} className="mb-2">
+                <Link
+                  href={sub.link}
+                  className="text-decoration-none text-dark d-flex align-items-center gap-2"
+                >
+                  <span className="textPrimary">{sub.name}</span>
+                </Link>
               </li>
             ))}
           </ul>
+        )}
+      </li>
+    ))}
+  </ul>
           <button
             className="px-3 py-2 text-white bgPrimary border-0 mt-3"
             style={{ borderRadius: "8px" }}

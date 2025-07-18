@@ -3,16 +3,16 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className='footer bg-white mb-5'>
-       <div className='footer-top d-flex  flex-wrap justify-content-center align-content-center ' style={{backgroundColor:"#4E2675"}}>
-          <div className=' d-flex flex-md-row flex-column gap-md-5 gap-3 justify-content-center align-content-center '>
+       <div className='footer-top d-flex  flex-wrap justify-content-center align-items-center ' style={{backgroundColor:"#4E2675"}}>
+          <div className=' d-flex flex-md-row flex-column gap-md-5 gap-3 justify-content-center align-items-center '>
              <h2 className='text-white text-md-start text-center'>Interested in learning more about our offerings?</h2>
-            <div className="d-flex gap-sm-2 gap-1 viewButton bg-white p-2  align-items-center">
+            <div className="d-flex gap-sm-2 gap-1 viewButton bg-white p-2   align-items-center" style={{height:"40px", width:"fit-content"}}>
                       <img
                         className=""
                         src="/assets/button_icon_primary.svg"
                         style={{ width: "16px" }}
                       ></img>
-                      <p className="mb-0 textPrimary">Book Appointment</p>
+                      <p className="mb-0 textPrimary" style={{whiteSpace:"nowrap"}}>Book Appointment</p>
                       <img
                         src="/assets/primary_arrow.svg"
                         style={{ width: "15px" }}

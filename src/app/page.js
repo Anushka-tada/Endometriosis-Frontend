@@ -189,7 +189,9 @@ const page = () => {
                     treatment tailored to your unique needs
                   </p>
 
-                  <div className="d-flex gap-sm-4 gap-3 pt-sm-5 pt-4 mb-sm-5 mb-3">
+                   {/* btns */}
+
+                  <div className="d-flex flex-wrap gap-sm-4 gap-3 pt-sm-5 pt-4 mb-sm-5 mb-3">
                     <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
                       <img
                         src="/assets/button_icon_1.svg"
@@ -319,7 +321,7 @@ const page = () => {
 
             <div className="col-md-3 col-6 p-2">
               <div
-                className="text-center  p-md-5 p-4 homeCard boxShadow h-100"
+                className="text-center  py-md-5 py-4 homeCard boxShadow h-100"
                 style={{ backgroundColor: "#07E994" }}
               >
                 <h2>2300+</h2>
@@ -329,7 +331,7 @@ const page = () => {
 
             <div className="col-md-3 col-6 p-2">
               <div
-                className="text-center p-md-5 p-4 homeCard boxShadow h-100"
+                className="text-center py-md-5 py-4 homeCard boxShadow h-100"
                 style={{ backgroundColor: "#5F2D8B" }}
               >
                 <h2>30+</h2>
@@ -339,7 +341,7 @@ const page = () => {
 
             <div className="col-md-3 col-6 p-2">
               <div
-                className="text-center  p-md-5 p-4 homeCard boxShadow h-100"
+                className="text-center  py-md-5 py-4 homeCard boxShadow h-100"
                 style={{ backgroundColor: "#FFB006" }}
               >
                 <h2>12K+</h2>
@@ -356,10 +358,10 @@ const page = () => {
             <div className="row align-items-center">
 
                <div className="d-block d-lg-none col-12 d-flex flex-column align-items-center">
-                 <h1 className="text-sm-start text-center  tilt tilt-primary text-white">
+                 <h1 className="text-lg-start text-center  tilt tilt-primary text-white">
                   We Are
                 </h1>
-                <h1 className="mb-4 text-sm-start text-center">
+                <h1 className="mb-4 text-lg-start text-center">
                   Endometriosis Surgical Specialists International
                 </h1>
 
@@ -373,7 +375,7 @@ const page = () => {
               </div>
               <div className="col-lg-6 col-12">
                <div className="d-none d-lg-block">
-                 <h1 className="text-sm-start text-center tilt tilt-primary text-white">
+                 <h1 className="text-lg-start text-center tilt tilt-primary text-white">
                   We Are
                 </h1>
                 <h1 className="mb-4 text-sm-start text-center">
@@ -561,7 +563,7 @@ const page = () => {
                         <p className="medium-bold">{member.subtitle}</p>
                         <p className="para text-black">{member.para}</p>
 
-                        <div className="d-flex gap-sm-4 gap-2 mb-3 mt-3">
+                        <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
                           <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
                             <img
                               src="/assets/button_icon_1.svg"
@@ -581,21 +583,47 @@ const page = () => {
 
                           <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
                             <p
-                              className="mb-0"
+                              className="mb-0 textPrimary"
                               style={{
                                 whiteSpace: "nowrap",
                                 fontSize: "12px",
-                                color: "#4E2675",
                               }}
                             >
                               Read More
                             </p>
                             <img
-                              src="/assets/black_arrow.svg"
+                              src="/assets/primary_arrow.svg"
                               style={{ width: "15px" }}
                             ></img>
                           </div>
                         </div>
+                        {/* <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
+                    <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
+                      <img
+                        src="/assets/button_icon_1.svg"
+                        style={{ width: "16px" }}
+                      ></img>
+                      <p
+                        className="mb-0 text-white"
+                        style={{ whiteSpace: "nowrap" }}
+                      >
+                        Book Appointment
+                      </p>
+                      <img
+                        src="/assets/white_arrow.svg"
+                        style={{ width: "15px" }}
+                      ></img>
+                    </div>
+
+                    <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
+
+                      <p className="mb-0 textPrimary">Read More</p>
+                      <img
+                        src="/assets/primary_arrow.svg"
+                        style={{ width: "15px" }}
+                      ></img>
+                    </div>
+                  </div> */}
                       </div>
                     </div>
                   </div>
