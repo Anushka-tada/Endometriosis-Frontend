@@ -34,33 +34,33 @@ const EndometriosSteps = [
   {
     img: "/assets/homepage/Endometrios_Mapping.png",
     title: "Endometrios Mapping",
+    link:"/endometriosis-mapping",
     subtitle: "Precise Diagnosis for Targeted Care",
   },
   {
     img: "/assets/homepage/Endometriosis_Surgery.png",
     title: "Endometriosis Surgery",
+    link:"/endometriosis-surgery",
     subtitle: "Advanced Surgical Intervention & Recovery",
   },
   {
     img: "/assets/homepage/Endometriosis_Infertility.png",
     title: "Endometriosis and Infertility",
+    link:"/endometriosis-and-fertility",
     subtitle: "Help with Complex Fertility Challenges",
   },
   {
     img: "/assets/homepage/Endometriosis_Infertility.png",
     title: "Endometriosis and Infertility",
+    link:"/endometriosis-and-fertility",
     subtitle: "Help with Complex Fertility Challenges",
   },
    {
     img: "/assets/homepage/Endometriosis_Infertility.png",
     title: "Endometriosis and Infertility",
+    link:"/endometriosis-and-fertility",
     subtitle: "Help with Complex Fertility Challenges",
-  },
-  {
-    img: "/assets/homepage/Endometriosis_Infertility.png",
-    title: "Endometriosis and Infertility",
-    subtitle: "Help with Complex Fertility Challenges",
-  },
+  }
 ];
 
 const TeamMember = [
@@ -82,12 +82,12 @@ const TeamMember = [
     subtitle: "Europe | ESSI Mentor",
     para: "Dr. Francesco Di Chiara is a leading thoracic surgeon known for pioneering uniportal VATS (Video-Assisted Thoracoscopic Surgery) at multiple institutions and performing complex procedures with this advanced technique. He serves as a proctor for minimally invasive thoracic surgery...",
   },
-  {
-    img: "/assets/homepage/Dr_Alessio.png",
-    title: "Dr. Francesco Di Chiara",
-    subtitle: "Europe | ESSI Mentor",
-    para: "Dr. Francesco Di Chiara is a leading thoracic surgeon known for pioneering uniportal VATS (Video-Assisted Thoracoscopic Surgery) at multiple institutions and performing complex procedures with this advanced technique. He serves as a proctor for minimally invasive thoracic surgery...",
-  },
+  // {
+  //   img: "/assets/whyESSI/Dr_Andrea.png",
+  //   title: "Dr. Andrea Vidali",
+  //   subtitle: "New York | ESSI Mentor ",
+  //   para: "Dr. Andrea Vidali, MD, is a world-renowned miscarriage specialist, reproductive immunologist, and endometriosis surgeon. He has extensive experience...",
+  // },
 ];
 
 const stories = [
@@ -381,7 +381,7 @@ const page = () => {
               <div className="col-lg-6 col-12">
                 <img
                   src="/assets/homepage/about.png"
-                  className="img-fluid"
+                  className="img-fluid mb-sm-0 mb-3"
                 ></img>
               </div>
               <div className="col-lg-6 col-12">
@@ -394,7 +394,7 @@ const page = () => {
                 </h1>
 
                </div>
-                <p className="para">
+                <p className="para d-sm-block d-none">
                   Most endometriosis patients spend years enduring pain,
                   infertility, and other debilitating symptoms before receiving
                   a diagnosis. If that describes you, then you have had no
@@ -402,7 +402,7 @@ const page = () => {
                   symptoms. But suffering should not be normalized.
                 </p>
 
-                <p className="mb-4 para">
+                <p className="mb-4 para d-sm-block d-none">
                   Endometriosis Surgical Specialists International (ESSI),
                   founded by Dr. Andrea Vidali – a leading excision specialist
                   who has been performing endometriosis surgeries for over 25
@@ -480,18 +480,28 @@ const page = () => {
 
         {/* reasons Endometriosis ... are related section */}
 
-        <div className="container mt-sm-3 mt-0">
+        <div className="container mt-sm-5 mt-0 d-flex flex-column align-items-center">
           <h1 className="text-center mb-3">
             Reasons Endometriosis, Infertility, and <br /> Miscarriage are Often
             Related
           </h1>
-          <p className="medium-text text-center mx-5 pb-sm-5 pb-0 mb-3">
+          <p className="medium-text text-center mx-5 pb-sm-4 pb-0 mb-3">
             We are the premier Endometriosis Surgical Specialists providing the
             highest standard of care for effective treatment of pain as well as
             ensuring lasting results.
           </p>
 
-          <RequestConsultation />
+             <a href="/appointment-form" style={{ textDecoration: "none" }}>
+  <div className="d-flex gap-sm-3 gap-1 bookButton p-2 px-sm-3 mb-5" style={{ width: "fit-content" }}>
+    <img src="/assets/button_icon_1.svg" style={{ width: "17px" }} alt="icon" />
+    <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+      Book Appointment
+    </p>
+    <img src="/assets/white_arrow.svg" style={{ width: "16px" }} alt="arrow" />
+  </div>
+</a>
+
+
         </div>
 
         {/* explore section */}
@@ -517,7 +527,8 @@ const page = () => {
                       <img src={step.img} style={{ width: "60%" }} />
                       <h5 className="medium-text">{step.title}</h5>
                       <p className="para">{step.subtitle}</p>
-                      <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2">
+                     <a href={step.link} style={{ textDecoration: "none" }}>
+                       <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2">
                         <p
                           className="mb-0 text-white"
                           style={{ whiteSpace: "nowrap" }}
@@ -529,6 +540,7 @@ const page = () => {
                           style={{ width: "15px" }}
                         />
                       </div>
+                     </a>
                     </div>
                   </div>
                 </div>

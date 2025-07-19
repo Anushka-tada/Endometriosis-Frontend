@@ -110,6 +110,12 @@ const doctors = [
     description:
       "Dr. Sallie Sarrel, is a dedicated advocate for individuals with endometriosis, having lived with the condition herself for nearly two decades. She co-founded The Endometriosis Summit, the largest endometriosis-focused conference, which trains patients, practitioners, and surgeons while fostering global education and advocacy. A recognized leader in pelvic pain treatment, Sallie has lectured worldwide and published extensively on the role of the pelvic floor, bladder, and hernias in endometriosis-related pain. Certified as an athletic trainer and licensed as a physical therapist in multiple states, she continues to champion advancements in endometriosis care.",
   },
+  {
+    img:"/assets/whyESSI/Dr_Daniel.png",
+    name:"Dr. Daniel Cibulsky",
+    about:"Connecticut",
+    description:"Dr. Daniel Cibulsky is a board-certified OB/GYN specializing in minimally invasive and robotic-assisted surgery. He trained at Stamford Hospital (Columbia University affiliate) and later taught medical students and residents at Columbia and Rutgers. A certified Da Vinci surgeon and ACOG fellow, he also holds a MIGS certification from ABOG. After advanced training with Dr. Andrea Vidali, he joined ESSI in 2025 to focus on expert endometriosis care. Dr. Cibulsky is licensed in NY, NJ, and CT and is currently accepting new patients."
+  }
 ];
 
 const page = () => {
@@ -254,7 +260,7 @@ const page = () => {
 
                     </div>
                     <div className="col-md-6 col-12 order-md-2 order-1 mb-md-3">
-                        <img src={doc.img} alt={doc.name} className="img-fluid"></img>
+                        <img src={doc.img} alt={doc.name} style={{borderRadius:"25px"}} className="img-fluid"></img>
                     </div>
                   </div>
                </>}
