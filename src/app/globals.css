@@ -341,6 +341,13 @@ h2 {
   padding: 7%;
 }
 
+@media (max-width:600px) {
+  .footer-top {
+  padding-top: 10% !important;
+  padding-bottom: 10% !important;
+}
+}
+
 .footer-link {
   color: #77808B;
   font-weight: 500;
