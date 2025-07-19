@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import RequestConsultation from "./components/RequestConsultation";
 import Slider from "react-slick";
-import CardSlider from "./components/cardSlider"
+// import CardSlider from "./components/cardSlider"
 
 const reasonsColumn1 = [
   "Prior Endometriosis Surgery with No Relief",
@@ -506,7 +506,7 @@ const page = () => {
           </p>
 
           <div className="row pb-5">
-            {/* <Slider {...settings1}>
+            <Slider {...settings1}>
               {EndometriosSteps.map((step, index) => (
                 <div key={index} className="p-sm-3 p-2">
                   <div className="stepCard boxShadow p-sm-4 p-2 pb-sm-5  text-center h-100">
@@ -533,9 +533,9 @@ const page = () => {
                   </div>
                 </div>
               ))}
-            </Slider> */}
-          {/* <CardSlider data={EndometriosSteps}/> */}
-            <CardSlider data={EndometriosSteps}/>
+            </Slider>
+          
+            {/* <CardSlider data={EndometriosSteps}/> */}
             
           </div>
         </div>
