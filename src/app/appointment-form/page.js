@@ -35,7 +35,7 @@ const page = () => {
       </div>
 
       <div className='container'>
-        <h1 className='text-center mb-4'>Book<span className='tilt tilt-secondary'>Appointment</span> Seamlessly</h1>
+        <h1 className='text-center mb-4'>Book {" "}<span className='tilt tilt-secondary'>Appointment</span> Seamlessly</h1>
         <h2 className='small-h2 text-center mb-3'>We are the premier Endometriosis Surgical Specialists providing the highest standard of care for effective treatment of pain as well as ensuring lasting results.</h2>
 
         <RequestConsultation/>

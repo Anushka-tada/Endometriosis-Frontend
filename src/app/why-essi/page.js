@@ -157,7 +157,7 @@ const page = () => {
                         />
                       </div>
                  </div>
-                  <div className="col-lg-5">
+                  <div className="col-lg-5 d-flex flex-column align-items-md-start align-items-center">
                        <img src="/assets/whyESSI/whyChooseUs.png" className="img-fluid mb-md-0 mb-4"></img>
 
                           <div className="d-flex d-lg-none gap-sm-2 gap-1 bookButton p-2 px-3 mb-2" style={{width:"fit-content"}}>
