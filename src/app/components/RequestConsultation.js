@@ -10,7 +10,7 @@ const RequestConsultation = () => {
               medical team
             </p>
 
-            <p className='para ' style={{ fontSize: "18px", fontWeight: "400", color: "#F00;" }}>
+            <p className='para ' style={{ fontSize: "18px", fontWeight: "400", color: "#F00" }}>
               Health Insurance Information
             </p>
 

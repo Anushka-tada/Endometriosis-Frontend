@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 
 const Navbar = () => {
   const navArr = [
@@ -14,7 +14,9 @@ const Navbar = () => {
         { name: "Appointment Form", link: "/appointment-form" },
         { name: "Our Team", link: "/our-team", },
         { name: "Endometriosis Mapping", link: "endometriosis-mapping" },
-        { name: "Why ESSI", link: "/why-esis", },
+        { name: "Why ESSI", link: "/why-essi", },
+        { name: "Endometriosis Surgery", link: "/endometriosis-surgery" },
+        { name: "Endometriosis and infertility", link: "/endometriosis-and-fertility" },
       ],
 
     },
@@ -52,6 +54,33 @@ const Navbar = () => {
   setActiveMobileDropdown(activeMobileDropdown === index ? null : index);
 };
 
+// to remove faded backround
+
+useEffect(() => {
+  if (typeof window !== "undefined" && typeof bootstrap === "undefined") {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }
+}, []);
+
+const closeOffcanvas = () => {
+  const offcanvasEl = document.getElementById("mobileMenu");
+  const backdrop = document.querySelector(".offcanvas-backdrop");
+
+  if (offcanvasEl) {
+    const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasEl);
+    if (offcanvasInstance) {
+      offcanvasInstance.hide();
+    }
+  }
+
+  // Remove the backdrop manually if needed
+  if (backdrop) {
+    backdrop.remove();
+    document.body.classList.remove("offcanvas-backdrop");
+    document.body.style.overflow = "auto"; // Reset scrolling
+  }
+};
+
   return (
     
     <>
@@ -60,7 +89,7 @@ const Navbar = () => {
           <a href="/"><img src="/assets/logo.png" alt="logo" className="logo-img" /></a>
         </div>
         <ul
-          className="nav-links list-unstyled mb-0 d-none d-lg-flex gap-3 px-3"
+          className="nav-links list-unstyled mb-0 d-none d-lg-flex gap-3 "
           style={{
             border: "2px solid rgba(186, 185, 185, 0.50)",
             borderRadius: "10px",
@@ -108,14 +137,14 @@ const Navbar = () => {
 
               {/* Divider */}
               {i !== navArr.length - 1 && (
-                <p className="nav-line mb-0 mx-2">|</p>
+                <p className="nav-line mb-0 mx-0">|</p>
               )}
             </li>
           ))}
         </ul>
 
         <button
-          className="px-3 py-2 text-white bgPrimary border-0 d-none d-lg-block"
+          className="px-3 py-2 text-white bgPrimary loginbtn border-0 d-none d-lg-block"
           style={{ borderRadius: "8px" }}
         >
           Login / Signup
@@ -178,10 +207,11 @@ const Navbar = () => {
         {v.subItems && activeMobileDropdown === i && (
           <ul className="mt-2 ms-4">
             {v.subItems.map((sub, j) => (
-              <li key={j} className="mb-2">
+              <li key={j} className="mb-2" style={{listStyle:"none"}}>
                 <Link
                   href={sub.link}
                   className="text-decoration-none text-dark d-flex align-items-center gap-2"
+                     onClick={closeOffcanvas}
                 >
                   <span className="textPrimary">{sub.name}</span>
                 </Link>
@@ -193,7 +223,7 @@ const Navbar = () => {
     ))}
   </ul>
           <button
-            className="px-3 py-2 text-white bgPrimary border-0 mt-3"
+            className="px-3 py-2 text-white bgPrimary loginbtn border-0 mt-3"
             style={{ borderRadius: "8px" }}
           >
             Login / Signup

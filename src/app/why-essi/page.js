@@ -55,8 +55,8 @@ const page = () => {
     <>
       <Navbar />
       <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
-        {/* herosection */}
 
+        {/* herosection */}
         <div className="container py-4">
           <div className="row align-items-center">
             <div className="col-lg-6 col-12 order-lg-1 order-2">
@@ -108,6 +108,8 @@ const page = () => {
           </div>
         </div>
 
+        {/* cards section */}
+
         <div className="py-5 container">
           <div className="row">
             {cardsData.map((card, index) => (
@@ -128,6 +130,8 @@ const page = () => {
             ))}
           </div>
         </div>
+
+        {/* why choose us section */}
 
         <div className="py-sm-5 pb-5 pt-1 mt-md-5  whyChooseContainer">
               <div className="container">

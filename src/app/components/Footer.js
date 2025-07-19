@@ -6,7 +6,7 @@ const Footer = () => {
        <div className='footer-top d-flex  flex-wrap justify-content-center align-items-center ' style={{backgroundColor:"#4E2675"}}>
           <div className=' d-flex flex-md-row flex-column gap-md-5 gap-3 justify-content-center align-items-center '>
              <h2 className='text-white text-md-start text-center'>Interested in learning more about our offerings?</h2>
-            <div className="d-flex gap-sm-2 gap-1 viewButton bg-white p-2   align-items-center" style={{height:"40px", width:"fit-content"}}>
+            <div className="d-flex gap-sm-2 gap-1 viewButton bg-white p-3   align-items-center" style={{height:"43px", width:"fit-content"}}>
                       <img
                         className=""
                         src="/assets/button_icon_primary.svg"
@@ -24,7 +24,7 @@ const Footer = () => {
         <div className='container'>
          <div className=' d-flex justify-content-between flex-wrap mb-3 px-md-0 px-3'>
           <div className='mb-4'>
-             <img src="/assets/logo.png" className='logo-img'></img>
+             <img src="/assets/logo.png" className='footer-logo'></img>
 
             <div className='footer-link mt-3'> 
                  <p className='mb-1 fw-normal' >Providing world-class,</p>
@@ -89,7 +89,7 @@ const Footer = () => {
          <hr className='text-primary thick-hr' style={{height:"", border:"1px solid #076fff"}}></hr>
 
          <div className='d-flex flex-md-row flex-column justify-content-between mt-5'>
-           <p className='para text-dark'>Copyright <span className='footer-copyright'>Endometriosis Surgical Specialists International</span></p>
+           <p className='copyright'>Copyright <span className='footer-copyright'>Endometriosis Surgical Specialists International</span></p>
            <div className='d-flex gap-3'>
              <img src="/assets/facebook.svg" style={{height:"32px"}}></img>
               <img src="/assets/instagram.svg"style={{height:"32px"}}></img>

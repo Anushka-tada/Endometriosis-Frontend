@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import RequestConsultation from "./components/RequestConsultation";
 import Slider from "react-slick";
+import CardSlider from "./components/cardSlider"
 
 const reasonsColumn1 = [
   "Prior Endometriosis Surgery with No Relief",
@@ -41,6 +42,16 @@ const EndometriosSteps = [
     subtitle: "Advanced Surgical Intervention & Recovery",
   },
   {
+    img: "/assets/homepage/Endometriosis_Infertility.png",
+    title: "Endometriosis and Infertility",
+    subtitle: "Help with Complex Fertility Challenges",
+  },
+  {
+    img: "/assets/homepage/Endometriosis_Infertility.png",
+    title: "Endometriosis and Infertility",
+    subtitle: "Help with Complex Fertility Challenges",
+  },
+   {
     img: "/assets/homepage/Endometriosis_Infertility.png",
     title: "Endometriosis and Infertility",
     subtitle: "Help with Complex Fertility Challenges",
@@ -495,7 +506,7 @@ const page = () => {
           </p>
 
           <div className="row pb-5">
-            <Slider {...settings1}>
+            {/* <Slider {...settings1}>
               {EndometriosSteps.map((step, index) => (
                 <div key={index} className="p-sm-3 p-2">
                   <div className="stepCard boxShadow p-sm-4 p-2 pb-sm-5  text-center h-100">
@@ -522,7 +533,10 @@ const page = () => {
                   </div>
                 </div>
               ))}
-            </Slider>
+            </Slider> */}
+          {/* <CardSlider data={EndometriosSteps}/> */}
+            <CardSlider data={EndometriosSteps}/>
+            
           </div>
         </div>
 
@@ -564,7 +578,7 @@ const page = () => {
                         <p className="para text-black">{member.para}</p>
 
                         <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
-                          <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
+                          <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
                             <img
                               src="/assets/button_icon_1.svg"
                               style={{ width: "16px" }}
@@ -581,7 +595,7 @@ const page = () => {
                             ></img>
                           </div>
 
-                          <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
+                          <div className="d-flex gap-sm-2 gap-1 viewButton p-2 px-3">
                             <p
                               className="mb-0 textPrimary"
                               style={{
@@ -652,8 +666,7 @@ const page = () => {
             <div className="row pb-5">
               <Slider {...settings}>
                 <div className="p-3">
-                  <div
-                    className=" boxShadow p-4 pb-5"
+                  <div className=" boxShadow p-4 pb-5"
                     style={{ borderRadius: "16px", backgroundColor: "#FF79E7" }}
                   >
                     <div className="d-flex justify-content-between align-items-center ">
@@ -689,10 +702,10 @@ const page = () => {
                         ></img>
                       </div>
                     </div>
-                    <h5 className="medium-bolder text-white mb-4 mt-5 pt-3">
+                    <h5 className="medium-bolder text-white mb-sm-4 mb-2 mt-sm-5 mt-2 pt-3">
                       Life-Changing Care !
                     </h5>
-                    <p className="small-bold text-white mb-5 pb-5">
+                    <p className="small-bold text-white mb-sm-5 mb-2 pb-5">
                       After years of pain and failed diagnoses, ESSI finally
                       gave me answers. The team listened, cared deeply, and
                       changed my life completely.
@@ -717,12 +730,13 @@ const page = () => {
                 </div>
 
                 <div className="p-3 h-100">
-                  {/* <div
-                      className=" boxShadow p-4 pb-5 middleTestimonial h-100"
+                  <div
+                      className=" boxShadow  middleTestimonial position-relative h-100 overflow-hidden"
                       style={{ borderRadius: "16px" }}
-                    >
-                       
-                       <div className="d-flex align-items-center gap-3 "> 
+                    > 
+                      <img src="/assets/homepage/testi_card_1.png" className=" img-fluid"></img> 
+                      <img src="/assets/homepage/vedio_play.svg" className="position-absolute" style={{bottom:"43%" , left:"42%"}}></img>
+                       <div className="d-flex align-items-center gap-3  position-absolute" style={{bottom:"9%", left:"5%"}}> 
                         <img src="/assets/homepage/Testi_review_1.png" className="reviewImg"></img>
                          <div>
                           <p className="para text-white mb-1">lisa </p>
@@ -730,8 +744,8 @@ const page = () => {
                          </div>
                        </div>
                      
-                    </div> */}
-                  <img src="/assets/homepage/testimonial_card.png" className="img-fluid"></img>
+                    </div>
+                  {/* <img src="/assets/homepage/testimonial_card.png" className="img-fluid"></img> */}
                 </div>
 
                 <div className="p-3">
@@ -772,10 +786,10 @@ const page = () => {
                         ></img>
                       </div>
                     </div>
-                    <h5 className="medium-bolder text-white mb-4 mt-5 pt-3 ">
+                    <h5 className="medium-bolder text-white mb-sm-4 mb-2 mt-sm-5 mt-2 pt-3">
                       Finally Understood !
                     </h5>
-                    <p className="small-bold text-white mb-5 pb-5">
+                    <p className="small-bold text-white mb-sm-5 mb-2 pb-5">
                       Every doctor dismissed my symptoms. ESSI took me
                       seriously, explained everything clearly, and treated me
                       like a person—not just a patient.

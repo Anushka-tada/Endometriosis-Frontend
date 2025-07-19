@@ -100,6 +100,9 @@ h2 {
 .logo-img {
   height: 45px;
 }
+.footer-logo{
+  height: 50px;
+}
 
 .nav-line {
   color: rgba(98, 95, 95, 0.50);
@@ -112,6 +115,9 @@ h2 {
 
 .nav-link {
   font-weight: 500 !important;
+}
+.loginbtn:hover{
+  background-color: #4E2675 !important;
 }
 
 /* home Page css */
@@ -145,12 +151,14 @@ h2 {
 .viewButton,
 .bookButton {
   border-radius: 8px;
+    cursor: pointer;
 }
 
 .viewButton p,
 .bookButton p {
   font-weight: 600;
   font-size: 18px;
+  
 }
 
 @media (max-width:578px) {
@@ -159,6 +167,7 @@ h2 {
   .bookButton p {
     font-weight: 600;
     font-size: 12px;
+  
   }
 }
 
@@ -168,6 +177,10 @@ h2 {
 
 .bookButton {
   background: #5F2D8B;
+  transition: all 0.5s ease;
+}
+.bookButton:hover{
+   background: #4E2675;;
 }
 
 .ratings {
@@ -271,7 +284,7 @@ h2 {
 .stepCard {
   background-color: var(--primary-light);
   border-radius: 16px;
-  border: 1px solid var(--Primary-Light, #ECE6F3);
+  border: 1px solid var(--Primary-light);
 }
 
 /* Dots container */
@@ -320,7 +333,7 @@ h2 {
 }
 
 .middleTestimonial {
-  background: url("/assets/homepage/testimonial_1.png");
+  /* background: url("/assets/homepage/testimonial_1.png"); */
 }
 
 .footer-top {
@@ -468,6 +481,14 @@ h2 {
     width: 16px !important;
     height: 16px !important;
   }
+}
+
+.copyright{
+  color: #283646;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
 }
 
 @media (max-width:768px) {
@@ -654,7 +675,7 @@ h2 {
   border-radius: 10px;
   background-color: rgba(247, 255, 0, 0.10);
   box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.10);
-  margin-left: 8%;
+  margin-left: 6%;
   width: fit-content;
   padding: 3%;
 }
@@ -672,8 +693,31 @@ h2 {
 }
 
 @media (max-width:650px) {
-  .mapping-points {  
+  .mapping-points , .surgery-points {  
     margin-left: 0% !important;
   }
 }
 
+/* endometriosis surgery css */
+
+.surgery-points{
+   border-radius: 10px;
+background: rgba(78, 38, 117, 0.10);
+box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.10);
+  margin-left: 6%;
+  width: fit-content;
+  padding: 3%;
+}
+
+/* slider css */
+
+/* height fix */
+
+/* @media (max-width:1024) {
+   .stepCard{
+    min-height: 400px !important;
+   }
+}
+.stepCard{
+    min-height: 475px !important;
+   } */
