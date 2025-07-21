@@ -6,6 +6,7 @@ const Footer = () => {
        <div className='footer-top d-flex  flex-wrap justify-content-center align-items-center ' style={{backgroundColor:"#4E2675"}}>
           <div className=' d-flex flex-md-row flex-column gap-md-5 gap-3 justify-content-center align-items-center '>
              <h2 className='text-white text-md-start text-center'>Interested in learning more about our offerings?</h2>
+               <a href="/appointment-form" style={{textDecoration:"none"}}>
             <div className="d-flex gap-sm-2 gap-1 viewButton bg-white p-3   align-items-center" style={{height:"43px", width:"fit-content"}}>
                       <img
                         className=""
@@ -18,6 +19,7 @@ const Footer = () => {
                         style={{ width: "15px" }}
                       ></img>
                     </div>
+                    </a>
           </div>
        </div>
        <div className='footer main pt-5 mt-4 pb-3'>
@@ -48,24 +50,24 @@ const Footer = () => {
           <div className='mb-4 me-sm-0 me-4'>
             <p className='textPrimary footer-head mb-4'>Service</p>
            <div className='footer-link'>
-             <p>Endometriosis-mapping</p>
-            <p>Endometriosis-surgery</p>
-            <p>Endometriosis-and-infertility</p>
-            <p>Thoracic-endometriosis</p>
-            <p>Adenomyosis</p>
-            <p>Adolescent-endometriosis</p>
+             <a href='endometriosis-mapping' style={{textDecoration:"none" , color:"#77808B"}}><p>Endometriosis-mapping</p></a>
+             <a href='endometriosis-surgery' style={{textDecoration:"none" , color:"#77808B"}}> <p>Endometriosis-surgery</p></a>
+             <a href='endometriosis-and-fertility' style={{textDecoration:"none" , color:"#77808B"}} ><p>Endometriosis-and-infertility</p></a>
+             <a href='' style={{textDecoration:"none" , color:"#77808B"}}><p>Thoracic-endometriosis</p></a>
+           <a href='' style={{textDecoration:"none" , color:"#77808B"}}><p>Adenomyosis</p></a>
+            <a href='' style={{textDecoration:"none" , color:"#77808B"}}><p>Adolescent-endometriosis</p></a>
            </div>
           </div>
 
            <div className='mb-4 me-sm-0 me-4'>
             <p className='textPrimary footer-head mb-4'>Company</p>
             <div className='footer-link'>
-            <p>How we help</p>
-            <p>Meet Our Team</p>
-            <p>Why Us</p>
-            <p>Blog</p>
-            <p>Support</p>
-            <p>Contact Us</p>
+           <a href='how-we-help' style={{textDecoration:"none" , color:"#77808B"}}> <p>How we help</p></a>
+           <a  href='our-team' style={{textDecoration:"none" , color:"#77808B"}}> <p>Meet Our Team</p></a>
+          <a  href='why-essi' style={{textDecoration:"none" , color:"#77808B"}}><p>Why Us</p></a>
+          <a  href='' style={{textDecoration:"none" , color:"#77808B"}}>  <p>Blog</p></a>
+           <a href='' style={{textDecoration:"none" , color:"#77808B"}}> <p>Support</p></a>
+           <a href='' style={{textDecoration:"none" , color:"#77808B"}} > <p>Contact Us</p></a>
             </div>
           </div>
 

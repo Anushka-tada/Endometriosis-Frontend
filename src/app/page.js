@@ -82,12 +82,80 @@ const TeamMember = [
     subtitle: "Europe | ESSI Mentor",
     para: "Dr. Francesco Di Chiara is a leading thoracic surgeon known for pioneering uniportal VATS (Video-Assisted Thoracoscopic Surgery) at multiple institutions and performing complex procedures with this advanced technique. He serves as a proctor for minimally invasive thoracic surgery...",
   },
-  // {
-  //   img: "/assets/whyESSI/Dr_Andrea.png",
-  //   title: "Dr. Andrea Vidali",
-  //   subtitle: "New York | ESSI Mentor ",
-  //   para: "Dr. Andrea Vidali, MD, is a world-renowned miscarriage specialist, reproductive immunologist, and endometriosis surgeon. He has extensive experience...",
-  // },
+  {
+    img: "/assets/homepage/Dr_Andrea.png",
+    title: "Dr. Andrea Vidali",
+    subtitle: "New York, New Jersey, Florida, Illinois, and Europe | ESSI Mentor  ",
+    para: "Dr. Andrea Vidali, MD, is a world-renowned miscarriage specialist, reproductive immunologist, and endometriosis surgeon. He has extensive experience in minimally invasive and robotic surgery as well as multi-organ endometriosis surgery. As a founder of the...",
+  },
+  {
+    img: "/assets/homepage/Dr_Henrique.png",
+    title: "Dr. Henrique Abrão",
+    subtitle: "Brazil/Latin America ",
+    para: "Dr. Henrique Abrão is a gynecologist, gynecological surgeon, and a leading reference in neuropelveology in Brazil. Trained in São Paulo and certified as a Master in Neuropelveology in Switzerland under Dr. Marc Possover, he specializes in treating chronic pelvic pain linked to nerve conditions...",
+  },
+   {
+    img: "/assets/homepage/Dr_Joseph.png",
+    title: "Dr. Joseph Raccuia",
+    subtitle: "New York and New Jersey | ESSI Mentor",
+    para: "Dr. Joseph S. Raccuia, while primarily recognized for his expertise in general surgery and surgical oncology, also treats endometriosis, particularly its more complex forms, such as extrapelvic endometriosis. He has contributed to understanding and raising awareness around the disease...",
+  },
+   {
+    img: "/assets/homepage/Dr_Madhu.png",
+    title: "Dr. Madhu Bagaria",
+    subtitle: "New York and New Jersey",
+    para: "Dr. Bagaria, MD, is a highly skilled gynecological surgeon specializing in endometriosis and pelvic pain. Trained at the prestigious Mayo Clinic Arizona, she brings expertise in minimally invasive gynecological surgery and a patient-centered approach to care. With over six years of experience at Mayo...",
+  },
+   {
+    img: "/assets/homepage/Dr_Mallory.png",
+    title: "Dr. Mallory Stuparich",
+    subtitle: "California",
+    para: "Dr. Mallory Stuparich, MD, specializes in the surgical management of endometriosis and complex benign gynecologic conditions. She believes patients deserve expert, high-quality surgical care, employing a multidisciplinary team when necessary. Dr. Stuparich views the physician-patient... ",
+  },
+ {
+    img: "/assets/homepage/Dr_Mamta.png",
+    title: "Dr. Mamta Mamik",
+    subtitle: "New York and New Jersey",
+    para: "Dr. Mamta Mamik is a dedicated endometriosis specialist based in New York City, known for her expertise in excision surgery and comprehensive patient care. Dr. Mamta Mamik approaches endometriosis treatment with a deep understanding of the embryonic rest theory, coelomic metaplasia, and stem... ",
+  },
+
+   {
+    img: "/assets/homepage/Dr_Marcello.png",
+    title: "Dr. Marcello Ceccaroni",
+    subtitle: "Europe | ESSI Mentor",
+    para: "Prof. Marcello Ceccaroni is an internationally renowned expert in deep endometriosis management, gynecological oncology, and minimally invasive pelvic surgery, currently heading the Department of Obstetrics and Gynecology, Gynecological Oncology, and Minimally Invasive Pelvic Surgery at IRCCS... ",
+  },
+  {
+    img: "/assets/homepage/Dr_Marco.png",
+    title: "Dr. Marco Zoccali",
+    subtitle: "New York | ESSI Mentor",
+    para: "Dr. Zoccali is a leading colorectal surgeon specializing in minimally invasive and robotic-assisted surgery for colorectal cancer, inflammatory bowel diseases (IBD), and benign colorectal conditions. As faculty at Columbia University, he is dedicated to advancing surgical innovation... ",
+  },
+    {
+    img: "/assets/homepage/Dr_Mario.png",
+    title: "Dr. Mario Malzoni",
+    subtitle: "Europe | ESSI Mentor",
+    para: "Scientific Director and Chief of Advanced Gynecological Endoscopy, National Center for Endometriosis, and MACC (Malzoni Cancer Center) at Malzoni Research Hospital in Avellino, Italy, Dr. Mario Malzoni is recognized worldwide as a leading expert in minimally invasive surgery for severe... ",
+  },
+  {
+    img: "/assets/homepage/Dr_Mauricio.png",
+    title: "Dr. Mauricio Abrão",
+    subtitle: "Brazil/Latin America | ESSI Mentor",
+    para: "Dr. Abrão is a global leader in both surgery and research & development within the field of minimally invasive surgical techniques for endometriosis excision. He is also an established medical leader serving as the head of Gynecology at Hospital Beneficência Portuguesa de São Paulo and formerly acted... ",
+  },
+    {
+    img: "/assets/homepage/Dr_Osbert.png",
+    title: "Dr. Osbert Fernandez",
+    subtitle: "Florida",
+    para: "Dr. Osbert Fernandez, a native Floridian and proud second-generation Cuban-American doctor, is an expert in robotic-assisted surgery for complex endometriosis cases, including bowel invasion, rectal involvement, and frozen pelvis. Known for his compassionate, patient-centered approach... ",
+  },
+    {
+    img: "/assets/homepage/Dr_Sallie.png",
+    title: "Dr. Sallie Sarrel",
+    subtitle: "Florida",
+    para: "Dr. Sallie Sarrel, is a dedicated advocate for individuals with endometriosis, having lived with the condition herself for nearly two decades. She co-founded The Endometriosis Summit, the largest endometriosis-focused conference, which trains patients, practitioners, and surgeons  while fostering global...",
+  },
+
 ];
 
 const stories = [
@@ -203,7 +271,8 @@ const page = () => {
                    {/* btns */}
 
                   <div className="d-flex flex-wrap gap-sm-4 gap-3 pt-sm-5 pt-4 mb-sm-5 mb-3">
-                    <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
+                    <a href="/appointment-form" style={{textDecoration:"none"}}>
+                      <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
                       <img
                         src="/assets/button_icon_1.svg"
                         style={{ width: "16px" }}
@@ -219,6 +288,7 @@ const page = () => {
                         style={{ width: "15px" }}
                       ></img>
                     </div>
+                    </a>
 
                     <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
                       <img
@@ -320,43 +390,43 @@ const page = () => {
 
         <div className="container py-5 mb-3">
           <div className="row">
-            <div className="col-md-3 col-6 p-2">
+            <div className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
               <div
-                className="text-center p-md-5 p-4 homeCard boxShadow h-100"
+                className="text-center p-md-5  py-sm-4 py-5 homeCard boxShadow h-100"
                 style={{ backgroundColor: "#FF79E6" }}
               >
-                <h2>5000+</h2>
-                <h5 className="medium-text">Women Treated</h5>
+                <h3 className="cardTitle">5000+</h3>
+                <h5 className="cardSubtitle">Women Treated</h5>
               </div>
             </div>
 
-            <div className="col-md-3 col-6 p-2">
+            <div className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
               <div
-                className="text-center  py-md-5 py-4 homeCard boxShadow h-100"
+                className="text-center  py-md-5 py-sm-4 py-5 homeCard boxShadow h-100"
                 style={{ backgroundColor: "#07E994" }}
               >
-                <h2>2300+</h2>
-                <h5 className="medium-text">Testimonials</h5>
+                <h3 className="cardTitle">2300+</h3>
+                <h5 className="cardSubtitle">Testimonials</h5>
               </div>
             </div>
 
-            <div className="col-md-3 col-6 p-2">
+            <div className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
               <div
-                className="text-center py-md-5 py-4 homeCard boxShadow h-100"
+                className="text-center py-md-5  py-sm-4 py-5 homeCard boxShadow h-100"
                 style={{ backgroundColor: "#5F2D8B" }}
               >
-                <h2>30+</h2>
-                <h5 className="medium-text">Countries</h5>
+                <h3 className="cardTitle">30+</h3>
+                <h5 className="cardSubtitle">Countries</h5>
               </div>
             </div>
 
-            <div className="col-md-3 col-6 p-2">
+            <div className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
               <div
-                className="text-center  py-md-5 py-4 homeCard boxShadow h-100"
+                className="text-center  py-md-5 py-sm-4 py-5 homeCard boxShadow h-100"
                 style={{ backgroundColor: "#FFB006" }}
               >
-                <h2>12K+</h2>
-                <h5 className="medium-text">Subscriber</h5>
+                <h3 className="cardTitle">12K+</h3>
+                <h5 className="cardSubtitle">Subscriber</h5>
               </div>
             </div>
           </div>
@@ -414,7 +484,7 @@ const page = () => {
                 </p>
 
                 <div className="d-flex gap-3 align-items-center">
-                  <p className="learnMore mb-0">Learn More About Our Story</p>
+                 <a href="/we-are-ESSI" style={{textDecoration:"none"}}> <p className="learnMore mb-0">Learn More About Our Story</p></a>
                   <img
                     src="/assets/purple_Arrow.svg"
                     style={{ width: "22px" }}
@@ -429,7 +499,7 @@ const page = () => {
 
         <div className="container py-5">
           <h1 className="text-center">
-            Reasons Why You Should see Dr. Bagaria
+            Reasons Why You Should see <span className="tilt tilt-primary text-white">Dr. Bagaria</span>
           </h1>
           <p className="para text-center text-black">
             If you’ve experienced or been told any of what’s written
@@ -585,11 +655,12 @@ const page = () => {
                           className="img-fluid mb-2"
                           style={{ borderRadius: "20px" }}
                         ></img>
-                        <h5 className="medium-text mb-0">{member.title}</h5>
-                        <p className="medium-bold">{member.subtitle}</p>
+                        <h5 className="medium-text mb-2">{member.title}</h5>
+                        <p className="teamSubtitle">{member.subtitle}</p>
                         <p className="para text-black">{member.para}</p>
 
                         <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
+                           <a href="/appointment-form" style={{textDecoration:"none"}}>
                           <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
                             <img
                               src="/assets/button_icon_1.svg"
@@ -606,7 +677,8 @@ const page = () => {
                               style={{ width: "15px" }}
                             ></img>
                           </div>
-
+                           </a>
+                            <a href="/our-team" style={{textDecoration:"none"}}>
                           <div className="d-flex gap-sm-2 gap-1 viewButton p-2 px-3">
                             <p
                               className="mb-0 textPrimary"
@@ -622,6 +694,7 @@ const page = () => {
                               style={{ width: "15px" }}
                             ></img>
                           </div>
+                          </a>
                         </div>
                         {/* <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
                     <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
