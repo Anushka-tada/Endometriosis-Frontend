@@ -270,9 +270,9 @@ const page = () => {
 
                    {/* btns */}
 
-                  <div className="d-flex flex-wrap gap-sm-4 gap-3 pt-sm-5 pt-4 mb-sm-5 mb-3">
-                    <a href="/appointment-form" style={{textDecoration:"none"}}>
-                      <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
+                  <div className="d-flex flex-wrap justify-content-sm-start  gap-sm-4 gap-3 pt-sm-5 pt-4 mb-sm-5 mb-3">
+                    <a href="/appointment-form" style={{textDecoration:"none"}} className="bookOuter">
+                      <div className="d-flex gap-3  bookButtonHero p-2">
                       <img
                         src="/assets/button_icon_1.svg"
                         style={{ width: "16px" }}
@@ -290,7 +290,7 @@ const page = () => {
                     </div>
                     </a>
 
-                    <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
+                    <div className="d-flex gap-3  viewButtonHero p-2">
                       <img
                         className=""
                         src="/assets/button_icon_2.svg"
