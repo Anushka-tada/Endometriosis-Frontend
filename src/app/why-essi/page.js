@@ -132,7 +132,6 @@ const page = () => {
         </div>
 
         {/* why choose us section */}
-
         <div className="py-sm-5 pb-5 pt-1 mt-md-5  whyChooseContainer">
               <div className="container">
                 <p className="whyChoosePara text-center">Why you Should Choose</p>

@@ -1,161 +1,111 @@
 "use client";
 import React from "react";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 import RequestConsultation from "./components/RequestConsultation";
 import Slider from "react-slick";
+import DoctorSlider from "./components/DoctorSlider";
+import { validateHeaderValue } from "http";
 // import CardSlider from "./components/cardSlider"
 
-const reasonsColumn1 = [
-  "Prior Endometriosis Surgery with No Relief",
-  "Lupron is Recommended",
-  "Have UnExplained Infertility",
-  "Multi-Failed Embryo Transfer with Normal PGS Embryosorgan expertise",
-  "Told “You May Lose Your Ovary”",
-  "Told “Surgery is too Risky to your Fertility”",
-  "Told “It’s All in Your Head”",
-  "Your Doctor is NOT an Excision Specialist!",
-  "Your Doctor DOES NOT work with a Team of Highly Specialized Surgeons!",
-];
-
-const reasonsColumn2 = [
-  "Painful Periods",
-  "Pelvic Pain",
-  "Unexplained IVF or FET Failures",
-  "Bladder Pain",
-  "Pain with Intercourse",
-  "Your MRI Report is Negative",
-  "Negative Ultrasound Findings",
-  "Diagnosed with Adenomyosis",
-  "Ovarian Endometrioma",
+const reasons = [
+  {
+    icon: "/assets/homepage/icon_1.svg",
+    text: "Prior Endometriosis Surgery with No Relief",
+  },
+  {
+    icon: "/assets/homepage/icon_2.svg",
+    text: "Lupron is Recommended",
+  },
+  {
+    icon: "/assets/homepage/icon_3.svg",
+    text: "Told “You May Lose Your Ovary”",
+  },
+  {
+    icon: "/assets/homepage/icon_4.svg",
+    text: "Told “Surgery is too Risky to your Fertility”",
+  },
+  {
+    icon: "/assets/homepage/icon_5.svg",
+    text: "Told “It’s All in Your Head”",
+  },
+  {
+    icon: "/assets/homepage/icon_6.svg",
+    text: "Your Doctor is NOT an Excision Specialist!",
+  },
+  {
+    icon: "/assets/homepage/icon_7.svg",
+    text: "Painful Periods",
+  },
+  {
+    icon: "/assets/homepage/icon_8.svg",
+    text: "Pelvic Pain",
+  },
+  {
+    icon: "/assets/homepage/icon_9.svg",
+    text: "Unexplained IVF or FET Failures",
+  },
+  {
+    icon: "/assets/homepage/icon_10.svg",
+    text: "Bladder Pain",
+  },
+  {
+    icon: "/assets/homepage/icon_11.svg",
+    text: "Pain with Intercourse",
+  },
+  {
+    icon: "/assets/homepage/icon_12.svg",
+    text: "Your MRI Report is Negative",
+  },
+  {
+    icon: "/assets/homepage/icon_13.svg",
+    text: "Negative Ultrasound Findings",
+  },
+  {
+    icon: "/assets/homepage/icon_14.svg",
+    text: "Diagnosed with Adenomyosis",
+  },
+   {
+    icon: "/assets/homepage/icon_15.svg",
+    text: "Ovarian Endometrioma",
+  },
+  {
+    icon: "/assets/homepage/icon_16.svg",
+    text: "Your doctor isn’t part of a specialized surgical team.",
+  },
 ];
 
 const EndometriosSteps = [
   {
     img: "/assets/homepage/Endometrios_Mapping.png",
     title: "Endometrios Mapping",
-    link:"/endometriosis-mapping",
+    link: "/endometriosis-mapping",
     subtitle: "Precise Diagnosis for Targeted Care",
   },
   {
     img: "/assets/homepage/Endometriosis_Surgery.png",
     title: "Endometriosis Surgery",
-    link:"/endometriosis-surgery",
+    link: "/endometriosis-surgery",
     subtitle: "Advanced Surgical Intervention & Recovery",
   },
   {
     img: "/assets/homepage/Endometriosis_Infertility.png",
     title: "Endometriosis and Infertility",
-    link:"/endometriosis-and-fertility",
+    link: "/endometriosis-and-fertility",
     subtitle: "Help with Complex Fertility Challenges",
   },
   {
     img: "/assets/homepage/Endometriosis_Infertility.png",
     title: "Endometriosis and Infertility",
-    link:"/endometriosis-and-fertility",
+    link: "/endometriosis-and-fertility",
     subtitle: "Help with Complex Fertility Challenges",
   },
-   {
+  {
     img: "/assets/homepage/Endometriosis_Infertility.png",
     title: "Endometriosis and Infertility",
-    link:"/endometriosis-and-fertility",
+    link: "/endometriosis-and-fertility",
     subtitle: "Help with Complex Fertility Challenges",
-  }
-];
-
-const TeamMember = [
-  {
-    img: "/assets/homepage/Dr_Alessandra.png",
-    title: "Dr. Alessandra Di Giovanni",
-    subtitle: "Europe | ESSI Mentor",
-    para: "Dr. Alessandra Da Giovanni is a consultant at the Center for Advanced Pelvic Surgery, Malzoni Research Hospital in Avellino, Italy, specializing in pelvic ultrasonography for gynecological conditions, with over 10,000 procedures and a diagnostic accuracy of over 95% for endometriosis... ",
   },
-  {
-    img: "/assets/homepage/Dr_Alessio.png",
-    title: "Dr. Alessio Pigazzi",
-    subtitle: "California | ESSI Mentor",
-    para: "Dr. Alessio Pigazzi, MD, PhD, FACS, is a renowned colorectal surgeon currently serving as Chief of Colorectal Surgery at NewYork-Presbyterian/Weill Cornell Medical Center. He is highly specialized in minimally invasive techniques, including laparoscopic and robotic surgeries, particularly for complex colon...",
-  },
-  {
-    img: "/assets/homepage/Dr_Francesco.png",
-    title: "Dr. Francesco Di Chiara",
-    subtitle: "Europe | ESSI Mentor",
-    para: "Dr. Francesco Di Chiara is a leading thoracic surgeon known for pioneering uniportal VATS (Video-Assisted Thoracoscopic Surgery) at multiple institutions and performing complex procedures with this advanced technique. He serves as a proctor for minimally invasive thoracic surgery...",
-  },
-  {
-    img: "/assets/homepage/Dr_Andrea.png",
-    title: "Dr. Andrea Vidali",
-    subtitle: "New York, New Jersey, Florida, Illinois, and Europe | ESSI Mentor  ",
-    para: "Dr. Andrea Vidali, MD, is a world-renowned miscarriage specialist, reproductive immunologist, and endometriosis surgeon. He has extensive experience in minimally invasive and robotic surgery as well as multi-organ endometriosis surgery. As a founder of the...",
-  },
-  {
-    img: "/assets/homepage/Dr_Henrique.png",
-    title: "Dr. Henrique Abrão",
-    subtitle: "Brazil/Latin America ",
-    para: "Dr. Henrique Abrão is a gynecologist, gynecological surgeon, and a leading reference in neuropelveology in Brazil. Trained in São Paulo and certified as a Master in Neuropelveology in Switzerland under Dr. Marc Possover, he specializes in treating chronic pelvic pain linked to nerve conditions...",
-  },
-   {
-    img: "/assets/homepage/Dr_Joseph.png",
-    title: "Dr. Joseph Raccuia",
-    subtitle: "New York and New Jersey | ESSI Mentor",
-    para: "Dr. Joseph S. Raccuia, while primarily recognized for his expertise in general surgery and surgical oncology, also treats endometriosis, particularly its more complex forms, such as extrapelvic endometriosis. He has contributed to understanding and raising awareness around the disease...",
-  },
-   {
-    img: "/assets/homepage/Dr_Madhu.png",
-    title: "Dr. Madhu Bagaria",
-    subtitle: "New York and New Jersey",
-    para: "Dr. Bagaria, MD, is a highly skilled gynecological surgeon specializing in endometriosis and pelvic pain. Trained at the prestigious Mayo Clinic Arizona, she brings expertise in minimally invasive gynecological surgery and a patient-centered approach to care. With over six years of experience at Mayo...",
-  },
-   {
-    img: "/assets/homepage/Dr_Mallory.png",
-    title: "Dr. Mallory Stuparich",
-    subtitle: "California",
-    para: "Dr. Mallory Stuparich, MD, specializes in the surgical management of endometriosis and complex benign gynecologic conditions. She believes patients deserve expert, high-quality surgical care, employing a multidisciplinary team when necessary. Dr. Stuparich views the physician-patient... ",
-  },
- {
-    img: "/assets/homepage/Dr_Mamta.png",
-    title: "Dr. Mamta Mamik",
-    subtitle: "New York and New Jersey",
-    para: "Dr. Mamta Mamik is a dedicated endometriosis specialist based in New York City, known for her expertise in excision surgery and comprehensive patient care. Dr. Mamta Mamik approaches endometriosis treatment with a deep understanding of the embryonic rest theory, coelomic metaplasia, and stem... ",
-  },
-
-   {
-    img: "/assets/homepage/Dr_Marcello.png",
-    title: "Dr. Marcello Ceccaroni",
-    subtitle: "Europe | ESSI Mentor",
-    para: "Prof. Marcello Ceccaroni is an internationally renowned expert in deep endometriosis management, gynecological oncology, and minimally invasive pelvic surgery, currently heading the Department of Obstetrics and Gynecology, Gynecological Oncology, and Minimally Invasive Pelvic Surgery at IRCCS... ",
-  },
-  {
-    img: "/assets/homepage/Dr_Marco.png",
-    title: "Dr. Marco Zoccali",
-    subtitle: "New York | ESSI Mentor",
-    para: "Dr. Zoccali is a leading colorectal surgeon specializing in minimally invasive and robotic-assisted surgery for colorectal cancer, inflammatory bowel diseases (IBD), and benign colorectal conditions. As faculty at Columbia University, he is dedicated to advancing surgical innovation... ",
-  },
-    {
-    img: "/assets/homepage/Dr_Mario.png",
-    title: "Dr. Mario Malzoni",
-    subtitle: "Europe | ESSI Mentor",
-    para: "Scientific Director and Chief of Advanced Gynecological Endoscopy, National Center for Endometriosis, and MACC (Malzoni Cancer Center) at Malzoni Research Hospital in Avellino, Italy, Dr. Mario Malzoni is recognized worldwide as a leading expert in minimally invasive surgery for severe... ",
-  },
-  {
-    img: "/assets/homepage/Dr_Mauricio.png",
-    title: "Dr. Mauricio Abrão",
-    subtitle: "Brazil/Latin America | ESSI Mentor",
-    para: "Dr. Abrão is a global leader in both surgery and research & development within the field of minimally invasive surgical techniques for endometriosis excision. He is also an established medical leader serving as the head of Gynecology at Hospital Beneficência Portuguesa de São Paulo and formerly acted... ",
-  },
-    {
-    img: "/assets/homepage/Dr_Osbert.png",
-    title: "Dr. Osbert Fernandez",
-    subtitle: "Florida",
-    para: "Dr. Osbert Fernandez, a native Floridian and proud second-generation Cuban-American doctor, is an expert in robotic-assisted surgery for complex endometriosis cases, including bowel invasion, rectal involvement, and frozen pelvis. Known for his compassionate, patient-centered approach... ",
-  },
-    {
-    img: "/assets/homepage/Dr_Sallie.png",
-    title: "Dr. Sallie Sarrel",
-    subtitle: "Florida",
-    para: "Dr. Sallie Sarrel, is a dedicated advocate for individuals with endometriosis, having lived with the condition herself for nearly two decades. She co-founded The Endometriosis Summit, the largest endometriosis-focused conference, which trains patients, practitioners, and surgeons  while fostering global...",
-  },
-
 ];
 
 const stories = [
@@ -211,7 +161,7 @@ const page = () => {
     ],
   };
 
-   const settings1 = {
+  const settings1 = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -239,6 +189,7 @@ const page = () => {
   return (
     <>
       <Navbar />
+
       <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
         {/* hero section */}
 
@@ -268,26 +219,30 @@ const page = () => {
                     treatment tailored to your unique needs
                   </p>
 
-                   {/* btns */}
+                  {/* btns */}
 
                   <div className="d-flex flex-wrap justify-content-sm-start  gap-sm-4 gap-3 pt-sm-5 pt-4 mb-sm-5 mb-3">
-                    <a href="/appointment-form" style={{textDecoration:"none"}} className="bookOuter">
+                    <a
+                      href="/appointment-form"
+                      style={{ textDecoration: "none" }}
+                      className="bookOuter"
+                    >
                       <div className="d-flex gap-3  bookButtonHero p-2">
-                      <img
-                        src="/assets/button_icon_1.svg"
-                        style={{ width: "16px" }}
-                      ></img>
-                      <p
-                        className="mb-0 text-white"
-                        style={{ whiteSpace: "nowrap" }}
-                      >
-                        Book Appointment
-                      </p>
-                      <img
-                        src="/assets/white_arrow.svg"
-                        style={{ width: "15px" }}
-                      ></img>
-                    </div>
+                        <img
+                          src="/assets/button_icon_1.svg"
+                          style={{ width: "16px" }}
+                        ></img>
+                        <p
+                          className="mb-0 text-white"
+                          style={{ whiteSpace: "nowrap" }}
+                        >
+                          Book Appointment
+                        </p>
+                        <img
+                          src="/assets/white_arrow.svg"
+                          style={{ width: "15px" }}
+                        ></img>
+                      </div>
                     </a>
 
                     <div className="d-flex gap-3  viewButtonHero p-2">
@@ -437,16 +392,14 @@ const page = () => {
         <div className="pt-4 pb-5 bg-white">
           <div className="container">
             <div className="row align-items-center">
-
-               <div className="d-block d-lg-none col-12 d-flex flex-column align-items-center">
-                 <h1 className="text-lg-start text-center  tilt tilt-primary text-white">
+              <div className="d-block d-lg-none col-12 d-flex flex-column align-items-center">
+                <h1 className="text-lg-start text-center  tilt tilt-primary text-white">
                   We Are
                 </h1>
                 <h1 className="mb-4 text-lg-start text-center">
                   Endometriosis Surgical Specialists International
                 </h1>
-
-               </div>
+              </div>
 
               <div className="col-lg-6 col-12">
                 <img
@@ -455,15 +408,14 @@ const page = () => {
                 ></img>
               </div>
               <div className="col-lg-6 col-12">
-               <div className="d-none d-lg-block">
-                 <h1 className="text-lg-start text-center tilt tilt-primary text-white">
-                  We Are
-                </h1>
-                <h1 className="mb-4 text-sm-start text-center">
-                  Endometriosis Surgical Specialists International
-                </h1>
-
-               </div>
+                <div className="d-none d-lg-block">
+                  <h1 className="text-lg-start text-center tilt tilt-primary text-white">
+                    We Are
+                  </h1>
+                  <h1 className="mb-4 text-sm-start text-center">
+                    Endometriosis Surgical Specialists International
+                  </h1>
+                </div>
                 <p className="para d-sm-block d-none">
                   Most endometriosis patients spend years enduring pain,
                   infertility, and other debilitating symptoms before receiving
@@ -484,7 +436,10 @@ const page = () => {
                 </p>
 
                 <div className="d-flex gap-3 align-items-center">
-                 <a href="/we-are-ESSI" style={{textDecoration:"none"}}> <p className="learnMore mb-0">Learn More About Our Story</p></a>
+                  <a href="/we-are-ESSI" style={{ textDecoration: "none" }}>
+                    {" "}
+                    <p className="learnMore mb-0">Learn More About Our Story</p>
+                  </a>
                   <img
                     src="/assets/purple_Arrow.svg"
                     style={{ width: "22px" }}
@@ -497,53 +452,37 @@ const page = () => {
 
         {/* reasons why you should section */}
 
-        <div className="container py-5">
-          <h1 className="text-center">
-            Reasons Why You Should see <span className="tilt tilt-primary text-white">Dr. Bagaria</span>
-          </h1>
-          <p className="para text-center text-black">
-            If you’ve experienced or been told any of what’s written
-            below, please contact me today.
-          </p>
-          <div className="row pt-4">
-            <div className="col-md-6 col-12 p-sm-2 p-0 px-3">
-              <div
-                className="bg-white  p-md-4 p-4 pb-1 h-100  reasonCard"
-              >
-                {reasonsColumn1.map((reason, index) => (
-                  <div
-                    key={index}
-                    className="d-flex gap-2 align-items-center mb-3"
-                  >
-                    <img
-                      src="/assets/hand_Icon.svg" //
-                      alt="hand icon"
-                      style={{ width: "32px", height: "32px" }}
-                    />
-                    <p className="mb-0 medium-text textPrimary">{reason}</p>
-                  </div>
-                ))}
+        <div className="py-5" style={{ backgroundColor: "#E9C4E2" }}>
+          <div className="container my-sm-5 ">
+            <div className="row  justify-content-md-between justify-content-center align-items-center">
+              <div className="col-md-8 col-12">
+                <h1 className="text-center">
+                  Reasons Why You Should see{" "}
+                  <span className="tilt tilt-third">Dr. Bagaria</span>
+                </h1>
+                <p className="para text-center text-black">
+                  If you’ve experienced or been told any of what’s written
+                  below, please contact me today.
+                </p>
+              </div>
+              <div className="col-lg-3 col-md-4  col-12 d-flex justify-content-center">
+                <img
+                  src="/assets/homepage/whyChoose.png"
+                  className="img-fluid"
+                ></img>
               </div>
             </div>
-            <div className="col-md-6 col-12 p-sm-2 p-0 px-3">
-              <div
-                className="bg-white p-md-4 p-4 pt-1 h-100 reasonCard"
-               
-              >
-                {reasonsColumn2.map((reason, index) => (
-                  <div
-                    key={index}
-                    className="d-flex gap-2 align-items-center mb-3"
-                  >
-                    <img
-                      src="/assets/hand_Icon.svg" //
-                      alt="hand icon"
-                      style={{ width: "32px", height: "32px" }}
-                    />
-                    <p className="mb-0 medium-text textPrimary">{reason}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="row pt-4 gx-0">
+               {
+                reasons.map((reason , index) => (
+                  <div className="col-lg-3 col-md-4 col-6 p-sm-3 p-1 mb-sm-0 mb-2">
+                       <div className="reasonCard p-sm-3 p-2 px-sm-4  h-100 text-center d-flex flex-column align-items-center">
+                          <img src={reason.icon} className="img-fluid mb-2" style={{width:"48px" , height:"48px"}}></img>
+                          <p className="medium-text textPrimary"> {reason.text} </p>
+                        </div>
+                    </div>
+                ))
+               }
             </div>
           </div>
         </div>
@@ -561,17 +500,26 @@ const page = () => {
             ensuring lasting results.
           </p>
 
-             <a href="/appointment-form" style={{ textDecoration: "none" }}>
-  <div className="d-flex gap-sm-3 gap-1 bookButton p-2 px-sm-3 mb-5" style={{ width: "fit-content" }}>
-    <img src="/assets/button_icon_1.svg" style={{ width: "17px" }} alt="icon" />
-    <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
-      Book Appointment
-    </p>
-    <img src="/assets/white_arrow.svg" style={{ width: "16px" }} alt="arrow" />
-  </div>
-</a>
-
-
+          <a href="/appointment-form" style={{ textDecoration: "none" }}>
+            <div
+              className="d-flex gap-sm-3 gap-1 bookButton p-2 px-sm-3 mb-5"
+              style={{ width: "fit-content" }}
+            >
+              <img
+                src="/assets/button_icon_1.svg"
+                style={{ width: "17px" }}
+                alt="icon"
+              />
+              <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+                Book Appointment
+              </p>
+              <img
+                src="/assets/white_arrow.svg"
+                style={{ width: "16px" }}
+                alt="arrow"
+              />
+            </div>
+          </a>
         </div>
 
         {/* explore section */}
@@ -597,28 +545,27 @@ const page = () => {
                       <img src={step.img} style={{ width: "60%" }} />
                       <h5 className="medium-text">{step.title}</h5>
                       <p className="para">{step.subtitle}</p>
-                     <a href={step.link} style={{ textDecoration: "none" }}>
-                       <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2">
-                        <p
-                          className="mb-0 text-white"
-                          style={{ whiteSpace: "nowrap" }}
-                        >
-                          Learn More
-                        </p>
-                        <img
-                          src="/assets/white_arrow.svg"
-                          style={{ width: "15px" }}
-                        />
-                      </div>
-                     </a>
+                      <a href={step.link} style={{ textDecoration: "none" }}>
+                        <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2">
+                          <p
+                            className="mb-0 text-white"
+                            style={{ whiteSpace: "nowrap" }}
+                          >
+                            Learn More
+                          </p>
+                          <img
+                            src="/assets/white_arrow.svg"
+                            style={{ width: "15px" }}
+                          />
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </div>
               ))}
             </Slider>
-          
+
             {/* <CardSlider data={EndometriosSteps}/> */}
-            
           </div>
         </div>
 
@@ -642,92 +589,7 @@ const page = () => {
             </p>
 
             <div className="row pb-5">
-              <Slider {...settings}>
-                {TeamMember.map((member, index) => (
-                  <div key={index} className="p-3">
-                    <div
-                      className="bg-white boxShadow p-2 px-4"
-                      style={{ borderRadius: "20px" }}
-                    >
-                      <div className="d-flex flex-column ">
-                        <img
-                          src={member.img}
-                          className="img-fluid mb-2"
-                          style={{ borderRadius: "20px" }}
-                        ></img>
-                        <h5 className="medium-text mb-2">{member.title}</h5>
-                        <p className="teamSubtitle">{member.subtitle}</p>
-                        <p className="para text-black">{member.para}</p>
-
-                        <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
-                           <a href="/appointment-form" style={{textDecoration:"none"}}>
-                          <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
-                            <img
-                              src="/assets/button_icon_1.svg"
-                              style={{ width: "16px" }}
-                            ></img>
-                            <p
-                              className="mb-0 text-white"
-                              style={{ whiteSpace: "nowrap", fontSize: "12px" }}
-                            >
-                              Book Appointment
-                            </p>
-                            <img
-                              src="/assets/white_arrow.svg"
-                              style={{ width: "15px" }}
-                            ></img>
-                          </div>
-                           </a>
-                            <a href="/our-team" style={{textDecoration:"none"}}>
-                          <div className="d-flex gap-sm-2 gap-1 viewButton p-2 px-3">
-                            <p
-                              className="mb-0 textPrimary"
-                              style={{
-                                whiteSpace: "nowrap",
-                                fontSize: "12px",
-                              }}
-                            >
-                              Read More
-                            </p>
-                            <img
-                              src="/assets/primary_arrow.svg"
-                              style={{ width: "15px" }}
-                            ></img>
-                          </div>
-                          </a>
-                        </div>
-                        {/* <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
-                    <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
-                      <img
-                        src="/assets/button_icon_1.svg"
-                        style={{ width: "16px" }}
-                      ></img>
-                      <p
-                        className="mb-0 text-white"
-                        style={{ whiteSpace: "nowrap" }}
-                      >
-                        Book Appointment
-                      </p>
-                      <img
-                        src="/assets/white_arrow.svg"
-                        style={{ width: "15px" }}
-                      ></img>
-                    </div>
-
-                    <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
-
-                      <p className="mb-0 textPrimary">Read More</p>
-                      <img
-                        src="/assets/primary_arrow.svg"
-                        style={{ width: "15px" }}
-                      ></img>
-                    </div>
-                  </div> */}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </Slider>
+              <DoctorSlider />
             </div>
           </div>
         </div>
@@ -751,7 +613,8 @@ const page = () => {
             <div className="row pb-5">
               <Slider {...settings}>
                 <div className="p-3">
-                  <div className=" boxShadow p-4 pb-5"
+                  <div
+                    className=" boxShadow p-4 pb-5"
                     style={{ borderRadius: "16px", backgroundColor: "#FF79E7" }}
                   >
                     <div className="d-flex justify-content-between align-items-center ">
@@ -816,20 +679,37 @@ const page = () => {
 
                 <div className="p-3 h-100">
                   <div
-                      className=" boxShadow  middleTestimonial position-relative h-100 overflow-hidden"
-                      style={{ borderRadius: "16px" }}
-                    > 
-                      <img src="/assets/homepage/testi_card_1.png" className=" img-fluid"></img> 
-                      <img src="/assets/homepage/vedio_play.svg" className="position-absolute" style={{bottom:"43%" , left:"42%"}}></img>
-                       <div className="d-flex align-items-center gap-3  position-absolute" style={{bottom:"9%", left:"5%"}}> 
-                        <img src="/assets/homepage/Testi_review_1.png" className="reviewImg"></img>
-                         <div>
-                          <p className="para text-white mb-1">lisa </p>
-                          <p className="text-white mb-0" style={{fontSize:"14px" , fontWeight:"400"}}>New York, USA </p>
-                         </div>
-                       </div>
-                     
+                    className=" boxShadow  middleTestimonial position-relative h-100 overflow-hidden"
+                    style={{ borderRadius: "16px" }}
+                  >
+                    <img
+                      src="/assets/homepage/testi_card_1.png"
+                      className=" img-fluid"
+                    ></img>
+                    <img
+                      src="/assets/homepage/vedio_play.svg"
+                      className="position-absolute"
+                      style={{ bottom: "43%", left: "42%" }}
+                    ></img>
+                    <div
+                      className="d-flex align-items-center gap-3  position-absolute"
+                      style={{ bottom: "9%", left: "5%" }}
+                    >
+                      <img
+                        src="/assets/homepage/Testi_review_1.png"
+                        className="reviewImg"
+                      ></img>
+                      <div>
+                        <p className="para text-white mb-1">lisa </p>
+                        <p
+                          className="text-white mb-0"
+                          style={{ fontSize: "14px", fontWeight: "400" }}
+                        >
+                          New York, USA{" "}
+                        </p>
+                      </div>
                     </div>
+                  </div>
                   {/* <img src="/assets/homepage/testimonial_card.png" className="img-fluid"></img> */}
                 </div>
 
@@ -906,8 +786,7 @@ const page = () => {
 
         <div className="py-4">
           <div className="container">
-           
-         <h1 className="text-center mb-4">ESSI Insights & Stories </h1>
+            <h1 className="text-center mb-4">ESSI Insights & Stories </h1>
             <p className="large-text text-center">
               Explore expert articles, patient journeys, and the latest insights
               on endometriosis care. Stay informed, empowered, and connected
@@ -929,11 +808,17 @@ const page = () => {
                           style={{ borderRadius: "20px" }}
                         ></img>
 
-                        <div className="d-flex justify-content-between align-items-center mb-3" style={{fontSize:"14px" , fontWeight:"500"}}>
+                        <div
+                          className="d-flex justify-content-between align-items-center mb-3"
+                          style={{ fontSize: "14px", fontWeight: "500" }}
+                        >
                           <p className="mb-0">{story.category}</p>
-                           <div className="d-flex gap-2 align-items-center">
-                            <img src="/assets/eye_icon.svg" style={{height:"16px"}} ></img>
-                          <p className="mb-0">{story.views}</p>
+                          <div className="d-flex gap-2 align-items-center">
+                            <img
+                              src="/assets/eye_icon.svg"
+                              style={{ height: "16px" }}
+                            ></img>
+                            <p className="mb-0">{story.views}</p>
                           </div>
                         </div>
 
@@ -947,21 +832,23 @@ const page = () => {
                           ></img>
                         </div>
 
-                         <div className="d-flex align-items-center gap-3 ">
-                      <img
-                        src="/assets/homepage/Testi_review_1.png"
-                        className="reviewImg"
-                      ></img>
-                      <div>
-                        <p className="para  text-black mb-1">Anjali Mehta</p>
-                        <p
-                          className=" mb-0"
-                          style={{ fontSize: "14px", fontWeight: "400" }}
-                        >
-                          Delhi, India
-                        </p>
-                      </div>
-                    </div>
+                        <div className="d-flex align-items-center gap-3 ">
+                          <img
+                            src="/assets/homepage/Testi_review_1.png"
+                            className="reviewImg"
+                          ></img>
+                          <div>
+                            <p className="para  text-black mb-1">
+                              Anjali Mehta
+                            </p>
+                            <p
+                              className=" mb-0"
+                              style={{ fontSize: "14px", fontWeight: "400" }}
+                            >
+                              Delhi, India
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -972,7 +859,7 @@ const page = () => {
         </div>
       </div>
 
-     <Footer/>
+      <Footer />
     </>
   );
 };

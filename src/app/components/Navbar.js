@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useState , useEffect} from "react";
 
+
 const Navbar = () => {
   const navArr = [
     {
@@ -10,13 +11,13 @@ const Navbar = () => {
       link: "/",
       icon: "/assets/Nav_icon_1.svg",
       subItems: [
-        { name: "How We Help", link: "/how-we-help" },
         { name: "Appointment Form", link: "/appointment-form" },
-        { name: "Our Team", link: "/our-team", },
         { name: "Endometriosis Mapping", link: "endometriosis-mapping" },
-        { name: "Why ESSI", link: "/why-essi", },
         { name: "Endometriosis Surgery", link: "/endometriosis-surgery" },
         { name: "Endometriosis and infertility", link: "/endometriosis-and-fertility" },
+        { name: "Thoracic and Diaphragmatic Endometriosis", link: "/thoracic-endometriosis" },
+        {name:"Adolescent Endometriosis" , link:"/adolescent-endometriosis"},
+        {name:"Adenomyosis" , link:"/adenomyosis"}
       ],
 
     },
@@ -24,11 +25,23 @@ const Navbar = () => {
       name: "Company",
       link: "/how-we-help",
       icon: "/assets/Nav_icon_2.svg",
+       subItems: [
+        { name: "How We Help", link: "/how-we-help" },
+        { name: "Our Team", link: "/our-team", },
+        { name: "Why ESSI", link: "/why-essi", },
+      ],
     },
     {
       name: "Location",
       link: "/",
       icon: "/assets/Nav_icon_3.svg",
+      subItems: [
+        { name: "Unites States Patients", link: "/treating-endometriosis-in-the-united-states" },
+        { name: "Canadian Patients", link: "/treating-endometriosis-for-canadian-patients", },
+        { name: "European Patients", link: "/treating-endometriosis-in-europe", },
+        { name: "Brazil Patients", link: "/treating-endometriosis-in-brazil", },
+        { name: "Rest of the World", link: "/why-essi", },
+      ],
     },
     {
       name: "Support",
@@ -118,7 +131,7 @@ const closeOffcanvas = () => {
                     top: "100%",
                     left: -13,
                     zIndex: 100,
-                    minWidth: "200px",
+                    minWidth: "250px",
                     backgroundColor:"rgba(250, 250, 250, 1)"
                   }}
                 >

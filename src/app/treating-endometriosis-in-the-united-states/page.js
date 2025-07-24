@@ -1,0 +1,411 @@
+"use client"
+
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useEffect } from "react";
+
+
+const stages = [
+  {
+    index: "1",
+    point: "Request an appointment through our website",
+  },
+  {
+    index: "2",
+    point: "ESSI in-take call and review the records",
+  },
+  {
+    index: "3",
+    point: "Surgeon approval and scheduling",
+  },
+  {
+    index: "4",
+    point: "Travel to the surgical site available that is most convenient to you",
+  }
+];
+
+const reasonsColumn1 = [
+  "Painful periods",
+  "Pelvic periods",
+  "Bladder pain",
+  "Pain with intercourse",
+  "Your MRI is negative",
+  "Nothing found on ultrasound",
+  "You have adenomyosis",
+  "You have an ovarian endometrioma",
+  "Pain despite endometriosis surgery",
+  "Told you need to go on Lupron",
+];
+
+const reasonsColumn2 = [
+  "You have been told you have to take Orilissa",
+  "You have failed IVF",
+  "You are infertile and they told you it’s unexplained",
+  "You want to freeze your eggs but you have endometriosis",
+  "You want to reduce your chance of having a second surgery",
+  "They told you IVF will bypass endometriosis (it may not)",
+  "You have failed embryo transfers with PGS normal embryos",
+];
+
+const reasonsColumn3 = [
+  "You have experienced miscarriages",
+  "You have experienced biochemical pregnancies",
+  "They told you “you may lose your ovary”",
+  "They told you surgery is too risky",
+  "You are not sure your doctor is an excision specialist",
+  "You have been told “it is all in your head”",
+  "That endometriosis surgery will damage your fertility",
+  "You had a surgery and are still in pain",
+];
+
+const doctors = [
+    {
+        img:"/assets/location/Dr_Alessio.png",
+        name:"Dr. Alessio Pigazzi",
+    },
+    {
+        img:"/assets/location/Dr_Andrea.png",
+        name:"Dr. Andrea Vidali",
+    },
+    {
+        img:"/assets/location/Dr_Joseph.png",
+        name:"Dr. Joseph Raccuia",
+    },
+    {
+        img:"/assets/location/Dr_Madhu.png",
+        name:"Dr. Madhu Bagaria",
+    },
+    {
+        img:"/assets/location/Dr_Mallory.png",
+        name:"Dr. Mallory Stuparich",
+    },
+    {
+        img:"/assets/location/Dr_Mamta.png",
+        name:"Dr. Mamta Mamik",
+    },
+    {
+        img:"/assets/location/Dr_Marco.png",
+        name:"Dr. Marco Zoccali",
+    },
+    {
+        img:"/assets/location/Dr_Sallie.png",
+        name:"Dr. Sallie Sarrel",
+    },
+    {
+        img:"/assets/location/Dr_Osbert.png",
+        name:"Dr. Osbert Fernandez",
+    },
+]
+
+const NextArrow = ({ onClick }) => (
+  <div className="custom-arrow next-arrow" onClick={onClick}>
+    <img src="https://cdn-icons-png.flaticon.com/128/2985/2985179.png" alt="Next"  />
+  </div>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <div className="custom-arrow prev-arrow" onClick={onClick}>
+    <img src="https://cdn-icons-png.flaticon.com/128/2985/2985161.png" alt="Prev"  />
+  </div>
+);
+
+// Get responsive slide count
+const getSlidesToShow = (width) => {
+  if (width < 768) return 1;
+  if (width < 992) return 2;
+  return 3;
+};
+
+// Dot mapping logic (dynamic based on slidesToShow)
+const mapToFiveDots = (index, total, slidesToShow) => {
+  const lastIndex = total - slidesToShow;
+
+  if (total <= slidesToShow) return 0;
+  if (index === 0) return 0;
+  if (index === 1) return 1;
+  if (index >= lastIndex) return 4;
+  if (index === lastIndex - 1) return 3;
+  return 2;
+};
+
+
+
+const page = () => {
+
+     const [currentSlide, setCurrentSlide] = useState(0);
+      const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow(window.innerWidth));
+    
+      // Update slidesToShow on resize
+      useEffect(() => {
+        const handleResize = () => setSlidesToShow(getSlidesToShow(window.innerWidth));
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+      }, []);
+    
+      const totalSlides = doctors.length;
+    
+      const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        beforeChange: (_, next) => setCurrentSlide(next),
+        customPaging: (i) => {
+          const activeDot = mapToFiveDots(currentSlide, totalSlides, slidesToShow);
+          return (
+            <div
+              style={{
+                width: "15px",
+                height: "15px",
+                borderRadius: "50%",
+                background: i === activeDot ? "#5F2D8B" : "#ECE6F3",
+                margin: "0 4px",
+              }}
+            />
+          );
+        },
+        appendDots: (dots) => (
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 10 }}>
+            {dots.slice(0, 5)}
+          </div>
+        ),
+        responsive: [
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ],
+      };
+
+  return (
+    <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
+      <Navbar />
+
+      <div>
+        
+        {/* herosection */}
+      <div className="container py-5 mb-sm-5">
+        <div className="row align-items-center">
+          <div className="col-lg-6 col-12 order-lg-1 order-2">
+            <h2>Treating Endometriosis</h2>
+            <h1 className="mb-4">In the United States</h1>
+
+            <p className="small-medium mb-md-5">
+            International patients can choose to seek treatment options in any of our current locations and receive best-in-class treatment from our world-class medical team
+            </p>
+
+              <div className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3" style={{width:"fit-content"}}>
+                  <p
+                    className="mb-0 text-white"
+                    style={{ whiteSpace: "nowrap" }}
+                  >
+                  Book Appointment
+                  </p>
+                  <img
+                    src="/assets/white_arrow.svg"
+                    style={{ width: "15px" }}
+                  ></img>
+                </div>
+          </div>
+
+          <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
+            <img
+              src="/assets/E_surgery/herosection.png"
+              className="img-fluid"
+            ></img>
+          </div>
+        </div>
+      </div>
+
+      {/* how it works section */}
+
+      <div className="bg-white py-5">
+        <div className="container">
+          <h2 className="text-center">A Solution for Patients in the United States</h2>
+          <h1 className="text-center mb-5" >World Class Endometriosis Treatment</h1>
+          <div className="row align-items-center">
+            <div className="col-md-6 col-12">
+                 <p className="para mb-4">For individuals suffering from endometriosis, accessing high-quality, specialized care remains a significant challenge in many countries. Despite the prevalence and debilitating nature of this disease, countless patients face barriers to receiving the care they need.</p>
+
+                 <p className="para mb-4">At our world-class Endometriosis Centers, we offer a solution to these barriers. We provide a comprehensive, patient-focused approach that prioritizes accurate diagnosis, advanced treatment, and personalized care.</p>
+
+                 <p className="para mb-4"> Patients in the United States can choose to be seen in any of our centers and get access to: expert diagnostics, minimally invasive surgery, a dedicated multidisciplinary team, and immediate accesses so specialized care.</p>
+
+                  <div className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3" style={{width:"fit-content"}}>
+                  <p
+                    className="mb-0 text-white"
+                    style={{ whiteSpace: "nowrap" }}
+                  >
+                  Book Appointment
+                  </p>
+                  <img
+                    src="/assets/white_arrow.svg"
+                    style={{ width: "15px" }}
+                  ></img>
+                </div>
+            </div>
+
+            <div className="col-md-6 col-12">
+
+                {/* <p className="mb-3 large-text text-center">How it Works</p> */}
+                   <div className=" p-3 py-4 flex-column align-items-start position-relative ms-md-5 ms-0 mb-4 boxShadow locationSteps" style={{ borderRadius:"20px" , border:"1px solid #f6deff"}}>
+              {stages.map((step, i) => (
+              <div className="d-flex align-items-start gap-sm-4 gap-3 " key={i}>
+                {/* Left: Icon + Number + Line */}
+                <div className="d-flex gap-sm-4 gap-4  me-3 position-relative ">
+                  <div className="d-flex flex-column align-items-center">
+                    <div className="step-index large-text mb-0 d-flex justify-content-center align-items-center">
+                      {step.index}
+                    </div>
+
+                    {/* Only show line if not last */}
+                    {i !== stages.length - 1 && (
+                      <div className="vertical-line-location"></div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Right: Description */}
+                <div>
+                  <p className="mb-0 medium-text textPrimary">{step.point}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* doctors section */}
+
+      <div className="container my-5">
+         <h1 className="text-center mb-4">Meet Our Doctors</h1>
+          <Slider {...settings} className="d-flex align-items-center">
+                  {doctors.map((member, index) => (
+                    <div key={index} className="p-3">
+                      <div className="bg-white boxShadow p-2 px-4" style={{ borderRadius: "20px" }}>
+                        <img
+                          src={member.img}
+                          className="img-fluid mb-2"
+                          style={{ borderRadius: "20px" }}
+                        />
+                        <h5 className="medium-text mb-2">{member.name}</h5>
+                        <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
+                          <a href="/appointment-form" style={{ textDecoration: "none" }}>
+                            <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
+                              <img src="/assets/button_icon_1.svg" style={{ width: "16px" }} />
+                              <p className="mb-0 text-white" style={{ whiteSpace: "nowrap", fontSize: "12px" }}>
+                                Book Appointment
+                              </p>
+                              <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
+                            </div>
+                          </a>
+                          <a href="/our-team" style={{ textDecoration: "none" }}>
+                            <div className="d-flex gap-sm-2 gap-1 viewButton p-2 px-3">
+                              <p className="mb-0 textPrimary" style={{ whiteSpace: "nowrap", fontSize: "12px" }}>
+                                Read More
+                              </p>
+                              <img src="/assets/primary_arrow.svg" style={{ width: "15px" }} />
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </Slider>
+      </div>
+
+      {/* reasons section */}
+
+       <div className="container py-5"> 
+           <h1 className="text-center">Reasons to See <span className="tilt tilt-primary text-white"> ESSI</span></h1>
+           
+           <div className="row pt-4 justify-content-center mb-sm-5">
+            <div className="col-lg-4 col-md-6 col-12 p-sm-2 p-0 px-3">
+              <div
+                className="bg-white  p-md-4 p-4 pb-1 h-100  reasonCard"
+              >
+                {reasonsColumn1.map((reason, index) => (
+                  <div
+                    key={index}
+                    className="d-flex gap-2 align-items-center mb-3"
+                  >
+                    <img
+                      src="/assets/hand_Icon.svg" //
+                      alt="hand icon"
+                      style={{ width: "28px", height: "28px" }}
+                    />
+                    <p className="mb-0 small-medium textPrimary">{reason}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6  p-sm-2 p-0 px-3">
+              <div
+                className="bg-white p-md-4 p-4 pt-1 h-100 reasonCard"
+               
+              >
+                {reasonsColumn2.map((reason, index) => (
+                  <div
+                    key={index}
+                    className="d-flex gap-2 align-items-center mb-3"
+                  >
+                    <img
+                      src="/assets/hand_Icon.svg" //
+                      alt="hand icon"
+                      style={{ width: "28px", height: "28px" }}
+                    />
+                    <p className="mb-0 small-medium textPrimary">{reason}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6  col-12 p-sm-2 p-0 px-3">
+              <div
+                className="bg-white p-md-4 p-4 pt-1 h-100 reasonCard"
+               
+              >
+                {reasonsColumn3.map((reason, index) => (
+                  <div
+                    key={index}
+                    className="d-flex gap-2 align-items-center mb-3"
+                  >
+                    <img
+                      src="/assets/hand_Icon.svg" //
+                      alt="hand icon"
+                      style={{ width: "28px", height: "28px" }}
+                    />
+                    <p className="mb-0 small-medium textPrimary">{reason}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+       </div>
+
+         
+
+      </div>
+
+
+      <Footer />
+    </div>
+  );
+};
+
+export default page;

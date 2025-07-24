@@ -58,6 +58,12 @@ h2 {
   line-height: normal;
 }
 
+.small-medium{
+   font-size: 20px;
+  font-weight: 500;
+  line-height: normal;
+}
+
 .medium-text {
   font-size: 24px;
   font-weight: 500;
@@ -290,7 +296,7 @@ h2 {
 }
 
 .tilt-third::before {
-  background-color: var(--third-color)
+  background-color: rgba(0, 255, 159, 0.60);
 }
 
 .custom-checkbox {
@@ -462,6 +468,10 @@ h2 {
   font-size: 20px !important
 }
 
+.small-medium{
+   font-size: 18px !important;
+}
+
 }
 
 @media (max-width:500px) {
@@ -485,6 +495,11 @@ h2 {
   .medium-text {
     font-size: 18px !important;
   }
+
+  .small-medium{
+   font-size: 16px !important;
+
+}
 
   .form-select,
   .form-input {
@@ -634,6 +649,11 @@ font-weight: 400;
   background-color: var(--primary-color);
 }
 
+.vertical-line-location {
+  width: 2px;
+  height: 40px;
+  background-color: var(--primary-color);
+}
 
 @media (max-width:578px) {
   .step-index {
@@ -644,6 +664,12 @@ font-weight: 400;
   .vertical-line {
     width: 2px;
     height: 100px !important;
+    background-color: var(--primary-color);
+  }
+
+   .vertical-line-location {
+    width: 2px;
+    height: 80px !important;
     background-color: var(--primary-color);
   }
 
@@ -783,3 +809,115 @@ box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.10);
       font-size: 24px;
     font-weight: 500;
    }
+
+   .custom-arrow img{
+     width: 30px;
+     height: 30px;
+     background-color: var(--primary-light);
+     padding: 3px;
+     border-radius: 50%;
+     cursor: pointer;
+   }
+
+ @media (max-width:500px) {
+      .custom-arrow img{
+     width: 20px;
+     height: 20px;
+     background-color: var(--primary-light);
+     padding: 2px;
+     border-radius: 50%;
+     cursor: pointer;
+   }
+ }  
+
+ /* tharocic page css */
+
+ .symptom-line{
+  font-size: 18px;
+  font-weight: 500;
+ }
+
+  @media (max-width:576px) {
+  .symptom-line{
+  font-size: 15px;
+  font-weight: 500;
+ }
+
+ }  
+
+ .symptoms1{
+  border-radius: 10px;
+ background: rgba(78, 38, 117, 0.10);
+  box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.10);
+  width: fit-content;
+  padding: 5%;
+ }
+
+ .whyESSIPoint{
+  /* background-color: var(--primary-light); */
+  background-color: var(--primary-color);
+  color: var(--primary-light);
+  border-radius: 15px;
+  width: 18%;
+ }
+
+ @media (max-width:1024px) {
+    .whyESSIPoint{
+  width: 30% !important;
+ }
+ }
+
+  @media (max-width: 768px) {
+    .whyESSIPoint{
+  width: 47% !important;
+ }
+ }
+
+  @media (max-width: 450px) {
+    .whyESSIPoint{
+  width: 100% !important;
+ }
+ }
+
+ .dr_image{
+  width: 70%;
+ }
+
+   @media (max-width: 500px) {
+    .dr_image{
+  width: 100% !important;
+ }
+ }
+ .option-card{
+    background-color: var(--primary-light);
+    border-radius: 20px;
+
+ }
+
+ /* location pages css */
+
+ .locationSteps{
+  width: 80%;
+ }
+
+   @media (max-width: 1190px) {
+     .locationSteps{
+  width: 100% !important;
+ }
+}
+
+.reasonCard{
+  border-radius: 16px !important;
+background: #FFF;
+box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.10) !important;
+min-height: 200px;
+}
+
+
+@media (max-width: 557px) {
+ .reasonCard{
+  
+min-height: 170px !important;
+}
+
+}
