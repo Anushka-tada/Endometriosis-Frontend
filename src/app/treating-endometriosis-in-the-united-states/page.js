@@ -100,6 +100,29 @@ const doctors = [
     },
 ]
 
+const locations = [
+    {
+        img:"https://internationalendo.com/wp-content/uploads/2024/12/7a880a1f835710f43c9a233a4273cd84-1024x710.jpg",
+        text:"New York"
+    },
+     {
+        img:"https://internationalendo.com/wp-content/uploads/2024/12/6b8d6a91eaa26921556b6fd7c9160365-1024x767.jpg",
+        text:"New Jersey"
+    },
+     {
+        img:"https://internationalendo.com/wp-content/uploads/2024/12/d3cc1f7944a545dcf2c5c878689ffe6e-1024x575.jpg",
+        text:"California"
+    },
+     {
+        img:"https://internationalendo.com/wp-content/uploads/2024/12/79bf4382f3dd6ff472670a1f1b789f44-1024x768.jpg",
+        text:"Illinois"
+    },
+     {
+        img:"https://internationalendo.com/wp-content/uploads/2024/12/5bd54f2f6ec183e73d95ebf0d93446c1-1024x675.jpg",
+        text:"Florida"
+    },
+]
+
 const NextArrow = ({ onClick }) => (
   <div className="custom-arrow next-arrow" onClick={onClick}>
     <img src="https://cdn-icons-png.flaticon.com/128/2985/2985179.png" alt="Next"  />
@@ -306,21 +329,13 @@ const page = () => {
                         />
                         <h5 className="medium-text mb-2">{member.name}</h5>
                         <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
-                          <a href="/appointment-form" style={{ textDecoration: "none" }}>
-                            <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
-                              <img src="/assets/button_icon_1.svg" style={{ width: "16px" }} />
-                              <p className="mb-0 text-white" style={{ whiteSpace: "nowrap", fontSize: "12px" }}>
-                                Book Appointment
-                              </p>
-                              <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
-                            </div>
-                          </a>
+                         
                           <a href="/our-team" style={{ textDecoration: "none" }}>
-                            <div className="d-flex gap-sm-2 gap-1 viewButton p-2 px-3">
-                              <p className="mb-0 textPrimary" style={{ whiteSpace: "nowrap", fontSize: "12px" }}>
+                            <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
+                              <p className="mb-0 text-white" style={{ whiteSpace: "nowrap", fontSize: "12px" }}>
                                 Read More
                               </p>
-                              <img src="/assets/primary_arrow.svg" style={{ width: "15px" }} />
+                              <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
                             </div>
                           </a>
                         </div>
@@ -397,7 +412,27 @@ const page = () => {
             </div>
           </div>
        </div>
+       
 
+       {/* locations of treatment */}
+
+       <div className=" py-5"  style={{backgroundColor:"#ECE6F3"}}> 
+        <div className="container">
+           <h1 className="text-center mb-4">Locations for Treatment</h1>
+           <div className="row justify-content-center">
+              {locations.map((location , index) => (
+                 <div className="col-lg-4 col-md-6 p-3" key={index}>
+                     <div className="locationCard bg-white p-3 boxShadow h-100">
+                       <div className="locationImageOuter mb-3">
+                        <img src={location.img} className="img-fluid h-100 w-100" style={{borderRadius:"20px" , objectFit:"cover"}}></img>
+                        </div>
+                       <p className="small-medium textPrimary">{location.text}</p>
+                     </div>
+              </div> 
+              ))}
+           </div>
+        </div>
+       </div>
          
 
       </div>

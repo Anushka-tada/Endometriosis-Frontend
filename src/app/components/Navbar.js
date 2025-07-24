@@ -38,7 +38,7 @@ const Navbar = () => {
       subItems: [
         { name: "Unites States Patients", link: "/treating-endometriosis-in-the-united-states" },
         { name: "Canadian Patients", link: "/treating-endometriosis-for-canadian-patients", },
-        { name: "European Patients", link: "/treating-endometriosis-in-europe", },
+        { name: "European Patients", link: "/treating-endometriosis-for-patients-in-europe", },
         { name: "Brazil Patients", link: "/treating-endometriosis-in-brazil", },
         { name: "Rest of the World", link: "/why-essi", },
       ],
