@@ -8,139 +8,152 @@ const page = () => {
       <Navbar />
 
       {/* herosection */}
-      <div >
-        {/* herosection */}
-        <div className="container py-5">
-          <div className="row align-items-center">
-            <div className="col-lg-6 col-12 order-lg-1 order-2">
-              <h1 className="mb-4">Treating Endometriosis</h1>
+      <div className="container py-5">
+        <div className="row align-items-center">
+          <div className="col-lg-6 col-12 order-lg-1 order-2">
+            <h1 className="mb-4">Endometriosis and Infertility</h1>
 
-              <p className="medium-text mb-5">
-                An endometriosis treatment plan typically consists of a
-                combination of surgical, pharmaceutical and/or lifestyle
-                approaches. While medications and lifestyle changes can help
-                manage endometriosis symptoms, a patient’s best chance at
-                achieving lasting relief is through complete excision of
-                endometriosis lesions.
-              </p>
- 
-                <div className="d-flex gap-sm-3 gap-1 bookButton p-2" style={{width:"fit-content"}}>
-                  <img
-                    src="/assets/button_icon_1.svg"
-                    style={{ width: "16px" }}
-                  ></img>
-                  <p
-                    className="mb-0 text-white"
-                    style={{ whiteSpace: "nowrap" }}
-                  >
-                   Request Surgery
-                  </p>
-                  <img
-                    src="/assets/white_arrow.svg"
-                    style={{ width: "15px" }}
-                  ></img>
-                </div>
-             
-            </div>
+            <p className="medium-text mb-5">
+              Compelling research estimates that up to 50% of women who
+              experience infertility, suffer from endometriosis. Multiple
+              failures may often be the only symptom as Silent Endometriosis is
+              well established. Going untreated, can contribute to continued
+              failures and frustration. This is ESSI’s area of expertise. Our
+              experienced surgeons at ESSI can diagnose and effectively treat
+              this underlying cause of infertility. We are here to help you on
+              your journey to successful pregnancy outcomes.
+            </p>
 
-            <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
+            <div
+              className="d-flex gap-sm-3 gap-1 bookButton p-2"
+              style={{ width: "fit-content" }}
+            >
               <img
-                src="/assets/E_surgery/herosection.png"
-                className="img-fluid"
+                src="/assets/button_icon_1.svg"
+                style={{ width: "16px" }}
+              ></img>
+              <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+                Request Surgery
+              </p>
+              <img
+                src="/assets/white_arrow.svg"
+                style={{ width: "15px" }}
               ></img>
             </div>
+          </div>
+
+          <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
+            <img
+              src="https://internationalendo.com/wp-content/uploads/2025/01/Group-35553.png"
+              className="img-fluid"
+            ></img>
           </div>
         </div>
       </div>
 
-      {/* the essi approach */}
+      {/* infertility cause */}
+
       <div className="bg-white py-5">
         <div className="container">
-        <h2 className="mb-3">The ESSI Approach to</h2>
-        <h1><span className="tilt tilt-primary text-white mb-4">Treating</span>  Endometriosis</h1>
+          <h1 className="text-center mb-4"> Infertility can be caused by <span className="tilt tilt-primary text-white">Silent </span> <span className="tilt tilt-secondary"> Endometriosis</span> </h1>
 
-       <p className="para text-black">When it comes to endometriosis surgery, we believe that your first surgery is the most important – and hopefully last – endometriosis surgery you will need. Our goal is full excision of your endometriosis lesions, which maximizes the chance that abnormal tissue will not grow back. On the other hand, when ablation (heat destruction) is used or an excision is incomplete, any remaining cells can multiply and lead to a rapid return of endometriosis symptoms.</p>
+          <h2 className="mb-4 small-h2">What is Silent Endometriosis?</h2>
+          <p className="para mb-5">Most people associate endometriosis with pain, but a large proportion of people with endometriosis do not experience any obvious symptoms. Silent endometriosis is when someone appears asymptomatic, but their fertility can still be impaired by endometriosis. This type of endometriosis can be difficult to diagnose since many doctors will not suspect endometriosis without symptoms, and the lesions might appear different from standard endometriosis cases.</p>
 
-       <p className="para text-black" >Endometriosis Surgical Specialists International (ESSI) employs sophisticated mapping techniques to create a surgical plan that includes the location(s) or your endometriosis as well as the size and depth of the lesions. Knowing the depth of lesions is especially important when a patient has deep infiltrating endometriosis, which often leaves roots when removed by inexperienced surgeons.</p>
-
-       <p className="para text-black mb-5" >Your IESS surgeon will use advanced laparoscopic methods to remove your endometriosis, utilizing Da Vinci robots and nerve-sparing technique when appropriate. Some ESSI surgeons also have multi-organ expertise, which means that even if you have endometriosis in multiple locations such as thoracic endometriosis, the surgery can be completed in one day by a single physician.</p>
-
-       <p className="medium-text mb-4">The ESSI Surgical Advantage</p>
-
-            <div className="mapping-points mb-5">
+          <h2 className="mb-4 small-h2">Endometriosis and Infertility Facts</h2>
+            
+           <div className="mapping-points mb-5 ">
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg" className="handIcon"></img>
-                <p className="medium-text mb-0">Mapping-based surgical plan</p>
+                <p className="medium-text mb-0">Approximately 10% of reproductive age women have endometriosis</p>
               </div>
               <div className="d-flex gap-3  mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0"> Complete excision, not ablation  </p>
+                <p className="medium-text mb-0">Up to 50% of infertile women have endometriosis</p>
               </div>
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">Highly experienced team</p>
+                <p className="medium-text mb-0">Infertility can be the only symptom of endometriosis</p>
               </div>
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">Multi-organ expertise</p>
+                <p className="medium-text mb-0">Silent endometriosis may have atypical lesions that require a specialist to diagnose</p>
               </div>
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">Da Vinci robots </p>
-              </div>
-              <div className="d-flex gap-3 mb-sm-3 mb-2">
-                <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">Nerve-sparing excision</p>
-              </div>
-              <div className="d-flex gap-3 mb-sm-3 mb-2">
-                <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">Minimally invasive procedure </p>
+                <p className="medium-text mb-0">Surgery can improve fertility outcomes</p>
               </div>
             </div>
 
-         <p className="medium-text mb-4 ">What to Expect during Surgery</p>
-
-            <div className="surgery-points mb-5">
+           <h2 className="mb-4 small-h2">How Does Endometriosis Cause Infertility?</h2> 
+              
+              <p className="para mb-5">There are many theories as to why some people – and not others – develop endometriosis. Likewise, there are multiple ways that endometriosis can impact fertility. Although scientists still have a lot to learn about endometriosis, here are some of the most supported theories why endometriosis causes infertility:</p>
+             
+             <div className=" surgery-points">
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg" className="handIcon"></img>
-                <p className="medium-text mb-0">The patient will go under general anesthesia for laparoscopy.</p>
+                <p className="medium-text mb-0">Mechanical factors (Adhesions and anatomical distortions)</p>
               </div>
               <div className="d-flex gap-3  mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">A few tiny incisions will be made on the abdomen and other locations depending on where the endometriosis is located.</p>
+                <p className="medium-text mb-0">Chronic systemic inflammation</p>
               </div>
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">A tiny camera (laparoscope) and surgical instruments will be inserted through the incisions.</p>
+                <p className="medium-text mb-0">Diminished ovarian reserve</p>
               </div>
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">The surgeon will use small surgical scissors to remove endometriosis lesions.</p>
+                <p className="medium-text mb-0">Impaired ovulation and reduced oocyte quality</p>
               </div>
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">Once excision is complete, the instruments are removed and incisions are closed with dissolvable stitches.</p>
+                <p className="medium-text mb-0">Endometriosis-associated pain</p>
+              </div>
+               <div className="d-flex gap-3 mb-sm-3 mb-2">
+                <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
+                <p className="medium-text mb-0">Decreased endometrial receptivity</p>
               </div>
               <div className="d-flex gap-3 mb-sm-3 mb-2">
                 <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">Patient is monitored for a few hours after surgery and typically discharged the same day.</p>
+                <p className="medium-text mb-0">Association with adenomyosis</p>
               </div>
-              <div className="d-flex gap-3 mb-sm-3 mb-2">
-                <img src="/assets/hand_Icon.svg"  className="handIcon"></img>
-                <p className="medium-text mb-0">The laparoscopic surgery may last 1 to 6 hours depending on the scope of the patient’s endometriosis.</p>
-              </div>
-            </div>    
-
-
+            </div>
+             
+        </div>
       </div>
+
+      {/* Treating Infertility with Endometriosis Surgery */}
+      <div className="container my-5">
+        
+        <div className="row align-items-center" >
+            <div className="col-lg-6 col-12">
+                  <h1 className=" mb-4">Treating <span className="tilt tilt-primary text-white">Infertility</span> with Endometriosis Surgery</h1>
+                  
+                 <p className="para">A recent Medical Review found that in a pooled group of 635 women diagnosed with endometriosis-related infertility, 337 (53%) achieved pregnancy after endometriosis surgery. A successful excision surgery will remove all of the abnormal tissue, which helps resolve symptoms and inflammation. Since most of the proposed ways that endometriosis causes infertility stem from mechanical and inflammatory pathways, it is logical that surgery can help improve fertility.</p>
+
+                 <p className="para" >If your main goal for getting endometriosis surgery is to have a baby, it is important to work with the right surgeon who shares this goal with you. Endometriosis surgery can be paired with other treatments and assisted reproductive technology to maximize your chances of getting pregnant. Our group includes endometriosis surgeons who are also fertility specialists – so that you can get the help you need from a single source.</p>
+            </div>
+            <div className="col-lg-6 col-12 p-md-5" >
+               <img src="https://internationalendo.com/wp-content/uploads/2025/01/a62419a3eef5ff522f71cf324454a302-1-1024x683.jpg" className="img-fluid" style={{borderRadius:"20px"}}></img>
+            </div>
+        </div>
       </div>
 
-      {/* what to see this process vedio */}
-
-      <div className="container pt-5 d-flex flex-column align-items-center">
-       <h1 className="mb-5 text-center mt-3">Want to See This Process With Your Own Eyes?</h1>
-       <img src="/assets/E_surgery/thumbnail_2.png" className="img-fluid"></img>
+      <div className="location_herosection py-sm-5 py-4">
+        <div className="container my-4">
+          <h2 className="text-center mb-4">Why you should choose ESSI?</h2>
+          <p className="small-medium text-center">
+            A successful surgery can significantly improve a patient’s fertility
+            and quality of life. Some of our surgeons specialize in both
+            endometriosis and fertility, ensuring that your surgical and
+            reproductive treatments are optimally aligned within a single
+            medical center. When you choose IESS, you’re choosing your best
+            chance at success.
+          </p>
+        </div>
       </div>
+
       <Footer />
     </div>
   );

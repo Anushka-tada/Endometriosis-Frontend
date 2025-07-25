@@ -651,7 +651,7 @@ font-weight: 400;
 
 .vertical-line-location {
   width: 2px;
-  height: 40px;
+  height: 48px;
   background-color: var(--primary-color);
 }
 
@@ -927,4 +927,13 @@ min-height: 170px !important;
 .locationImageOuter{
   height: 80% !important;
   overflow: hidden;
+}
+
+.location_herosection{
+  /* background-color: #E9C4E2; */
+  background-color: var(--primary-light);
+}
+
+.location_herosection h1 , .location_herosection h2{
+  color: var(--primary-color);
 }

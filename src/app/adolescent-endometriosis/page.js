@@ -8,7 +8,7 @@ const page = () => {
         <Navbar/>
 
              {/* herosection */}
-        <div className="container py-5 mb-sm-5">
+        <div className="container mb-sm-5">
           <div className="row align-items-center">
             <div className="col-lg-6 col-12 order-lg-1 order-2">
               <h1 className="mb-4">Adolescent Endometriosis</h1>
@@ -22,7 +22,7 @@ const page = () => {
 
             <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
               <img
-                src="/assets/E_surgery/herosection.png"
+                src="https://internationalendo.com/wp-content/uploads/2025/06/Teen2-1024x1024.png"
                 className="img-fluid"
               ></img>
             </div>

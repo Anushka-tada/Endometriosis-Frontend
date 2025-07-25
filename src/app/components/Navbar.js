@@ -32,7 +32,7 @@ const Navbar = () => {
       ],
     },
     {
-      name: "Location",
+      name: "Locations",
       link: "/",
       icon: "/assets/Nav_icon_3.svg",
       subItems: [
@@ -40,13 +40,16 @@ const Navbar = () => {
         { name: "Canadian Patients", link: "/treating-endometriosis-for-canadian-patients", },
         { name: "European Patients", link: "/treating-endometriosis-for-patients-in-europe", },
         { name: "Brazil Patients", link: "/treating-endometriosis-in-brazil", },
-        { name: "Rest of the World", link: "/why-essi", },
+        { name: "Rest of the World", link: "/treating-endometriosis-for-rest-of-the-world", },
       ],
     },
     {
       name: "Support",
-      link: "/",
+      link: "/support",
       icon: "/assets/Nav_icon_4.svg",
+      subItems: [
+        { name: "support", link: "/support" },
+      ],
     },
 
     {
@@ -156,12 +159,12 @@ const closeOffcanvas = () => {
           ))}
         </ul>
 
-        <button
+         <button
           className="px-3 py-2 text-white bgPrimary loginbtn border-0 d-none d-lg-block"
           style={{ borderRadius: "8px" }}
         >
           Login / Signup
-        </button>
+         </button>
 
          <button
           className="d-lg-none bg-transparent border-0"

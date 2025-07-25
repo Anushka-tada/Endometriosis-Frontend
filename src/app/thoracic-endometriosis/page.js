@@ -4,11 +4,11 @@ import Footer from "../components/Footer";
 
 const page = () => {
   return (
-    <div div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
+    <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
         {/* herosection */}
-        <div className="container py-5 mb-5">
+        <div className="container py-sm-5 py-0  mb-5">
           <div className="row align-items-center">
             <div className="col-lg-6 col-12 order-lg-1 order-2">
               <h1 className="mb-4">Thoracic and Diaphragmatic Endometriosis</h1>
@@ -42,7 +42,7 @@ const page = () => {
 
             <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
               <img
-                src="/assets/E_surgery/herosection.png"
+                src="https://internationalendo.com/wp-content/uploads/2025/06/Lungs_single_line_with_word-Converted.png"
                 className="img-fluid"
               ></img>
             </div>

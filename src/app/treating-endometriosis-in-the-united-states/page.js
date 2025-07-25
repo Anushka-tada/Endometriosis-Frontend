@@ -254,6 +254,13 @@ const page = () => {
         </div>
       </div>
 
+      <div className="location_herosection py-sm-5 py-4">
+        <div className="container my-4">
+            <h2 className="text-center ">Providing World-Level, Multidisciplinary, and <br/>
+            Patient-Centric Care to Endometriosis Patients</h2>
+        </div>
+      </div>
+
       {/* how it works section */}
 
       <div className="bg-white py-5">
