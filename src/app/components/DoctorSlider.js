@@ -224,6 +224,8 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { motion } from "framer-motion";
+
 
 const TeamMember = [
   {
@@ -409,43 +411,70 @@ const DoctorSlider = () => {
   };
 
   return (
-    <div className="container">
-      <Slider {...settings} className="d-flex align-items-center">
-        {TeamMember.map((member, index) => (
-          <div key={index} className="p-3">
-            <div className="bg-white boxShadow p-2 px-4" style={{ borderRadius: "20px" }}>
-              <img
-                src={member.img}
-                className="img-fluid mb-2"
-                style={{ borderRadius: "20px" }}
-              />
-              <h5 className="medium-text mb-2">{member.title}</h5>
-              <p className="teamSubtitle">{member.subtitle}</p>
-              <p className="para text-black">{member.para}</p>
-              <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
-                <a href="/appointment-form" style={{ textDecoration: "none" }}>
-                  <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
-                    <img src="/assets/button_icon_1.svg" style={{ width: "16px" }} />
-                    <p className="mb-0 text-white" style={{ whiteSpace: "nowrap", fontSize: "12px" }}>
-                      Book Appointment
-                    </p>
-                    <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
-                  </div>
-                </a>
-                <a href="/our-team" style={{ textDecoration: "none" }}>
-                  <div className="d-flex gap-sm-2 gap-1 viewButton p-2 px-3">
-                    <p className="mb-0 textPrimary" style={{ whiteSpace: "nowrap", fontSize: "12px" }}>
-                      Read More
-                    </p>
-                    <img src="/assets/primary_arrow.svg" style={{ width: "15px" }} />
-                  </div>
-                </a>
+   <div className="container">
+  <Slider {...settings} className="d-flex align-items-center">
+    {TeamMember.map((member, index) => (
+      <motion.div
+        key={index}
+        className="p-3"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        viewport={{ once: true }}
+        whileHover={{ scale: 1.03 }}
+      >
+        <div
+          className="bg-white boxShadow p-2 px-4"
+          style={{ borderRadius: "20px" }}
+        >
+          <img
+            src={member.img}
+            className="img-fluid mb-2"
+            style={{ borderRadius: "20px" }}
+          />
+          <h5 className="medium-text mb-2">{member.title}</h5>
+          <p className="teamSubtitle">{member.subtitle}</p>
+          <p className="para text-black">{member.para}</p>
+          <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
+            <a href="/appointment-form" style={{ textDecoration: "none" }}>
+              <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
+                <img
+                  src="/assets/button_icon_1.svg"
+                  style={{ width: "16px" }}
+                />
+                <p
+                  className="mb-0 text-white"
+                  style={{ whiteSpace: "nowrap", fontSize: "12px" }}
+                >
+                  Book Appointment
+                </p>
+                <img
+                  src="/assets/white_arrow.svg"
+                  style={{ width: "15px" }}
+                />
               </div>
-            </div>
+            </a>
+            <a href="/our-team" style={{ textDecoration: "none" }}>
+              <div className="d-flex gap-sm-2 gap-1 viewButton p-2 px-3">
+                <p
+                  className="mb-0 textPrimary"
+                  style={{ whiteSpace: "nowrap", fontSize: "12px" }}
+                >
+                  Read More
+                </p>
+                <img
+                  src="/assets/primary_arrow.svg"
+                  style={{ width: "15px" }}
+                />
+              </div>
+            </a>
           </div>
-        ))}
-      </Slider>
-    </div>
+        </div>
+      </motion.div>
+    ))}
+  </Slider>
+</div>
+
   );
 };
 

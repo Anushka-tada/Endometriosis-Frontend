@@ -159,12 +159,14 @@ const closeOffcanvas = () => {
           ))}
         </ul>
 
-         <button
-          className="px-3 py-2 text-white bgPrimary loginbtn border-0 d-none d-lg-block"
+        <a href="/login" style={{textDecoration:"none"}}>
+           <button
+          className="px-3 py-3 text-white bgPrimary loginbtn border-0 d-none d-lg-block"
           style={{ borderRadius: "8px" }}
         >
           Login / Signup
          </button>
+        </a>
 
          <button
           className="d-lg-none bg-transparent border-0"
