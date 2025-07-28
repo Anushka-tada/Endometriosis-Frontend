@@ -162,9 +162,15 @@ const mapToFiveDots = (index, total, slidesToShow) => {
 
 const page = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(
-    getSlidesToShow(window.innerWidth)
-  );
+  const [slidesToShow, setSlidesToShow] = useState(3); // default fallback
+
+useEffect(() => {
+  const updateSlidesToShow = () => setSlidesToShow(getSlidesToShow(window.innerWidth));
+  updateSlidesToShow(); // Call once on mount
+  window.addEventListener("resize", updateSlidesToShow);
+  return () => window.removeEventListener("resize", updateSlidesToShow);
+}, []);
+
 
   // Update slidesToShow on resize
   useEffect(() => {
