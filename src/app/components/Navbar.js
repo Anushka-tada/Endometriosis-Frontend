@@ -97,15 +97,42 @@ const closeOffcanvas = () => {
   }
 };
 
+//  close toggle
+
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+    let clickedInside = false;
+
+    dropdowns.forEach((dropdown) => {
+      if (dropdown.contains(event.target)) {
+        clickedInside = true;
+      }
+    });
+
+    if (!clickedInside) {
+      setActiveDropdown(null);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
+
+
   return (
     
-    <>
-      <div className="navbarOuter d-flex justify-content-between p-3 px-sm-5 px-3">
+    <div className="position-fixed  w-100" style={{ zIndex:"999" , backgroundColor: "rgba(250, 250, 250, 1)" }}>
+      <div className="navbarOuter d-flex justify-content-between p-3 px-sm-5 px-3 " >
         <div className="logo">
           <a href="/"><img src="/assets/logo.png" alt="logo" className="logo-img" /></a>
         </div>
         <ul
-          className="nav-links list-unstyled mb-0 d-none d-lg-flex gap-3 "
+          className="nav-links list-unstyled mb-0 d-none d-lg-flex gap-3  "
           style={{
             border: "2px solid rgba(186, 185, 185, 0.50)",
             borderRadius: "10px",
@@ -129,7 +156,7 @@ const closeOffcanvas = () => {
               {/* Submenu dropdown */}
               {v.subItems && activeDropdown === i && (
                 <ul
-                  className="position-absolute  shadow p-3 rounded"
+                  className="position-absolute  shadow p-3 rounded nav-dropdown"
                   style={{
                     top: "100%",
                     left: -13,
@@ -181,7 +208,7 @@ const closeOffcanvas = () => {
 
       </div>
 
-      <div
+        <div
         className="offcanvas offcanvas-end"
         tabIndex="-1"
         id="mobileMenu"
@@ -248,7 +275,7 @@ const closeOffcanvas = () => {
           </button>
         </div>
         </div>
-    </>
+    </div>
   );
 };
 

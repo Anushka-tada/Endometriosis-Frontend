@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
 const doctors = [
   {
@@ -54,56 +56,56 @@ const doctors = [
     description:
       "Dr. Bagaria, MD, is a highly skilled gynecological surgeon specializing in endometriosis and pelvic pain. Trained at the prestigious Mayo Clinic Arizona, she brings expertise in minimally invasive gynecological surgery and a patient-centered approach to care. With over six years of experience at Mayo Clinic Health System, Dr. Bagaria offers comprehensive treatment tailored to each patient’s unique needs. Passionate about empowering women in their healthcare decisions, she combines clinical excellence with holistic well-being to improve her patients’ quality of life.",
   },
-   {
+  {
     img: "/assets/whyESSI/Dr_Mallory.png",
     name: "Dr. Mallory Stuparich",
     about: "California",
     description:
       "Dr. Mallory Stuparich, MD, specializes in the surgical management of endometriosis and complex benign gynecologic conditions. She believes patients deserve expert, high-quality surgical care, employing a multidisciplinary team when necessary. Dr. Stuparich views the physician-patient relationship as a team: she offers her medical and surgical expertise, and she recognizes that patients are the experts in their own values, goals, and lived experiences. This team-based approach is crucial to optimizing a patient’s clinical outcome. She prioritizes patient education, advocacy, and shared decision-making to ensure individualized care. Dr. Stuparich has also received numerous awards for teaching and surgical innovation, and she has co-authored more than 75 peer-reviewed publications and scientific abstracts. After completing her residency in obstetrics and gynecology at the renowned University of Texas Southwestern Medical Center, she pursued fellowship training in minimally invasive gynecologic surgery at the prestigious Magee-Womens Hospital of the University of Pittsburgh Medical Center. Dr. Stuparich is board-certified by the American Board of Obstetrics and Gynecology, and she is a Fellow of the American College of Obstetrics and Gynecology and the American College of Surgeons. ",
   },
-   {
+  {
     img: "/assets/whyESSI/Dr_Mamta.png",
     name: "Dr. Mamta Mamik",
     about: "New York and New Jersey",
     description:
       "Dr. Mamta Mamik is a dedicated endometriosis specialist based in New York City, known for her expertise in excision surgery and comprehensive patient care. Dr. Mamta Mamik approaches endometriosis treatment with a deep understanding of the embryonic rest theory, coelomic metaplasia, and stem cell theory, providing personalized care tailored to each patient’s needs. She typically recommends oral contraceptives and the Mirena IUD after excision surgery to help prevent recurrence, avoiding GnRH agonists unless specifically requested by the patient. Dr. Mamta Mamik believes in a multi-modality approach to managing persistent pain after surgery, working closely with physical therapists, offering nerve blocks, and considering neuromodulator implants when necessary. Her patient-centered care focuses on improving quality of life through effective pain management and ongoing support. This warm and thorough approach makes Dr. Mamta Mamik a trusted expert for those seeking relief from the symptoms of endometriosis.",
   },
-   {
+  {
     img: "/assets/whyESSI/Dr_Marcello.png",
     name: "Dr. Marcello Ceccaroni",
     about: "Europe | ESSI Mentor",
     description:
       "Prof. Marcello Ceccaroni is an internationally renowned expert in deep endometriosis management, gynecological oncology, and minimally invasive pelvic surgery, currently heading the Department of Obstetrics and Gynecology, Gynecological Oncology, and Minimally Invasive Pelvic Surgery at IRCCS Sacro Cuore – Don Calabria Hospital in Verona, Italy. Known for creating the groundbreaking “Negrar Method”—a nerve-sparing laparoscopic technique for deep endometriosis involving rectal and parametrial resection—he has set new standards in surgical care. As founder and chairman of the International School of Surgical Anatomy (ISSA), Prof. Ceccaroni has trained surgeons from around the world, and he continues to share his expertise as an Adjunct Professor at University Milano-Bicocca, Italy, and as a Recurring Professor at UC San Diego. His extensive research, publications, and international lectures have solidified his reputation as a leader in his field.",
   },
-   {
+  {
     img: "/assets/whyESSI/Dr_Marco.png",
     name: "Dr. Marco Zoccali",
     about: "New York | ESSI Mentor",
     description:
       "Dr. Zoccali is a leading colorectal surgeon specializing in minimally invasive and robotic-assisted surgery for colorectal cancer, inflammatory bowel diseases (IBD), and benign colorectal conditions. As faculty at Columbia University, he is dedicated to advancing surgical innovation and has authored over 50 publications in renowned journals, including The Journal of the American College of Surgeons and The British Journal of Surgery. Dr. Zoccali’s expertise and patient-centered approach ensure exceptional care and improved outcomes for complex colorectal cases.",
   },
-   {
+  {
     img: "/assets/whyESSI/Dr_Mario.png",
     name: "Dr. Mario Malzoni",
     about: "Europe | ESSI Mentor",
     description:
       "Scientific Director and Chief of Advanced Gynecological Endoscopy, National Center for Endometriosis, and MACC (Malzoni Cancer Center) at Malzoni Research Hospital in Avellino, Italy, Dr. Mario Malzoni is recognized worldwide as a leading expert in minimally invasive surgery for severe endometriosis, gynecologic oncology, and advanced pelvic surgery. He is a past-president of SEGi (Italian Society of Gynecological Endoscopy), former member of the AAGL Board of Directors, and serves as the Scientific Advisory Board Member of the Endometriosis Foundation of America. As an Honorary Professor at Moscow’s University Research Center and President of the Endometriosi Osservatory in the Campania Region, he leads the Campania Endometriosis Network and organizes GynItaly’s annual meeting, monthly workshops, and international courses. His pioneering work in surgical techniques for multiorgan endometriosis and oncology is widely published in high-impact journals.",
   },
-   {
+  {
     img: "/assets/whyESSI/Dr_Mauricio.png",
     name: "Dr. Mauricio Abrão",
     about: "Brazil/Latin America | ESSI Mentor",
     description:
       "Dr. Abrão is a global leader in both surgery and research & development within the field of minimally invasive surgical techniques for endometriosis excision. He is also an established medical leader serving as the head of Gynecology at Hospital Beneficência Portuguesa de São Paulo and formerly acted as president of the AAGL (American Association of Gynecologic Laparoscopists). Dr. Abrão’s expertise also extends beyond clinical experience where he has produced well over 100 papers in the field of Endometriosis, and is involved as an editor in several journals.",
   },
-     {
+  {
     img: "/assets/whyESSI/Dr_Osbert.png",
     name: "Dr. Osbert Fernandez",
     about: "Florida",
     description:
       "Dr. Osbert Fernandez, a native Floridian and proud second-generation Cuban-American doctor, is an expert in robotic-assisted surgery for complex endometriosis cases, including bowel invasion, rectal involvement, and frozen pelvis. Known for his compassionate, patient-centered approach, Dr. Fernandez combines cutting-edge techniques with a deep commitment to empowering patients and advancing endometriosis awareness. Dr. Fernandez also specializes in family practice and has been training residents for over a decade on identifying and diagnosing endometriosis in a general practice setting. Dr. Fernandez is also fluent in Spanish.",
   },
-   {
+  {
     img: "/assets/whyESSI/Dr_Sallie.png",
     name: "Dr. Sallie Sarrel",
     about: "Florida",
@@ -111,167 +113,207 @@ const doctors = [
       "Dr. Sallie Sarrel, is a dedicated advocate for individuals with endometriosis, having lived with the condition herself for nearly two decades. She co-founded The Endometriosis Summit, the largest endometriosis-focused conference, which trains patients, practitioners, and surgeons while fostering global education and advocacy. A recognized leader in pelvic pain treatment, Sallie has lectured worldwide and published extensively on the role of the pelvic floor, bladder, and hernias in endometriosis-related pain. Certified as an athletic trainer and licensed as a physical therapist in multiple states, she continues to champion advancements in endometriosis care.",
   },
   {
-    img:"/assets/whyESSI/Dr_Daniel.png",
-    name:"Dr. Daniel Cibulsky",
-    about:"Connecticut",
-    description:"Dr. Daniel Cibulsky is a board-certified OB/GYN specializing in minimally invasive and robotic-assisted surgery. He trained at Stamford Hospital (Columbia University affiliate) and later taught medical students and residents at Columbia and Rutgers. A certified Da Vinci surgeon and ACOG fellow, he also holds a MIGS certification from ABOG. After advanced training with Dr. Andrea Vidali, he joined ESSI in 2025 to focus on expert endometriosis care. Dr. Cibulsky is licensed in NY, NJ, and CT and is currently accepting new patients."
-  }
+    img: "/assets/whyESSI/Dr_Daniel.png",
+    name: "Dr. Daniel Cibulsky",
+    about: "Connecticut",
+    description:
+      "Dr. Daniel Cibulsky is a board-certified OB/GYN specializing in minimally invasive and robotic-assisted surgery. He trained at Stamford Hospital (Columbia University affiliate) and later taught medical students and residents at Columbia and Rutgers. A certified Da Vinci surgeon and ACOG fellow, he also holds a MIGS certification from ABOG. After advanced training with Dr. Andrea Vidali, he joined ESSI in 2025 to focus on expert endometriosis care. Dr. Cibulsky is licensed in NY, NJ, and CT and is currently accepting new patients.",
+  },
 ];
 
 const page = () => {
   return (
-    <>
+    <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
-      <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
+      <div className="pageOuter">
         {/* hero section */}
+
         <div className="container py-sm-5 pb-0 pt-0">
           <div className="row align-items-center">
-            <div className="col-lg-6 col-12 order-lg-1 order-2">
-              <div className="d-flex  justify-content-md-start justify-content-center ">
+            {/* Left Content */}
+            <motion.div
+              className="col-lg-6 col-12 order-lg-1 order-2"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="d-flex justify-content-md-start justify-content-center">
                 <h1 className="tilt tilt-primary text-white mb-sm-5 mb-4 text-md-start text-center">
-                Meet Our Team
-              </h1>
+                  Meet Our Team
+                </h1>
               </div>
 
-              <p className="para mb-4 text-md-start text-center ">
+              <p className="para mb-4 text-md-start text-center">
                 Endometriosis Surgical Specialists International was founded by
-                Dr. Andrea Vidali, a leading excision specialist who has been
-                performing endometriosis surgeries for over 25 years. We united
-                because we are endometriosis experts who share a dedication to
-                providing premium care for a disease that is often misunderstood
-                and underserved by the medical community. Together, our
-                collective skills ensure that you will receive the most
-                comprehensive and professional endometriosis surgery available.
+                Dr. Andrea Vidali, a leading excision specialist...
               </p>
 
               <div className="row">
-                <div className=" col-6 p-2">
-                  <div
-                    className="text-center  py-4 homeCard boxShadow h-100"
-                    style={{ backgroundColor: "#FF79E6" }}
+                {[...Array(4)].map((_, i) => (
+                  <motion.div
+                    className="col-6 p-2"
+                    key={i}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    viewport={{ once: true }}
                   >
-                    <h2 className="mb-0">5000+</h2>
-                    <h5 className="medium-text">Women Treated</h5>
-                  </div>
-                </div>
-
-                <div className=" col-6 p-2 ">
-                  <div
-                    className="text-center   py-4 homeCard boxShadow h-100"
-                    style={{ backgroundColor: "#07E994" }}
-                  >
-                    <h2 className="mb-0">2300+</h2>
-                    <h5 className="medium-text">Testimonials</h5>
-                  </div>
-                </div>
-
-                <div className=" col-6 p-2">
-                  <div
-                    className="text-center  py-4 homeCard boxShadow h-100"
-                    style={{ backgroundColor: "#5F2D8B" }}
-                  >
-                    <h2 className="mb-0">30+</h2>
-                    <h5 className="medium-text">Countries</h5>
-                  </div>
-                </div>
-
-                <div className=" col-6 p-2">
-                  <div
-                    className="text-center  py-4 homeCard boxShadow h-100"
-                    style={{ backgroundColor: "#FFB006" }}
-                  >
-                    <h2 className="mb-0">12K+</h2>
-                    <h5 className="medium-text">Subscriber</h5>
-                  </div>
-                </div>
+                    <div
+                      className={`text-center py-4 homeCard boxShadow h-100`}
+                      style={{
+                        backgroundColor: [
+                          "#FF79E6",
+                          "#07E994",
+                          "#5F2D8B",
+                          "#FFB006",
+                        ][i],
+                      }}
+                    >
+                      <h2 className="mb-0">
+                        {["5000+", "2300+", "30+", "12K+"][i]}
+                      </h2>
+                      <h5 className="medium-text">
+                        {
+                          [
+                            "Women Treated",
+                            "Testimonials",
+                            "Countries",
+                            "Subscriber",
+                          ][i]
+                        }
+                      </h5>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
+            {/* Right Image */}
+            <motion.div
+              className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
               <img
                 src="/assets/ourTeam/herosection.png"
                 className="img-fluid"
-              ></img>
-            </div>
+              />
+            </motion.div>
           </div>
         </div>
 
         {/* doctors section */}
+
         <div className="py-5 bg-white">
-        <div className="container ">
-          {doctors.map((doc, index) => (
-            <div className="" key={index}>
-              {index % 2 === 0 ?
-               <>
-                  <div className="row align-items-center mb-5 mt-2 mt-sm-">
+          <div className="container">
+            {doctors.map((doc, index) => (
+              <motion.div
+                key={index}
+                initial={{
+                  opacity: 0,
+                  x: index % 2 === 0 ? -60 : 60, // Left for even, right for odd
+                }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+              >
+                {index % 2 === 0 ? (
+                  <div className="row align-items-center mb-5 mt-2 mt-sm-4">
                     <div className="col-md-6 col-12 mb-md-3">
-                        <img src={doc.img} alt={doc.name} className="img-fluid"></img>
+                      <img src={doc.img} alt={doc.name} className="img-fluid" />
                     </div>
                     <div className="col-md-6 col-12 mb-md-3">
-                       <p className="doctorName mb-lg-4 mb-1 pb-sm-2">{doc.name}</p>
-                       <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">{doc.about}</p>
-                       <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">{doc.description}</p>
-                        
-                        <div className="d-flex gap-sm-3 gap-1 bookButton p-2" style={{width:"fit-content"}}>
-                            <img
-                              src="/assets/button_icon_1.svg"
-                              style={{ width: "16px" }}
-                            ></img>
-                            <p
-                              className="mb-0 text-white"
-                              style={{ whiteSpace: "nowrap" }}
-                            >
-                              Book Appointment
-                            </p>
-                            <img
-                              src="/assets/white_arrow.svg"
-                              style={{ width: "15px" }}
-                            ></img>
-                          </div>
+                      <p className="doctorName mb-lg-4 mb-1 pb-sm-2">
+                        {doc.name}
+                      </p>
+                      <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">
+                        {doc.about}
+                      </p>
+                      <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">
+                        {doc.description}
+                      </p>
 
+                      <div
+                        className="d-flex gap-sm-3 gap-1 bookButton p-2"
+                        style={{ width: "fit-content" }}
+                      >
+                        <img
+                          src="/assets/button_icon_1.svg"
+                          style={{ width: "16px" }}
+                        />
+                        <p
+                          className="mb-0 text-white"
+                          style={{ whiteSpace: "nowrap" }}
+                        >
+                          Book Appointment
+                        </p>
+                        <img
+                          src="/assets/white_arrow.svg"
+                          style={{ width: "15px" }}
+                        />
+                      </div>
                     </div>
                   </div>
-              </>
-               :
-               <>
+                ) : (
                   <div className="row align-items-center mb-5 mt-2 mt-sm-5">
                     <div className="col-md-6 col-12 order-md-1 order-2 mb-md-3">
-                         <p className="doctorName mb-lg-4 mb-1 pb-sm-2">{doc.name}</p>
-                       <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">{doc.about}</p>
-                       <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">{doc.description}</p>
+                      <p className="doctorName mb-lg-4 mb-1 pb-sm-2">
+                        {doc.name}
+                      </p>
+                      <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">
+                        {doc.about}
+                      </p>
+                      <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">
+                        {doc.description}
+                      </p>
 
-                        <div className="d-flex gap-sm-3 gap-1 bookButton p-2" style={{width:"fit-content"}}>
-                            <img
-                              src="/assets/button_icon_1.svg"
-                              style={{ width: "16px" }}
-                            ></img>
-                            <p
-                              className="mb-0 text-white"
-                              style={{ whiteSpace: "nowrap" }}
-                            >
-                              Book Appointment
-                            </p>
-                            <img
-                              src="/assets/white_arrow.svg"
-                              style={{ width: "15px" }}
-                            ></img>
-                          </div>
-
+                      <a
+                        href="/appointment-form"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <div
+                          className="d-flex gap-sm-3 gap-1 bookButton p-2"
+                          style={{ width: "fit-content" }}
+                        >
+                          <img
+                            src="/assets/button_icon_1.svg"
+                            style={{ width: "16px" }}
+                          />
+                          <p
+                            className="mb-0 text-white"
+                            style={{ whiteSpace: "nowrap" }}
+                          >
+                            Book Appointment
+                          </p>
+                          <img
+                            src="/assets/white_arrow.svg"
+                            style={{ width: "15px" }}
+                          />
+                        </div>
+                      </a>
                     </div>
                     <div className="col-md-6 col-12 order-md-2 order-1 mb-md-3">
-                        <img src={doc.img} alt={doc.name} style={{borderRadius:"25px"}} className="img-fluid"></img>
+                      <img
+                        src={doc.img}
+                        alt={doc.name}
+                        className="img-fluid"
+                        style={{ borderRadius: "25px" }}
+                      />
                     </div>
                   </div>
-               </>}
-            </div>
-          ))}
-        </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

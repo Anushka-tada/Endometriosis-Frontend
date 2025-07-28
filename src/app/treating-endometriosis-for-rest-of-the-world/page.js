@@ -68,7 +68,7 @@ const page = () => {
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
-      <div>
+      <div className="pageOuter" >
         {/* herosection */}
         <div className="container py-5 mb-sm-5">
           <div className="row align-items-center">
@@ -82,7 +82,8 @@ const page = () => {
                 from our world-class medical team
               </p>
 
-              <div
+               <a href="/appointment-form" style={{textDecoration:"none"}}>
+               <div
                 className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
                 style={{ width: "fit-content" }}
               >
@@ -94,6 +95,7 @@ const page = () => {
                   style={{ width: "15px" }}
                 ></img>
               </div>
+             </a>
             </div>
 
             <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
@@ -150,21 +152,20 @@ const page = () => {
                   immediate accesses so specialized care.
                 </p>
 
-                <div
-                  className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3 mb-ms-0 mb-3"
-                  style={{ width: "fit-content" }}
-                >
-                  <p
-                    className="mb-0 text-white"
-                    style={{ whiteSpace: "nowrap" }}
-                  >
-                    Book Appointment
-                  </p>
-                  <img
-                    src="/assets/white_arrow.svg"
-                    style={{ width: "15px" }}
-                  ></img>
-                </div>
+                <a href="/appointment-form" style={{textDecoration:"none"}}>
+               <div
+                className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
+                style={{ width: "fit-content" }}
+              >
+                <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+                  Book Appointment
+                </p>
+                <img
+                  src="/assets/white_arrow.svg"
+                  style={{ width: "15px" }}
+                ></img>
+              </div>
+             </a>
               </div>
 
               <div className="col-md-6 col-12">

@@ -121,7 +121,7 @@ const Page = () => {
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
-      <div>
+      <div className="pageOuter">
         {/* Hero Section */}
         <div className="container pb-5 pt-4 my-md-5">
           <div className="row justify-content-between">

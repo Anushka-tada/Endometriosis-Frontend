@@ -6,7 +6,8 @@ const page = () => {
   return (
      <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
         <Navbar/>
-
+         
+         <div className='pageOuter'>
              {/* herosection */}
         <div className="container mb-sm-5">
           <div className="row align-items-center">
@@ -29,9 +30,7 @@ const page = () => {
           </div>
         </div>
 
-
          {/* What is Adolescent Endometriosis? */}
-
           <div className="bg-white py-5 ">
         <div className="container">
           {/* <h2 className="mb-3">The ESSI Approach to</h2> */}
@@ -59,14 +58,14 @@ const page = () => {
          </div>
          
          {/* doctors section */}
-
          <div className='container py-5'>
            <div className='row justify-content-center align-items-center mb-5'>
              <div className='col-lg-6 col-12 d-flex flex-column align-items-center'>
                 <img src="/assets/whyESSI/Dr_Mallory.png" className='img-fluid dr_image' ></img>
                 <p className='medium-text text-center'>Dr. Mallory Stuparich, MD | ESSI California</p>
-
-                    <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2" style={{width:"fit-content"}}>
+ 
+                      <a href='/appointment-form' style={{textDecoration:"none"}}>
+                        <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2" style={{width:"fit-content"}}>
                   <p
                     className="mb-0 text-white"
                     style={{ whiteSpace: "nowrap" }}
@@ -78,6 +77,7 @@ const page = () => {
                     style={{ width: "15px" }}
                   />
                 </div>
+                      </a>
              </div>
 
              <div className='col-lg-6 col-12'>
@@ -161,6 +161,7 @@ const page = () => {
                 <img src="/assets/whyESSI/Dr_Madhu.png" className='img-fluid dr_image'></img>
                 <p className='medium-text text-center'>Dr. Madhu Bagaria, MD | ESSI New York <br/> and New Jersey</p>
 
+                     <a href='/appointment-form' style={{textDecoration:"none"}}>
                     <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2" style={{width:"fit-content"}}>
                   <p
                     className="mb-0 text-white"
@@ -173,12 +174,12 @@ const page = () => {
                     style={{ width: "15px" }}
                   />
                 </div>
+                </a>
              </div>
            </div>
          </div>
 
          {/* Diagnosing Adolescent Endometriosis */}
-
           <div className="bg-white py-5 ">
             <div className='container'>
              
@@ -207,7 +208,6 @@ const page = () => {
           </div>
 
           {/* last section */}
-
           <div className='container py-5'>
              <div className='row mb-sm-5'>
                  <div className='col-md-6 col-12'>
@@ -222,16 +222,19 @@ const page = () => {
 
                    <p className='small-bold'>Ready to talk about your options?</p>
                     
-                     <div className="d-flex gap-3  viewButton p-2 px-3" style={{width:"fit-content"}}>
+                     <a href='/appointment-form' style={{textDecoration:"none"}}>
+                      <div className="d-flex gap-3  viewButton p-2 px-3" style={{width:"fit-content"}}>
                       <p className="mb-0  textPrimary">Request a Consultation Today</p>
                       <img
                         src="/assets/primary_arrow.svg"
                         style={{ width: "15px" }}
                       ></img>
                     </div>
+                     </a>
               </div>
               
              </div>
+          </div>
           </div>
        
         <Footer/>

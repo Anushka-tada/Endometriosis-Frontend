@@ -60,7 +60,7 @@ const page = () => {
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
-      <div>
+      <div className="pageOuter" >
         
         {/* herosection */}
       <div className="container py-5 mb-sm-5">
@@ -73,18 +73,20 @@ const page = () => {
              We provide specialized treatment packages for Canadian patients to fly to the United States and receive personalized endometriosis care
             </p>
 
-              <div className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3" style={{width:"fit-content"}}>
-                  <p
-                    className="mb-0 text-white"
-                    style={{ whiteSpace: "nowrap" }}
-                  >
+               <a href="/appointment-form" style={{textDecoration:"none"}}>
+               <div
+                className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
+                style={{ width: "fit-content" }}
+              >
+                <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
                   Book Appointment
-                  </p>
-                  <img
-                    src="/assets/white_arrow.svg"
-                    style={{ width: "15px" }}
-                  ></img>
-                </div>
+                </p>
+                <img
+                  src="/assets/white_arrow.svg"
+                  style={{ width: "15px" }}
+                ></img>
+              </div>
+             </a>
           </div>
 
           <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">

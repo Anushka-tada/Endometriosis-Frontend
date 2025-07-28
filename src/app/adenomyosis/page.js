@@ -43,6 +43,7 @@ const page = () => {
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
+    <div className="pageOuter">
       {/* herosection */}
       <div className="container py-sm-5 py-0 mb-sm-5">
         <div className="row align-items-center">
@@ -271,16 +272,15 @@ const page = () => {
                 uterine preservation.
               </p>
 
-              <div
-                className="d-flex gap-3  bookButton p-2 px-3 mb-3 mb-md-0"
-                style={{ width: "fit-content" }}
-              >
+              <a href="/appointment-form" style={{textDecoration:"none"}}>
+                <div className="d-flex gap-3  bookButton p-2 px-3 mb-3 mb-md-0" style={{ width: "fit-content" }} >
                 <p className="mb-0  text-white">Register for a Consultation</p>
                 <img
                   src="/assets/white_arrow.svg"
                   style={{ width: "15px" }}
                 ></img>
               </div>
+              </a>
             </div>
 
             <div className="col-md-6 col-12 p-md-5">
@@ -292,6 +292,7 @@ const page = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <Footer />

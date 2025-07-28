@@ -1027,3 +1027,7 @@ background: #8E44AD;
   background-color: var(--primary-light);
   border-radius: 5px;
 }
+
+.pageOuter{
+  padding-top: 90px;
+}

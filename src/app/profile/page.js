@@ -7,7 +7,7 @@ const page = () => {
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
-      <div className="profile-page">
+      <div className="profile-page pageOuter">
         <div className="container py-4 ">
           <ProfileSidebar />
 

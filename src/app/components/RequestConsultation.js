@@ -1,4 +1,6 @@
+"use client"
 import React from 'react'
+import { motion } from "framer-motion";
 
 const RequestConsultation = () => {
   return (
@@ -161,9 +163,13 @@ const RequestConsultation = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6 col-12 ">
+              <motion.div className="col-lg-6 col-12 "
+                initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}>
                 <img src="/assets/homepage/Request_Consultation.png" className='img-fluid d-lg-block d-none'></img>
-              </div>
+              </motion.div>
             </div>
 
 

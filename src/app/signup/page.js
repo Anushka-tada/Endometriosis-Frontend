@@ -18,7 +18,7 @@ const page = () => {
     <>
       <Navbar />
 
-      <div className="login-page">
+      <div className="login-page pageOuter">
         <div className="container py-5">
           <div className="row justify-content-center">
             <div className="col-lg-5 col-md-7 col-sm-10 col-12">
