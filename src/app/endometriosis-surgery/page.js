@@ -9,7 +9,7 @@ const page = () => {
     <div div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
-      {/* herosection */}
+      
       <div className="pageOuter" >
         {/* herosection */}
       <div className="container py-5">
@@ -17,9 +17,8 @@ const page = () => {
     <motion.div
       className="col-lg-6 col-12 order-lg-1 order-2"
       initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
     >
       <h1 className="mb-4">Treating Endometriosis</h1>
 
@@ -56,9 +55,8 @@ const page = () => {
     <motion.div
       className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
       initial={{ opacity: 0, x: 30 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
     >
       <img
         src="/assets/E_surgery/herosection.png"
@@ -67,7 +65,8 @@ const page = () => {
       />
     </motion.div>
   </div>
-     </div>  
+</div>
+
 
       {/* the essi approach */}
    <div className="bg-white py-5">

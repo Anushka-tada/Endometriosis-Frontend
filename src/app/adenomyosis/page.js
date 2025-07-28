@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
 const options = [
   {
@@ -45,38 +47,47 @@ const page = () => {
 
     <div className="pageOuter">
       {/* herosection */}
-      <div className="container py-sm-5 py-0 mb-sm-5">
-        <div className="row align-items-center">
-          <div className="col-lg-6 col-12 order-lg-1 order-2">
-            <h1 className="mb-4">
-              The Adenomyosis <br /> Center at ESSI
-            </h1>
-            <p className="small-medium ">
-              The Adenomyosis Center at ESSI is the world’s first international
-              hub fully dedicated to the diagnosis and treatment of adenomyosis,
-              offering advanced, uterus-preserving solutions tailored to each
-              individual.
-            </p>
+        <div className="container py-sm-5 py-0 mb-sm-5">
+      <div className="row align-items-center">
+        {/* Text Column */}
+        <motion.div
+          className="col-lg-6 col-12 order-lg-1 order-2"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="mb-4">
+            The Adenomyosis <br /> Center at ESSI
+          </h1>
+          <p className="small-medium ">
+            The Adenomyosis Center at ESSI is the world’s first international
+            hub fully dedicated to the diagnosis and treatment of adenomyosis,
+            offering advanced, uterus-preserving solutions tailored to each
+            individual.
+          </p>
 
-            <p className="small-medium mb-md-5">
-              With flagship centers in New York and Europe, and California
-              opening soon, we are proud to deliver truly global care grounded
-              in surgical precision, fertility expertise, and compassionate
-              support. Whether you’re struggling with heavy periods, severe
-              pelvic pain, or challenges with fertility — you do not have to
-              choose between relief and your uterus.
-            </p>
-          </div>
+          <p className="small-medium mb-md-5">
+            With flagship centers in New York and Europe, and California
+            opening soon, we are proud to deliver truly global care grounded
+            in surgical precision, fertility expertise, and compassionate
+            support...
+          </p>
+        </motion.div>
 
-          <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
-            <img
-              src="https://internationalendo.com/wp-content/uploads/2025/04/adeno-2048x1536.png"
-              className="img-fluid"
-            ></img>
-          </div>
-        </div>
+        {/* Image Column */}
+        <motion.div
+          className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <img
+            src="https://internationalendo.com/wp-content/uploads/2025/04/adeno-2048x1536.png"
+            className="img-fluid"
+          />
+        </motion.div>
       </div>
-
+    </div>
       {/* what is adenomyosis */}
 
       <div className="bg-white py-5">

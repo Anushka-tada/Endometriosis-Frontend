@@ -12,23 +12,24 @@ const page = () => {
 
     <div  className="pageOuter">
 
+
+      {/* herosection */}
+
       <div className="container pb-sm-5 pb-0">
   <div className="row pb-5 align-items-center">
-    
+
     {/* Left Column */}
     <motion.div
       className="col-lg-6 col-12 pt-lg-5 pt-0 mt-3 pe-lg-5 order-lg-1 order-2"
       initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
     >
       <motion.h1
         className="mb-4"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        viewport={{ once: true }}
       >
         Book Your Appointment for Expert Care
       </motion.h1>
@@ -36,9 +37,8 @@ const page = () => {
       <motion.p
         className="medium-text mb-4 pb-2 me-lg-5"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
       >
         Get personalized guidance and fast-track medical consultation with our specialists.
       </motion.p>
@@ -48,9 +48,8 @@ const page = () => {
     <motion.div
       className="col-lg-6 col-12 mb-sm-3 d-flex justify-content-center order-lg-2 order-1"
       initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
     >
       <img
         src="/assets/appointement.png"
@@ -60,6 +59,7 @@ const page = () => {
     </motion.div>
   </div>
 </div>
+
 
       <div className='container'>
         <h1 className='text-center mb-4'>Book {" "}<span className='tilt tilt-secondary'>Appointment</span> Seamlessly</h1>

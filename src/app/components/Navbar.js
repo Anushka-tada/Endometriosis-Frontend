@@ -97,32 +97,6 @@ const closeOffcanvas = () => {
   }
 };
 
-//  close toggle
-
-useEffect(() => {
-  const handleClickOutside = (event) => {
-    const dropdowns = document.querySelectorAll(".nav-dropdown");
-
-    let clickedInside = false;
-
-    dropdowns.forEach((dropdown) => {
-      if (dropdown.contains(event.target)) {
-        clickedInside = true;
-      }
-    });
-
-    if (!clickedInside) {
-      setActiveDropdown(null);
-    }
-  };
-
-  document.addEventListener("mousedown", handleClickOutside);
-
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, []);
-
 
   return (
     
@@ -132,7 +106,7 @@ useEffect(() => {
           <a href="/"><img src="/assets/logo.png" alt="logo" className="logo-img" /></a>
         </div>
         <ul
-          className="nav-links list-unstyled mb-0 d-none d-lg-flex gap-3  "
+          className="nav-links list-unstyled mb-0 d-none d-lg-flex gap-3 "
           style={{
             border: "2px solid rgba(186, 185, 185, 0.50)",
             borderRadius: "10px",
@@ -156,7 +130,7 @@ useEffect(() => {
               {/* Submenu dropdown */}
               {v.subItems && activeDropdown === i && (
                 <ul
-                  className="position-absolute  shadow p-3 rounded nav-dropdown"
+                  className="position-absolute  shadow p-3 rounded"
                   style={{
                     top: "100%",
                     left: -13,

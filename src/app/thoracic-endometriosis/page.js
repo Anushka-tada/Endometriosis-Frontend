@@ -13,22 +13,20 @@ const page = () => {
         {/* herosection */}
   
 
-     <div className="container py-sm-5 py-0 mb-5">
+    <div className="container py-sm-5 py-0 mb-5">
   <div className="row align-items-center">
     {/* Left Content with Animation */}
     <motion.div
       className="col-lg-6 col-12 order-lg-1 order-2"
       initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
     >
       <motion.h1
         className="mb-4"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        viewport={{ once: true }}
       >
         Thoracic and Diaphragmatic Endometriosis
       </motion.h1>
@@ -36,9 +34,8 @@ const page = () => {
       <motion.p
         className="medium-text mb-5"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
       >
         Endometriosis is typically linked to painful periods and other
         gynecological symptoms. Still, for a subset of patients,
@@ -58,10 +55,7 @@ const page = () => {
             style={{ width: "16px" }}
             alt="icon"
           />
-          <p
-            className="mb-0 text-white"
-            style={{ whiteSpace: "nowrap" }}
-          >
+          <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
             Request Surgery
           </p>
           <img
@@ -77,9 +71,8 @@ const page = () => {
     <motion.div
       className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
       initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
     >
       <img
         src="https://internationalendo.com/wp-content/uploads/2025/06/Lungs_single_line_with_word-Converted.png"
@@ -88,7 +81,8 @@ const page = () => {
       />
     </motion.div>
   </div>
-     </div>
+</div>
+
 
       {/* the essi approach */}
     <div className="bg-white py-5">
@@ -157,9 +151,7 @@ const page = () => {
 
       {/* What is Diaphragmatic Endometriosis? */}
 
-    
-
-<div className="container py-5">
+    <div className="container py-5">
   <div className="row">
     <motion.div
       className="col-md-5 col-12"
@@ -208,7 +200,7 @@ const page = () => {
       </motion.p>
     </motion.div>
   </div>
-</div>
+    </div>
 
 
       {/* Symptoms of Thoracic Endometriosis section */}
@@ -341,7 +333,7 @@ const page = () => {
       </motion.div>
     </div>
   </div>
-</div>
+    </div>
 
       {/* two cards sections */}
 
