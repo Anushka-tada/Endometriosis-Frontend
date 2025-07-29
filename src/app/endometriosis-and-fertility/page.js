@@ -16,27 +16,26 @@ const page = () => {
             {/* Left Content */}
             <motion.div
               className="col-lg-6 col-12 order-lg-1 order-2"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
+             initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
             >
               <motion.h1
                 className="mb-4"
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
+              
               >
                 Endometriosis and Infertility
               </motion.h1>
 
               <motion.p
                 className="medium-text mb-5"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+               initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
+               
               >
                 Compelling research estimates that up to 50% of women who
                 experience infertility, suffer from endometriosis. Multiple
@@ -53,7 +52,6 @@ const page = () => {
                 <motion.div
                   className="d-flex gap-sm-3 gap-1 bookButton p-2"
                   style={{ width: "fit-content" }}
-                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
                   <img
@@ -79,10 +77,9 @@ const page = () => {
             {/* Right Image */}
             <motion.div
               className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+             initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
             >
               <img
                 src="https://internationalendo.com/wp-content/uploads/2025/01/Group-35553.png"
@@ -217,65 +214,80 @@ const page = () => {
         </div>
 
         {/* Treating Infertility with Endometriosis Surgery */}
-     <div className="container my-5">
-     <div className="row align-items-center">
-      <motion.div
-      className="col-lg-6 col-12"
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      >
-      <motion.h1
-        className="mb-4"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        viewport={{ once: true }}
-      >
-        Treating{" "}
-        <span className="tilt tilt-primary text-white">Infertility</span>{" "}
-        with Endometriosis Surgery
-      </motion.h1>
 
-      <motion.p
-        className="para"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
-        A recent Medical Review found that in a pooled group of 635 women diagnosed with endometriosis-related infertility, 337 (53%) achieved pregnancy after endometriosis surgery. A successful excision surgery will remove all of the abnormal tissue, which helps resolve symptoms and inflammation. Since most of the proposed ways that endometriosis causes infertility stem from mechanical and inflammatory pathways, it is logical that surgery can help improve fertility.
-      </motion.p>
+        <div className="container my-5">
+          <div className="row align-items-center">
+            <motion.div
+              className="col-lg-6 col-12"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <motion.h1
+                className="mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                Treating{" "}
+                <span className="tilt tilt-primary text-white">
+                  Infertility
+                </span>{" "}
+                with Endometriosis Surgery
+              </motion.h1>
 
-      <motion.p
-        className="para"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        viewport={{ once: true }}
-      >
-        If your main goal for getting endometriosis surgery is to have a baby, it is important to work with the right surgeon who shares this goal with you. Endometriosis surgery can be paired with other treatments and assisted reproductive technology to maximize your chances of getting pregnant. Our group includes endometriosis surgeons who are also fertility specialists – so that you can get the help you need from a single source.
-      </motion.p>
-    </motion.div>
+              <motion.p
+                className="para"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                A recent Medical Review found that in a pooled group of 635
+                women diagnosed with endometriosis-related infertility, 337
+                (53%) achieved pregnancy after endometriosis surgery. A
+                successful excision surgery will remove all of the abnormal
+                tissue, which helps resolve symptoms and inflammation. Since
+                most of the proposed ways that endometriosis causes infertility
+                stem from mechanical and inflammatory pathways, it is logical
+                that surgery can help improve fertility.
+              </motion.p>
 
-    <motion.div
-      className="col-lg-6 col-12 p-md-5"
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      viewport={{ once: true }}
-    >
-      <img
-        src="https://internationalendo.com/wp-content/uploads/2025/01/a62419a3eef5ff522f71cf324454a302-1-1024x683.jpg"
-        className="img-fluid"
-        style={{ borderRadius: "0" }} // removed as per your note
-        alt="Endometriosis Surgery"
-      />
-    </motion.div>
-  </div>
-</div>
+              <motion.p
+                className="para"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                If your main goal for getting endometriosis surgery is to have a
+                baby, it is important to work with the right surgeon who shares
+                this goal with you. Endometriosis surgery can be paired with
+                other treatments and assisted reproductive technology to
+                maximize your chances of getting pregnant. Our group includes
+                endometriosis surgeons who are also fertility specialists – so
+                that you can get the help you need from a single source.
+              </motion.p>
+            </motion.div>
 
+            <motion.div
+              className="col-lg-6 col-12 p-md-5"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <img
+                src="https://internationalendo.com/wp-content/uploads/2025/01/a62419a3eef5ff522f71cf324454a302-1-1024x683.jpg"
+                className="img-fluid"
+                style={{ borderRadius: "0" }} // removed as per your note
+                alt="Endometriosis Surgery"
+              />
+            </motion.div>
+          </div>
+        </div>
 
         <div className="location_herosection py-sm-5 py-4">
           <div className="container my-4">

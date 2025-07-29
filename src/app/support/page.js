@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { motion , AnimatePresence } from "framer-motion";
 
 const questions = [
   {
@@ -125,27 +126,46 @@ const Page = () => {
         {/* Hero Section */}
         <div className="container pb-5 pt-4 my-md-5">
           <div className="row justify-content-between">
-            <div className="col-lg-4 col-md-6 col-12 d-flex flex-column align-items-md-start align-items-center">
+            {/* Left Side */}
+            <motion.div
+              className="col-lg-4 col-md-6 col-12 d-flex flex-column align-items-md-start align-items-center"
+              initial={{ x: -50, opacity: 0 }}
+             animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
               <img
                 src="https://media1-production-mightynetworks.imgix.net/asset/ededa788-10ee-49c3-b205-fc3d56ad5347/Logo_Full-03.jpg?ixlib=rails-4.2.0&fm=jpg&q=100&auto=format&w=256&h=256&fit=crop&crop=faces&impolicy=Avatar"
                 className="img-fluid"
                 style={{ width: "40%" }}
                 alt="ESSI Logo"
               />
-              <h1 className="text-md-start text-center">Welcome to ESSI Peer Support</h1>
-              <p  className="text-md-start text-center">You don’t have to go through endometriosis alone.</p>
+              <h1 className="text-md-start text-center">
+                Welcome to ESSI Peer Support
+              </h1>
+              <p className="text-md-start text-center">
+                You don’t have to go through endometriosis alone.
+              </p>
 
-              <div
+              <motion.div
                 className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3 mb-3"
-                style={{ width: "fit-content" }}
+                style={{ width: "fit-content", cursor: "pointer" }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
                   Join Now
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="col-md-6 col-12   pt-sm-5 pt-3">
+            {/* Right Side - Accordion */}
+            <motion.div
+              className="col-md-6 col-12 pt-sm-5 pt-3"
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+           
+            >
               {questions.map((question, index) => (
                 <div
                   key={index}
@@ -155,9 +175,7 @@ const Page = () => {
                 >
                   <div
                     className="d-flex justify-content-between align-items-center py-4"
-                    style={{
-                      cursor: "pointer",
-                    }}
+                    style={{ cursor: "pointer" }}
                     onClick={() => toggleAnswer(index)}
                   >
                     <p className="medium-text mb-0">{question.que}</p>
@@ -179,114 +197,154 @@ const Page = () => {
                     />
                   </div>
 
-                  {/* {activeIndex === index && ( */}
-                  <div
-                    className={`answer-wrapper ${
-                      activeIndex == index ? "open" : ""
-                    }`}
-                  >
-                    <div className="py-3 answer-inner">
-                      {(question.ans || []).map((block, i) => {
-                        if (block.type === "p") {
-                          return (
-                            <p key={i} className="para">
-                              {block.content}
-                            </p>
-                          );
-                        }
-                        if (block.type === "ul") {
-                          return (
-                            <ul key={i}>
-                              {block.items.map((item, j) => (
-                                <li key={j} className="para mb-3">
-                                  <span
-                                    className=" text-black"
-                                    style={{ fontWeight: "600" }}
-                                  >
-                                    {item.label}
-                                  </span>{" "}
-                                  {item.text}
-                                </li>
-                              ))}
-                            </ul>
-                          );
-                        }
-                        return null;
-                      })}
-                    </div>
-                  </div>
-                  {/* )} */}
+                  <AnimatePresence initial={false}>
+                    {activeIndex === index && (
+                      <motion.div
+                        className="answer-wrapper open"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="py-3 answer-inner">
+                          {(question.ans || []).map((block, i) => {
+                            if (block.type === "p") {
+                              return (
+                                <p key={i} className="para">
+                                  {block.content}
+                                </p>
+                              );
+                            }
+                            if (block.type === "ul") {
+                              return (
+                                <ul key={i}>
+                                  {block.items.map((item, j) => (
+                                    <li key={j} className="para mb-3">
+                                      <span
+                                        className="text-black"
+                                        style={{ fontWeight: "600" }}
+                                      >
+                                        {item.label}
+                                      </span>{" "}
+                                      {item.text}
+                                    </li>
+                                  ))}
+                                </ul>
+                              );
+                            }
+                            return null;
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
 
-
-         {/* conact us */}
-       <div className="bg-white pb-5 pt-4">
-           <div className="container  my-md-5">
-          <div className="row justify-content-between">
-            <div className="col-lg-4 col-md-6 col-12 d-flex flex-column align-items-md-start align-items-center">
-              <img
-                src="https://blastup.com/img/icons/paper-plane.svg"
-                className="img-fluid"
-                style={{ width: "40%" }}
-                alt="ESSI Logo"
-              />
-              <h1 className="text-md-start text-center">Don't hesitate to contact us</h1>
-              <p  className="text-md-start text-center">Shoot us a message with whatever concerns you might have and we'll get back to you as quickly as possible.</p>
-
-              <div
-                className="d-flex gap-sm-3 gap-1 p-2 px-3 mb-3 border"
-                style={{ width: "fit-content" , borderRadius:"10px"}}
+        {/* conact us */}
+        <div className="bg-white pb-5 pt-4">
+          <motion.div
+            className="container my-md-5"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="row justify-content-between">
+              {/* Left Section */}
+              <motion.div
+                className="col-lg-4 col-md-6 col-12 d-flex flex-column align-items-md-start align-items-center"
+                initial={{ x: -50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
               >
-                <img src="https://blastup.com/img/icons/clock.svg" style={{height:"48px" }}></img>
-                <div>
-                  <p className="mb-0 small-medium" style={{ whiteSpace: "nowrap" }}>Current response time </p>
-                  <p className="para mb-0">Within 20 minutes</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-12  pt-sm-5 pt-3">
-              <div className="div">
-                     <label className="para mb-md-3 mb-2">Full name</label>
-                      <input
-                        className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
-                        type="text"
-                        placeholder="Enter your name "
-                      ></input>
-
-                       <label className="para mb-md-3 mb-2">Email address</label>
-                      <input
-                        className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
-                        type="text"
-                        placeholder="Enter your email address "
-                      ></input>
-
-                       <label className="para mb-md-3 mb-2">Message</label>
-                       <textarea
-                        className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
-                        type="text"
-                        rows={3}
-                        placeholder="Enter Your message"
-                      />
-              </div>
+                <img
+                  src="https://blastup.com/img/icons/paper-plane.svg"
+                  className="img-fluid"
+                  style={{ width: "40%" }}
+                  alt="ESSI Logo"
+                />
+                <h1 className="text-md-start text-center">
+                  Don't hesitate to contact us
+                </h1>
+                <p className="text-md-start text-center">
+                  Shoot us a message with whatever concerns you might have and
+                  we'll get back to you as quickly as possible.
+                </p>
 
                 <div
-                className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3 mb-3"
-                style={{ width: "fit-content" }}
+                  className="d-flex gap-sm-3 gap-1 p-2 px-3 mb-3 border"
+                  style={{ width: "fit-content", borderRadius: "10px" }}
+                >
+                  <img
+                    src="https://blastup.com/img/icons/clock.svg"
+                    style={{ height: "48px" }}
+                    alt="clock"
+                  />
+                  <div>
+                    <p
+                      className="mb-0 small-medium"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      Current response time
+                    </p>
+                    <p className="para mb-0">Within 20 minutes</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Right Section - Form */}
+              <motion.div
+                className="col-md-6 col-12 pt-sm-5 pt-3"
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
               >
-                <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
-                  Send Message
-                </p>
-              </div>
+                <div className="div">
+                  <label className="para mb-md-3 mb-2">Full name</label>
+                  <input
+                    className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
+                    type="text"
+                    placeholder="Enter your name "
+                  />
+
+                  <label className="para mb-md-3 mb-2">Email address</label>
+                  <input
+                    className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
+                    type="text"
+                    placeholder="Enter your email address "
+                  />
+
+                  <label className="para mb-md-3 mb-2">Message</label>
+                  <textarea
+                    className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
+                    rows={3}
+                    placeholder="Enter Your message"
+                  />
+                </div>
+
+                {/* Button with hover effect */}
+                <motion.div
+                  className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3 mb-3"
+                  style={{ width: "fit-content", cursor: "pointer" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <p
+                    className="mb-0 text-white"
+                    style={{ whiteSpace: "nowrap" }}
+                  >
+                    Send Message
+                  </p>
+                </motion.div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
-       </div>
-        
 
         {/* other ways */}
 

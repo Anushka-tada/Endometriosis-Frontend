@@ -134,10 +134,9 @@ const page = () => {
             {/* Left Content */}
             <motion.div
               className="col-lg-6 col-12 order-lg-1 order-2"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+                 initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
             >
               <div className="d-flex justify-content-md-start justify-content-center">
                 <h1 className="tilt tilt-primary text-white mb-sm-5 mb-4 text-md-start text-center">
@@ -156,9 +155,8 @@ const page = () => {
                     className="col-6 p-2"
                     key={i}
                     initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    viewport={{ once: true }}
+                   animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.9, delay: i * 0.2 }}
                   >
                     <div
                       className={`text-center py-4 homeCard boxShadow h-100`}
@@ -194,9 +192,9 @@ const page = () => {
             <motion.div
               className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
               initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+            
             >
               <img
                 src="/assets/ourTeam/herosection.png"
@@ -209,107 +207,76 @@ const page = () => {
         {/* doctors section */}
 
         <div className="py-5 bg-white">
-          <div className="container">
-            {doctors.map((doc, index) => (
-              <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? -60 : 60, // Left for even, right for odd
-                }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true }}
-              >
-                {index % 2 === 0 ? (
-                  <div className="row align-items-center mb-5 mt-2 mt-sm-4">
-                    <div className="col-md-6 col-12 mb-md-3">
-                      <img src={doc.img} alt={doc.name} className="img-fluid" />
-                    </div>
-                    <div className="col-md-6 col-12 mb-md-3">
-                      <p className="doctorName mb-lg-4 mb-1 pb-sm-2">
-                        {doc.name}
-                      </p>
-                      <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">
-                        {doc.about}
-                      </p>
-                      <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">
-                        {doc.description}
-                      </p>
+  <div className="container">
+    {doctors.map((doc, index) => {
+      const fromX = index % 2 === 0 ? -100 : 100;
 
-                      <div
-                        className="d-flex gap-sm-3 gap-1 bookButton p-2"
-                        style={{ width: "fit-content" }}
-                      >
-                        <img
-                          src="/assets/button_icon_1.svg"
-                          style={{ width: "16px" }}
-                        />
-                        <p
-                          className="mb-0 text-white"
-                          style={{ whiteSpace: "nowrap" }}
-                        >
-                          Book Appointment
-                        </p>
-                        <img
-                          src="/assets/white_arrow.svg"
-                          style={{ width: "15px" }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="row align-items-center mb-5 mt-2 mt-sm-5">
-                    <div className="col-md-6 col-12 order-md-1 order-2 mb-md-3">
-                      <p className="doctorName mb-lg-4 mb-1 pb-sm-2">
-                        {doc.name}
-                      </p>
-                      <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">
-                        {doc.about}
-                      </p>
-                      <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">
-                        {doc.description}
-                      </p>
+      return (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: fromX, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay:  0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {index % 2 === 0 ? (
+            <div className="row align-items-center mb-5 mt-2 mt-sm-4">
+              <div className="col-md-6 col-12 mb-md-3">
+                <img src={doc.img} alt={doc.name} className="img-fluid" />
+              </div>
+              <div className="col-md-6 col-12 mb-md-3">
+                <p className="doctorName mb-lg-4 mb-1 pb-sm-2">{doc.name}</p>
+                <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">{doc.about}</p>
+                <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">{doc.description}</p>
 
-                      <a
-                        href="/appointment-form"
-                        style={{ textDecoration: "none" }}
-                      >
-                        <div
-                          className="d-flex gap-sm-3 gap-1 bookButton p-2"
-                          style={{ width: "fit-content" }}
-                        >
-                          <img
-                            src="/assets/button_icon_1.svg"
-                            style={{ width: "16px" }}
-                          />
-                          <p
-                            className="mb-0 text-white"
-                            style={{ whiteSpace: "nowrap" }}
-                          >
-                            Book Appointment
-                          </p>
-                          <img
-                            src="/assets/white_arrow.svg"
-                            style={{ width: "15px" }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="col-md-6 col-12 order-md-2 order-1 mb-md-3">
-                      <img
-                        src={doc.img}
-                        alt={doc.name}
-                        className="img-fluid"
-                        style={{ borderRadius: "25px" }}
-                      />
-                    </div>
+                <div
+                  className="d-flex gap-sm-3 gap-1 bookButton p-2"
+                  style={{ width: "fit-content" }}
+                >
+                  <img src="/assets/button_icon_1.svg" style={{ width: "16px" }} />
+                  <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+                    Book Appointment
+                  </p>
+                  <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="row align-items-center mb-5 mt-2 mt-sm-5">
+              <div className="col-md-6 col-12 order-md-1 order-2 mb-md-3">
+                <p className="doctorName mb-lg-4 mb-1 pb-sm-2">{doc.name}</p>
+                <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">{doc.about}</p>
+                <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">{doc.description}</p>
+
+                <a href="/appointment-form" style={{ textDecoration: "none" }}>
+                  <div
+                    className="d-flex gap-sm-3 gap-1 bookButton p-2"
+                    style={{ width: "fit-content" }}
+                  >
+                    <img src="/assets/button_icon_1.svg" style={{ width: "16px" }} />
+                    <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+                      Book Appointment
+                    </p>
+                    <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
                   </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                </a>
+              </div>
+              <div className="col-md-6 col-12 order-md-2 order-1 mb-md-3">
+                <img
+                  src={doc.img}
+                  alt={doc.name}
+                  className="img-fluid"
+                  style={{ borderRadius: "25px" }}
+                />
+              </div>
+            </div>
+          )}
+        </motion.div>
+      );
+    })}
+  </div>
+</div>
+
       </div>
 
       <Footer />

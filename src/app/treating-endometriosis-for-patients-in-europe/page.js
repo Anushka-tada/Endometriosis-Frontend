@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const stages = [
   {
@@ -109,42 +110,53 @@ const page = () => {
 
       <div className="pageOuter" >
         {/* herosection */}
-        <div className="container py-5 mb-sm-5">
-          <div className="row align-items-center">
-            <div className="col-lg-6 col-12 order-lg-1 order-2">
-              <h2>Treating Endometriosis</h2>
-              <h1 className="mb-4">For Patients in Europe</h1>
+       <div className="container py-5 mb-sm-5">
+  <div className="row align-items-center">
+    <motion.div
+      className="col-lg-6 col-12 order-lg-1 order-2"
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2>Treating Endometriosis</h2>
+      <h1 className="mb-4">For Patients in Europe</h1>
 
-              <p className="small-medium mb-md-5">
-                We provide specialized treatment packages for patients in Europe
-                at an Endometriosis center in Salerno, Italy
-              </p>
+      <p className="small-medium mb-md-5">
+        We provide specialized treatment packages for patients in Europe at an Endometriosis center in Salerno, Italy
+      </p>
 
-              <a href="/appointment-form" style={{textDecoration:"none"}}>
-               <div
-                className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
-                style={{ width: "fit-content" }}
-              >
-                <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
-                  Book Appointment
-                </p>
-                <img
-                  src="/assets/white_arrow.svg"
-                  style={{ width: "15px" }}
-                ></img>
-              </div>
-             </a>
+      <a href="/appointment-form" style={{ textDecoration: "none" }}>
+        <motion.div
+          className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
+          style={{ width: "fit-content" }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        >
+          <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+            Book Appointment
+          </p>
+          <img
+            src="/assets/white_arrow.svg"
+            style={{ width: "15px" }}
+          />
+        </motion.div>
+      </a>
+    </motion.div>
 
-            </div>
+    <motion.div
+      className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.1 }}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <img
+        src="/assets/E_surgery/herosection.png"
+        className="img-fluid"
+      />
+    </motion.div>
+  </div>
+      </div>
 
-            <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
-              <img
-                src="/assets/E_surgery/herosection.png"
-                className="img-fluid"
-              ></img>
-            </div>
-          </div>
-        </div>
 
            <div className="location_herosection py-sm-5 py-4">
         <div className="container my-4">
@@ -154,177 +166,227 @@ const page = () => {
       </div>
 
         {/* how it works section */}
+       <div className="bg-white py-5">
+     <div className="container">
+    <h2 className="text-center">A Solution for Europe</h2>
+    <h1 className="text-center mb-5">
+      Breaking Barriers for Endometriosis Care
+    </h1>
+    <div className="row align-items-center">
+      {/* Left Column */}
+      <motion.div
+        className="col-md-6 col-12"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <p className="para mb-4">
+          For individuals suffering from endometriosis, accessing high-quality,
+          specialized care remains a significant challenge in many European
+          countries. Despite the prevalence and debilitating nature of this
+          disease, countless patients face barriers to receiving the care they
+          need.
+        </p>
 
-        <div className="bg-white py-5">
-          <div className="container">
-            <h2 className="text-center">A Solution for Europe</h2>
-            <h1 className="text-center mb-5">
-              Breaking Barriers for Endometriosis Care
-            </h1>
-            <div className="row align-items-center">
-              <div className="col-md-6 col-12">
-                <p className="para mb-4">
-                  For individuals suffering from endometriosis, accessing
-                  high-quality, specialized care remains a significant challenge
-                  in many European countries. Despite the prevalence and
-                  debilitating nature of this disease, countless patients face
-                  barriers to receiving the care they need.
-                </p>
+        <p className="para mb-4">
+          At our world-class Endometriosis Center, we offer a solution to these
+          barriers. We provide a comprehensive, patient-focused approach that
+          prioritizes accurate diagnosis, advanced treatment, and personalized
+          care.
+        </p>
 
-                <p className="para mb-4">
-                  At our world-class Endometriosis Center, we offer a solution
-                  to these barriers. We provide a comprehensive, patient-focused
-                  approach that prioritizes accurate diagnosis, advanced
-                  treatment, and personalized care.
-                </p>
+        <p className="para mb-4">
+          Located just one hour from most European destinations, our center
+          eliminates the delays and compromises many face in their home
+          countries. Our services include: expert diagnostics, minimally
+          invasive excision surgery, a dedicated multidisciplinary team, and
+          immediate access to specialized care.
+        </p>
 
-                <p className="para mb-4">
-                  Located just one hour from most European destinations, our
-                  center eliminates the delays and compromises many face in
-                  their home countries. Our services include: expert
-                  diagnostics, minimally invasive excision surgery, a dedicated
-                  multidisciplinary team, and immediate access to specialized
-                  care.
-                </p>
+        <a href="/appointment-form" style={{ textDecoration: "none" }}>
+          <motion.div
+            className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
+            style={{ width: "fit-content" }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+          >
+            <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+              Book Appointment
+            </p>
+            <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
+          </motion.div>
+        </a>
+      </motion.div>
 
-                 <a href="/appointment-form" style={{textDecoration:"none"}}>
-               <div
-                className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
-                style={{ width: "fit-content" }}
+      {/* Right Column */}
+      <motion.div
+        className="col-md-6 col-12"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div
+          className="p-3 py-4 flex-column align-items-start position-relative ms-md-5 ms-0 mb-4 boxShadow locationSteps"
+          style={{ borderRadius: "20px", border: "1px solid #f6deff" }}
+        >
+          {stages.map((step, i) => (
+            <motion.div
+              className="d-flex align-items-start gap-sm-4 gap-3"
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+            >
+              {/* Left: Step Number */}
+              <div className="d-flex gap-sm-4 gap-4 me-3 position-relative">
+                <div className="d-flex flex-column align-items-center">
+                  <div className="step-index large-text mb-0 d-flex justify-content-center align-items-center">
+                    {step.index}
+                  </div>
+                  {i !== stages.length - 1 && (
+                    <div className="vertical-line-location"></div>
+                  )}
+                </div>
+              </div>
+
+              {/* Right: Step Description */}
+              <div>
+                <p className="mb-0 medium-text textPrimary">{step.point}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  </div>
+       </div>
+
+        {/* doctors section */}
+    <div className="container my-5 pb-sm-5">
+  <h1 className="text-center mb-4">Meet Our Doctors</h1>
+  <Slider {...settings} className="d-flex align-items-center">
+    {doctors.map((member, index) => (
+      <motion.div
+        key={index}
+        className="p-3"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
+        whileHover={{ scale: 1.03 }}
+      >
+        <div
+          className="bg-white boxShadow p-2 px-4"
+          style={{ borderRadius: "20px" }}
+        >
+          <img
+            src={member.img}
+            className="img-fluid mb-2"
+            style={{ borderRadius: "20px" }}
+            alt={member.name}
+          />
+          <h5 className="medium-text mb-2">{member.name}</h5>
+          <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
+            <a href="/our-team" style={{ textDecoration: "none" }}>
+              <motion.div
+                className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3"
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
-                <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
-                  Book Appointment
+                <p
+                  className="mb-0 text-white"
+                  style={{ whiteSpace: "nowrap", fontSize: "12px" }}
+                >
+                  Read More
                 </p>
                 <img
                   src="/assets/white_arrow.svg"
                   style={{ width: "15px" }}
-                ></img>
-              </div>
-             </a>
-              </div>
-
-              <div className="col-md-6 col-12">
-                {/* <p className="mb-3 large-text text-center">How it Works</p> */}
-                <div
-                  className=" p-3 py-4 flex-column align-items-start position-relative ms-md-5 ms-0 mb-4 boxShadow locationSteps"
-                  style={{ borderRadius: "20px", border: "1px solid #f6deff" }}
-                >
-                  {stages.map((step, i) => (
-                    <div
-                      className="d-flex align-items-start gap-sm-4 gap-3 "
-                      key={i}
-                    >
-                      {/* Left: Icon + Number + Line */}
-                      <div className="d-flex gap-sm-4 gap-4  me-3 position-relative ">
-                        <div className="d-flex flex-column align-items-center">
-                          <div className="step-index large-text mb-0 d-flex justify-content-center align-items-center">
-                            {step.index}
-                          </div>
-
-                          {/* Only show line if not last */}
-                          {i !== stages.length - 1 && (
-                            <div className="vertical-line-location"></div>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Right: Description */}
-                      <div>
-                        <p className="mb-0 medium-text textPrimary">
-                          {step.point}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+                  alt="arrow"
+                />
+              </motion.div>
+            </a>
           </div>
         </div>
+      </motion.div>
+    ))}
+  </Slider>
+     </div>
 
-        {/* doctors section */}
-
-        <div className="container my-5 pb-sm-5">
-          <h1 className="text-center mb-4">Meet Our Doctors</h1>
-          <Slider {...settings} className="d-flex align-items-center">
-            {doctors.map((member, index) => (
-              <div key={index} className="p-3">
-                <div
-                  className="bg-white boxShadow p-2 px-4"
-                  style={{ borderRadius: "20px" }}
-                >
-                  <img
-                    src={member.img}
-                    className="img-fluid mb-2"
-                    style={{ borderRadius: "20px" }}
-                  />
-                  <h5 className="medium-text mb-2">{member.name}</h5>
-                  <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
-                    <a href="/our-team" style={{ textDecoration: "none" }}>
-                      <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
-                        <p
-                          className="mb-0 text-white"
-                          style={{ whiteSpace: "nowrap", fontSize: "12px" }}
-                        >
-                          Read More
-                        </p>
-                        <img
-                          src="/assets/white_arrow.svg"
-                          style={{ width: "15px" }}
-                        />
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
 
         {/* About the Facility */}
+       <div className="py-5" style={{ backgroundColor: "#ECE6F3" }}>
+  <div className="container d-flex flex-column align-items-center gx-0">
+    <motion.h1
+      className="text-center mb-4"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      About the Facility
+    </motion.h1>
 
-        <div className="py-5" style={{ backgroundColor: "#ECE6F3" }}>
-          <div className="container d-flex flex-column align-items-center gx-0">
-            <h1 className="text-center mb-4">About the Facility</h1>
-            <div
-              className="facility-img d-flex  flex-column align-items-center  p-4 bg-white"
-              style={{ borderRadius: "20px", width: "fit-content" }}
-            >
-              <img
-                src="/assets/location/facility.jpg"
-                className="img-fluid mb-3"
-                style={{ borderRadius: "20px" }}
-              ></img>
+    <motion.div
+      className="facility-img d-flex flex-column align-items-center p-4 bg-white"
+      style={{ borderRadius: "20px", width: "fit-content" }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileHover={{ scale: 1.02 }}
+    >
+      <motion.img
+        src="/assets/location/facility.jpg"
+        className="img-fluid mb-3"
+        style={{ borderRadius: "20px" }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        viewport={{ once: true }}
+        alt="Facility"
+      />
 
-              <div className="d-flex flex-wrap justify-content-between align-items-center w-100">
-                <div>
-                  <p className="medium-text textPrimary mb-1">
-                    Villa del Sole | State of the Art Operating Room
-                  </p>
-                  <p className="medium-text textPrimary">
-                    Via dei Greci, 1 (Località Fratte) – 84135 Salerno
-                  </p>
-                </div>
-
-                <div
-                  className="d-flex  gap-sm-3 gap-1 bookButton p-2 px-3"
-                  style={{ width: "fit-content" , height:"40px" }}
-                >
-                  <p
-                    className="mb-0 text-white"
-                    style={{ whiteSpace: "nowrap" }}
-                  >
-                    Learn More
-                  </p>
-                  <img
-                    src="/assets/white_arrow.svg"
-                    style={{ width: "15px" }}
-                  ></img>
-                </div>
-              </div>
-            </div>
-          </div>
+      <motion.div
+        className="d-flex flex-wrap justify-content-between align-items-center w-100"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        viewport={{ once: true }}
+      >
+        <div>
+          <p className="medium-text textPrimary mb-1">
+            Villa del Sole | State of the Art Operating Room
+          </p>
+          <p className="medium-text textPrimary">
+            Via dei Greci, 1 (Località Fratte) – 84135 Salerno
+          </p>
         </div>
+
+        <motion.div
+          className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
+          style={{ width: "fit-content", height: "40px" }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        >
+          <p
+            className="mb-0 text-white"
+            style={{ whiteSpace: "nowrap" }}
+          >
+            Learn More
+          </p>
+          <img
+            src="/assets/white_arrow.svg"
+            style={{ width: "15px" }}
+            alt="Arrow"
+          />
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  </div>
+</div>
+
       </div>
 
       <Footer />

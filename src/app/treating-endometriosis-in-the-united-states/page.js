@@ -1,11 +1,11 @@
 "use client";
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const stages = [
   {
@@ -233,40 +233,48 @@ useEffect(() => {
       <div className="pageOuter">
         {/* herosection */}
         <div className="container py-5 mb-sm-5">
-          <div className="row align-items-center">
-            <div className="col-lg-6 col-12 order-lg-1 order-2">
-              <h2>Treating Endometriosis</h2>
-              <h1 className="mb-4">In the United States</h1>
+  <div className="row align-items-center">
+    <motion.div
+      className="col-lg-6 col-12 order-lg-1 order-2"
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2>Treating Endometriosis</h2>
+      <h1 className="mb-4">In the United States</h1>
 
-              <p className="small-medium mb-md-5">
-                International patients can choose to seek treatment options in
-                any of our current locations and receive best-in-class treatment
-                from our world-class medical team
-              </p>
+      <p className="small-medium mb-md-5">
+        International patients can choose to seek treatment options in any of
+        our current locations and receive best-in-class treatment from our
+        world-class medical team
+      </p>
 
-             <a href="/appointment-form" style={{textDecoration:"none"}}>
-               <div
-                className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
-                style={{ width: "fit-content" }}
-              >
-                <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
-                  Book Appointment
-                </p>
-                <img
-                  src="/assets/white_arrow.svg"
-                  style={{ width: "15px" }}
-                ></img>
-              </div>
-             </a>
-            </div>
+      <a href="/appointment-form" style={{ textDecoration: "none" }}>
+        <motion.div
+          className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
+          style={{ width: "fit-content" }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        >
+          <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+            Book Appointment
+          </p>
+          <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
+        </motion.div>
+      </a>
+    </motion.div>
 
-            <div className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end">
-              <img
-                src="/assets/E_surgery/herosection.png"
-                className="img-fluid"
-              ></img>
-            </div>
-          </div>
+    <motion.div
+      className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.1 }}
+    >
+      <img
+        src="/assets/E_surgery/herosection.png"
+        className="img-fluid"
+      />
+    </motion.div>
+  </div>
         </div>
 
         <div className="location_herosection py-sm-5 py-4">
@@ -278,222 +286,239 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* how it works section */}
+       {/* how it works section */}
+      <div className="bg-white py-5">
+  <div className="container">
+    <h2 className="text-center">
+      A Solution for Patients in the United States
+    </h2>
+    <h1 className="text-center mb-5">
+      World Class Endometriosis Treatment
+    </h1>
+    <div className="row align-items-center">
+      <motion.div
+        className="col-md-6 col-12"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <p className="para mb-4">
+          For individuals suffering from endometriosis, accessing
+          high-quality, specialized care remains a significant challenge
+          in many countries. Despite the prevalence and debilitating
+          nature of this disease, countless patients face barriers to
+          receiving the care they need.
+        </p>
 
-        <div className="bg-white py-5">
-          <div className="container">
-            <h2 className="text-center">
-              A Solution for Patients in the United States
-            </h2>
-            <h1 className="text-center mb-5">
-              World Class Endometriosis Treatment
-            </h1>
-            <div className="row align-items-center">
-              <div className="col-md-6 col-12">
-                <p className="para mb-4">
-                  For individuals suffering from endometriosis, accessing
-                  high-quality, specialized care remains a significant challenge
-                  in many countries. Despite the prevalence and debilitating
-                  nature of this disease, countless patients face barriers to
-                  receiving the care they need.
-                </p>
+        <p className="para mb-4">
+          At our world-class Endometriosis Centers, we offer a solution
+          to these barriers. We provide a comprehensive, patient-focused
+          approach that prioritizes accurate diagnosis, advanced
+          treatment, and personalized care.
+        </p>
 
-                <p className="para mb-4">
-                  At our world-class Endometriosis Centers, we offer a solution
-                  to these barriers. We provide a comprehensive, patient-focused
-                  approach that prioritizes accurate diagnosis, advanced
-                  treatment, and personalized care.
-                </p>
+        <p className="para mb-4">
+          Patients in the United States can choose to be seen in any of
+          our centers and get access to: expert diagnostics, minimally
+          invasive surgery, a dedicated multidisciplinary team, and
+          immediate accesses so specialized care.
+        </p>
 
-                <p className="para mb-4">
-                  {" "}
-                  Patients in the United States can choose to be seen in any of
-                  our centers and get access to: expert diagnostics, minimally
-                  invasive surgery, a dedicated multidisciplinary team, and
-                  immediate accesses so specialized care.
-                </p>
+        <a href="/appointment-form" style={{ textDecoration: "none" }}>
+          <motion.div
+            className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
+            style={{ width: "fit-content" }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+          >
+            <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
+              Book Appointment
+            </p>
+            <img
+              src="/assets/white_arrow.svg"
+              style={{ width: "15px" }}
+            />
+          </motion.div>
+        </a>
+      </motion.div>
 
-                 <a href="/appointment-form" style={{textDecoration:"none"}}>
-               <div
-                className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
-                style={{ width: "fit-content" }}
+      <motion.div
+        className="col-md-6 col-12"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div
+          className=" p-3 py-4 flex-column align-items-start position-relative ms-md-5 ms-0 mb-4 boxShadow locationSteps"
+          style={{ borderRadius: "20px", border: "1px solid #f6deff" }}
+        >
+         {stages.map((step, i) => (
+  <motion.div
+    className="d-flex align-items-start gap-sm-4 gap-3"
+    key={i}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4, delay: i * 0.2 }}
+    viewport={{ once: true }}
+    whileHover={{ scale: 1.02 }}
+  >
+    <div className="d-flex gap-sm-4 gap-4 me-3 position-relative">
+      <div className="d-flex flex-column align-items-center">
+        <div className="step-index large-text mb-0 d-flex justify-content-center align-items-center">
+          {step.index}
+        </div>
+        {i !== stages.length - 1 && (
+          <div className="vertical-line-location"></div>
+        )}
+      </div>
+    </div>
+    <div>
+      <p className="mb-0 medium-text textPrimary">{step.point}</p>
+    </div>
+  </motion.div>
+))}
+
+        </div>
+      </motion.div>
+    </div>
+  </div>
+      </div>
+
+
+        {/* doctors section */}
+     <div className="container my-5">
+  <h1 className="text-center mb-4">Meet Our Doctors</h1>
+  <Slider {...settings} className="d-flex align-items-center">
+    {doctors.map((member, index) => (
+      <motion.div
+        key={index}
+        className="p-3"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.div
+          whileHover={{
+            scale: 1.03,
+            boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+          }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+          className="bg-white boxShadow p-2 px-4"
+          style={{ borderRadius: "20px" }}
+        >
+          <img
+            src={member.img}
+            className="img-fluid mb-2"
+            style={{ borderRadius: "20px" }}
+          />
+          <h5 className="medium-text mb-2">{member.name}</h5>
+          <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
+            <a href="/our-team" style={{ textDecoration: "none" }}>
+              <motion.div
+                className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3"
               >
-                <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
-                  Book Appointment
+                <p
+                  className="mb-0 text-white"
+                  style={{ whiteSpace: "nowrap", fontSize: "12px" }}
+                >
+                  Read More
                 </p>
                 <img
                   src="/assets/white_arrow.svg"
                   style={{ width: "15px" }}
-                ></img>
-              </div>
-             </a>
-
-              </div>
-
-              <div className="col-md-6 col-12">
-                {/* <p className="mb-3 large-text text-center">How it Works</p> */}
-                <div
-                  className=" p-3 py-4 flex-column align-items-start position-relative ms-md-5 ms-0 mb-4 boxShadow locationSteps"
-                  style={{ borderRadius: "20px", border: "1px solid #f6deff" }}
-                >
-                  {stages.map((step, i) => (
-                    <div
-                      className="d-flex align-items-start gap-sm-4 gap-3 "
-                      key={i}
-                    >
-                      {/* Left: Icon + Number + Line */}
-                      <div className="d-flex gap-sm-4 gap-4  me-3 position-relative ">
-                        <div className="d-flex flex-column align-items-center">
-                          <div className="step-index large-text mb-0 d-flex justify-content-center align-items-center">
-                            {step.index}
-                          </div>
-
-                          {/* Only show line if not last */}
-                          {i !== stages.length - 1 && (
-                            <div className="vertical-line-location"></div>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Right: Description */}
-                      <div>
-                        <p className="mb-0 medium-text textPrimary">
-                          {step.point}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+                />
+              </motion.div>
+            </a>
           </div>
-        </div>
+        </motion.div>
+      </motion.div>
+    ))}
+  </Slider>
+    </div>
 
-        {/* doctors section */}
-
-        <div className="container my-5">
-          <h1 className="text-center mb-4">Meet Our Doctors</h1>
-          <Slider {...settings} className="d-flex align-items-center">
-            {doctors.map((member, index) => (
-              <div key={index} className="p-3">
-                <div
-                  className="bg-white boxShadow p-2 px-4"
-                  style={{ borderRadius: "20px" }}
-                >
-                  <img
-                    src={member.img}
-                    className="img-fluid mb-2"
-                    style={{ borderRadius: "20px" }}
-                  />
-                  <h5 className="medium-text mb-2">{member.name}</h5>
-                  <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
-                    <a href="/our-team" style={{ textDecoration: "none" }}>
-                      <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
-                        <p
-                          className="mb-0 text-white"
-                          style={{ whiteSpace: "nowrap", fontSize: "12px" }}
-                        >
-                          Read More
-                        </p>
-                        <img
-                          src="/assets/white_arrow.svg"
-                          style={{ width: "15px" }}
-                        />
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
 
         {/* reasons section */}
 
-        <div className="container py-5">
-          <h1 className="text-center">
-            Reasons to See{" "}
-            <span className="tilt tilt-primary text-white"> ESSI</span>
-          </h1>
+   <div className="container py-5">
+  <h1 className="text-center">
+    Reasons to See{" "}
+    <span className="tilt tilt-primary text-white"> ESSI</span>
+  </h1>
 
-          <div className="row pt-4 justify-content-center mb-sm-5">
-            <div className="col-lg-4 col-md-6 col-12 p-sm-2 p-0 px-3">
-              <div className="bg-white  p-md-4 p-4 pb-1 h-100  reasonCard">
-                {reasonsColumn1.map((reason, index) => (
-                  <div
-                    key={index}
-                    className="d-flex gap-2 align-items-center mb-3"
-                  >
-                    <img
-                      src="/assets/hand_Icon.svg" //
-                      alt="hand icon"
-                      style={{ width: "28px", height: "28px" }}
-                    />
-                    <p className="mb-0 small-medium textPrimary">{reason}</p>
-                  </div>
-                ))}
-              </div>
+  <div className="row pt-4 justify-content-center mb-sm-5">
+    {[reasonsColumn1, reasonsColumn2, reasonsColumn3].map((column, i) => (
+      <div
+        className="col-lg-4 col-md-6 col-12 p-sm-2 p-0 px-3"
+        key={i}
+      >
+        <motion.div
+          className="bg-white p-md-4 p-4 pt-1 h-100 reasonCard"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: i * 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{
+            scale: 1.03,
+            boxShadow: "0 12px 25px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          {column.map((reason, index) => (
+            <div
+              key={index}
+              className="d-flex gap-2 align-items-center mb-3"
+            >
+              <img
+                src="/assets/hand_Icon.svg"
+                alt="hand icon"
+                style={{ width: "28px", height: "28px" }}
+              />
+              <p className="mb-0 small-medium textPrimary">{reason}</p>
             </div>
-            <div className="col-lg-4 col-md-6  p-sm-2 p-0 px-3">
-              <div className="bg-white p-md-4 p-4 pt-1 h-100 reasonCard">
-                {reasonsColumn2.map((reason, index) => (
-                  <div
-                    key={index}
-                    className="d-flex gap-2 align-items-center mb-3"
-                  >
-                    <img
-                      src="/assets/hand_Icon.svg" //
-                      alt="hand icon"
-                      style={{ width: "28px", height: "28px" }}
-                    />
-                    <p className="mb-0 small-medium textPrimary">{reason}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6  col-12 p-sm-2 p-0 px-3">
-              <div className="bg-white p-md-4 p-4 pt-1 h-100 reasonCard">
-                {reasonsColumn3.map((reason, index) => (
-                  <div
-                    key={index}
-                    className="d-flex gap-2 align-items-center mb-3"
-                  >
-                    <img
-                      src="/assets/hand_Icon.svg" //
-                      alt="hand icon"
-                      style={{ width: "28px", height: "28px" }}
-                    />
-                    <p className="mb-0 small-medium textPrimary">{reason}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+          ))}
+        </motion.div>
+      </div>
+    ))}
+  </div>
+</div>
+
 
         {/* locations of treatment */}
 
-        <div className=" py-5" style={{ backgroundColor: "#ECE6F3" }}>
-          <div className="container">
-            <h1 className="text-center mb-4">Locations for Treatment</h1>
-            <div className="row justify-content-center">
-              {locations.map((location, index) => (
-                <div className="col-lg-4 col-md-6 p-3" key={index}>
-                  <div className="locationCard bg-white p-3 boxShadow h-100">
-                    <div className="locationImageOuter mb-3">
-                      <img
-                        src={location.img}
-                        className="img-fluid h-100 w-100"
-                        style={{ borderRadius: "20px", objectFit: "cover" }}
-                      ></img>
-                    </div>
-                    <p className="small-medium textPrimary">{location.text}</p>
-                  </div>
-                </div>
-              ))}
+     <div className="py-5" style={{ backgroundColor: "#ECE6F3" }}>
+  <div className="container">
+    <h1 className="text-center mb-4">Locations for Treatment</h1>
+    <div className="row justify-content-center">
+      {locations.map((location, index) => (
+        <div className="col-lg-4 col-md-6 p-3" key={index}>
+          <motion.div
+            className="locationCard bg-white p-3 boxShadow h-100"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
+            whileHover={{
+              scale: 1.03,
+              boxShadow: "0 12px 25px rgba(0, 0, 0, 0.08)",
+            }}
+          >
+            <div className="locationImageOuter mb-3">
+              <img
+                src={location.img}
+                className="img-fluid h-100 w-100"
+                style={{ borderRadius: "20px", objectFit: "cover" }}
+              />
             </div>
-          </div>
+            <p className="small-medium textPrimary">{location.text}</p>
+          </motion.div>
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+
       </div>
 
       <Footer />

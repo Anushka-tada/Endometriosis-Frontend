@@ -16,9 +16,8 @@ const page = () => {
             <motion.div
               className="col-lg-6 col-12 order-lg-1 order-2"
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
             >
               <h1 className="mb-4">Adolescent Endometriosis</h1>
 
@@ -36,7 +35,8 @@ const page = () => {
             <motion.div
               className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
               initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 1, scale:1}}
+
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >

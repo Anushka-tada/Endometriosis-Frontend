@@ -67,14 +67,14 @@ const page = () => {
             <motion.div
               className="col-lg-6 col-12 order-lg-1 order-2"
               initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              animate ={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
               <motion.h1
                 className="mb-2"
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate ={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
@@ -86,9 +86,9 @@ const page = () => {
               <motion.div
                 className="d-flex flex-wrap gap-sm-4 gap-3 pt-sm-5 pt-4 mb-sm-5 mb-3"
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate ={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
+                
               >
                 <a href="/appointment-form" style={{ textDecoration: "none" }}>
                   <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
@@ -131,9 +131,9 @@ const page = () => {
             <motion.div
               className="col-lg-6 col-12 order-lg-2 order-1 d-flex justify-content-center justify-content-lg-end"
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.9, ease: "easeOut" }}
-              viewport={{ once: true }}
+              
             >
               <img
                 src="/assets/whyESSI/herosection.png"

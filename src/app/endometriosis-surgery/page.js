@@ -16,7 +16,7 @@ const page = () => {
   <div className="row align-items-center">
     <motion.div
       className="col-lg-6 col-12 order-lg-1 order-2"
-      initial={{ opacity: 0, x: -30 }}
+      initial={{ opacity: 0, x: -50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
     >
