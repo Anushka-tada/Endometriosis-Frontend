@@ -1,6 +1,9 @@
 "use client"
 import React from 'react'
 import { motion } from "framer-motion";
+import countryData from "country-telephone-data";
+import PhoneInput from 'react-phone-input-2';
+import CountryPhoneInput from './CountryPhoneInput';
 
 const RequestConsultation = () => {
   return (
@@ -77,13 +80,11 @@ const RequestConsultation = () => {
                         placeholder="Email"
                       ></input>
                     </div>
+                    
                     <div className="col-6 mb-4">
-                      <input
-                        className="form-input py-3 px-3 w-100"
-                        type="number"
-                        placeholder="Mobile Number"
-                      ></input>
+                        <CountryPhoneInput/>
                     </div>
+
                     <div className="col-12 mb-4">
                       <select className="form-select py-3 px-3">
                         <option value="">Treatment Services</option>

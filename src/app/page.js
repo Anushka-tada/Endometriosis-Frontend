@@ -1258,64 +1258,38 @@ const page = () => {
 
         {/* section 2 */}
         <div className="container py-5 mb-3">
-          <div className="row">
-            <div className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
-                viewport={{ once: true }}
-                className="text-center p-md-5  py-sm-4 py-5 homeCard boxShadow h-100"
-                style={{ backgroundColor: "#FF79E6" }}
-              >
-                <h3 className="cardTitle">5000+</h3>
-                <h5 className="cardSubtitle">Women Treated</h5>
-              </motion.div>
-            </div>
+  <div className="row">
+    {[
+      { title: "5000+", subtitle: "Women Treated", color: "#FF79E6", delay: 0 },
+      { title: "2300+", subtitle: "Testimonials", color: "#07E994", delay: 0.2 },
+      { title: "30+", subtitle: "Countries", color: "#5F2D8B", delay: 0.4 },
+      { title: "12K+", subtitle: "Subscriber", color: "#FFB006", delay: 0.6 },
+    ].map((card, index) => (
+      <div key={index} className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
+        <motion.div
+          initial={{ opacity: 0, y: 30, rotateX: -20 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{
+            duration: 0.9,
+            delay: card.delay,
+            ease: [0.17, 0.67, 0.83, 0.67],
+          }}
+          viewport={{ once: true }}
+          className="text-center p-md-5 py-sm-4 py-5 homeCard boxShadow h-100"
+          style={{
+            backgroundColor: card.color,
+            borderRadius: "16px",
+            transition: "transform 0.3s ease-in-out",
+          }}
+        >
+          <h3 className="cardTitle">{card.title}</h3>
+          <h5 className="cardSubtitle">{card.subtitle}</h5>
+        </motion.div>
+      </div>
+    ))}
+  </div>
+</div>
 
-            <div className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                viewport={{ once: true }}
-                className="text-center  py-md-5 py-sm-4 py-5 homeCard boxShadow h-100"
-                style={{ backgroundColor: "#07E994" }}
-              >
-                <h3 className="cardTitle">2300+</h3>
-                <h5 className="cardSubtitle">Testimonials</h5>
-              </motion.div>
-            </div>
-
-            <div className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-center py-md-5  py-sm-4 py-5 homeCard boxShadow h-100"
-                style={{ backgroundColor: "#5F2D8B" }}
-              >
-                <h3 className="cardTitle">30+</h3>
-                <h5 className="cardSubtitle">Countries</h5>
-              </motion.div>
-            </div>
-
-            <div className="col-md-3 col-sm-6 col-12 p-sm-2 p-3">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
-                viewport={{ once: true }}
-                className="text-center  py-md-5 py-sm-4 py-5 homeCard boxShadow h-100"
-                style={{ backgroundColor: "#FFB006" }}
-              >
-                <h3 className="cardTitle">12K+</h3>
-                <h5 className="cardSubtitle">Subscriber</h5>
-              </motion.div>
-            </div>
-          </div>
-        </div>
 
         {/* we are section */}
 
