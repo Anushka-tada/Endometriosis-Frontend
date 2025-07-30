@@ -414,7 +414,7 @@ useEffect(() => {
                   className="position-absolute  shadow p-3 rounded"
                   style={{
                     top: "110%",
-                    left: 0,
+                    left: i == 0 ? 0 : -23,
                     zIndex: 100,
                     minWidth: "250px",
                     backgroundColor:"rgba(250, 250, 250, 1)",

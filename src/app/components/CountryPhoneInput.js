@@ -78,17 +78,18 @@ const CountryPhoneInput = () => {
   const [phone, setPhone] = useState("");
 
   return (
-    <div className="mb-4" style={{ maxWidth: "400px" }}>
+    <div className="" style={{ maxWidth: "400px" }}>
       <PhoneInput
         country={"in"} // default country
         value={phone}
         onChange={(phone) => setPhone(phone)}
-        inputClass="w-100"
+        inputClass="form-input w-100"
         inputStyle={{
           width: "100%",
           height: "50px",
           fontSize: "16px",
           borderRadius: "8px",
+          border:"none"
         }}
         dropdownStyle={{
           zIndex: 9999,
