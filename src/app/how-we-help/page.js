@@ -27,6 +27,30 @@ const symptoms = [
     img: "/assets/howWeHelp/symptoms.png",
     name: "Abdominal pain",
   },
+   {
+    img: "/assets/howWeHelp/symptoms.png",
+    name: "Painful sexual",
+  },
+  {
+    img: "/assets/howWeHelp/symptoms.png",
+    name: "intercourse",
+  },
+  {
+    img: "/assets/howWeHelp/symptoms.png",
+    name: "Digestive problems",
+  },
+  {
+    img: "/assets/howWeHelp/symptoms.png",
+    name: "Menstrual irregularities",
+  },
+  {
+    img: "/assets/howWeHelp/symptoms.png",
+    name: "Chronic fatigue",
+  },
+  {
+    img: "/assets/howWeHelp/symptoms.png",
+    name: "Trouble breathing",
+  },
 ];
 
 const stages = [
@@ -63,7 +87,7 @@ const page = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     customPaging: () => <div className="custom-dot" />,
     appendDots: (dots) => <ul className="custom-dots-container">{dots}</ul>,
     arrows: false,
@@ -409,6 +433,7 @@ const page = () => {
               </p>
 
               <div className="d-flex d-lg-none gap-sm-4 gap-3 pt-sm-4 pt-4">
+                   <a href="/appointment-form" style={{textDecoration:"none"}}>
                 <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
                   <img
                     src="/assets/button_icon_1.svg"
@@ -425,18 +450,21 @@ const page = () => {
                     style={{ width: "15px" }}
                   />
                 </div>
+                  </a>
 
-                <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
+               <a href="/endometriosis-mapping" style={{textDecoration:"none"}}>
+                 <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
                   <img
                     src="/assets/button_icon_2.svg"
                     style={{ width: "16px" }}
                   />
-                  <p className="mb-0">Go to surgery</p>
+                  <p className="mb-0 textPrimary">Go to surgery</p>
                   <img
                     src="/assets/black_arrow.svg"
                     style={{ width: "15px" }}
                   />
                 </div>
+               </a>
               </div>
             </motion.div>
           </div>

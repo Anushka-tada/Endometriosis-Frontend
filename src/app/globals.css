@@ -314,6 +314,18 @@ h2 {
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
+
+    position: relative;
+}
+
+.custom-checkbox:checked::after {
+  content: "✓";
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  top: 2px;
+  left: 7px;
 }
 
 .form-select,
@@ -972,7 +984,7 @@ min-height: 170px !important;
 /* login page */
 
 .login-head{
-   font-size: 48px;
+   font-size: 38px;
   font-weight: 500;
 }
 
@@ -1037,4 +1049,39 @@ background: #8E44AD;
 
 .pageOuter{
   padding-top: 90px;
+}
+
+/* toast css */
+
+.custom-error-toast{
+    background-color: var(--primary-light);  /* Light green */
+  color: var(--primary-color);             /* Darker green text */
+}
+
+.custom-error-toast .Toastify__progress-bar {
+  background-color: var(--primary-color) !important; 
+}
+
+.Toastify__progress-bar--error {
+    background: hsl(0deg 0.65% 59.95%);
+}
+
+.custom-success-toast{
+    background-color: var(--primary-light);  /* Light green */
+  color: var(--primary-color);             /* Darker green text */
+}
+
+.custom-success-toast .Toastify__progress-bar {
+  background-color: var(--primary-color) !important; 
+}
+
+.Toastify__progress-bar--success {
+    background: hsl(0deg 0.65% 59.95%);
+}
+
+@media (max-width:700px) {
+   .menuIcon{
+  width: 35px;
+  height: 35px;
+}
 }

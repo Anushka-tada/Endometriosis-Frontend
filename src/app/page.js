@@ -875,6 +875,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RequestConsultation from "./components/RequestConsultation";
 import Slider from "react-slick";
+import Reviews from "./components/Reviews"
 import DoctorSlider from "./components/DoctorSlider";
 // import CardSlider from "./components/cardSlider"
 import { motion } from "framer-motion";
@@ -1153,7 +1154,7 @@ const page = () => {
                       </div>
                     </a>
 
-                    <div className="d-flex gap-3  viewButtonHero p-2">
+                    {/* <div className="d-flex gap-3  viewButtonHero p-2">
                       <img
                         src="/assets/button_icon_2.svg"
                         style={{ width: "16px" }}
@@ -1163,7 +1164,7 @@ const page = () => {
                         src="/assets/black_arrow.svg"
                         style={{ width: "15px" }}
                       />
-                    </div>
+                    </div> */}
                   </motion.div>
 
                   <motion.div
@@ -1565,174 +1566,7 @@ const page = () => {
           </div>
         </div>
 
-        {/* voice of trust */}
-        <div className="pt-5 pb-2">
-          <div className="container ">
-            <div className="d-flex justify-content-center mb-3">
-              <h1 className="text-center mb-0">
-                Voices of{" "}
-                <span className="tilt tilt-primary text-white"> Trust</span> &{" "}
-                <span className="tilt tilt-secondary"> Transformation</span>
-              </h1>
-            </div>
-            <p className="large-text text-center mb-4 pb-2">
-              Real stories from patients who've healed and doctors who've made a
-              difference. Discover how care, compassion, and expertise come
-              together to change lives.
-            </p>
-
-            <div className="row pb-5">
-              <Slider {...settings}>
-                {/* First Text Testimonial */}
-                <motion.div
-                  className="p-3"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.03 }}
-                >
-                  <div
-                    className=" boxShadow p-4 pb-5"
-                    style={{ borderRadius: "16px", backgroundColor: "#FF79E7" }}
-                  >
-                    <div className="d-flex justify-content-between align-items-center ">
-                      <img src="/assets/card_comma.svg" className="cardComa" />
-                      <div className="d-flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <img
-                            key={i}
-                            src="/assets/white_star.svg"
-                            style={{ height: "24px" }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <h5 className="medium-bolder text-white mb-sm-4 mb-2 mt-sm-5 mt-2 pt-3">
-                      Life-Changing Care !
-                    </h5>
-                    <p className="small-bold text-white mb-sm-5 mb-2 pb-5">
-                      After years of pain and failed diagnoses, ESSI finally
-                      gave me answers. The team listened, cared deeply, and
-                      changed my life completely.
-                    </p>
-
-                    <div className="d-flex align-items-center gap-3 ">
-                      <img
-                        src="/assets/homepage/Testi_review_1.png"
-                        className="reviewImg"
-                      />
-                      <div>
-                        <p className="para text-white mb-1">Anjali Mehta</p>
-                        <p
-                          className="text-white mb-0"
-                          style={{ fontSize: "14px", fontWeight: "400" }}
-                        >
-                          Delhi, India
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Middle Video Testimonial */}
-                <motion.div
-                  className="p-3 h-100"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div
-                    className=" boxShadow  middleTestimonial position-relative h-100 overflow-hidden"
-                    style={{ borderRadius: "16px" }}
-                  >
-                    <img
-                      src="/assets/homepage/testi_card_1.png"
-                      className=" img-fluid"
-                    />
-                    <img
-                      src="/assets/homepage/vedio_play.svg"
-                      className="position-absolute"
-                      style={{ bottom: "43%", left: "42%" }}
-                    />
-                    <div
-                      className="d-flex align-items-center gap-3  position-absolute"
-                      style={{ bottom: "9%", left: "5%" }}
-                    >
-                      <img
-                        src="/assets/homepage/Testi_review_1.png"
-                        className="reviewImg"
-                      />
-                      <div>
-                        <p className="para text-white mb-1">lisa</p>
-                        <p
-                          className="text-white mb-0"
-                          style={{ fontSize: "14px", fontWeight: "400" }}
-                        >
-                          New York, USA
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Third Text Testimonial */}
-                <motion.div
-                  className="p-3"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.03 }}
-                >
-                  <div
-                    className=" boxShadow p-4 pb-5"
-                    style={{ borderRadius: "16px", backgroundColor: "#07E994" }}
-                  >
-                    <div className="d-flex justify-content-between align-items-center ">
-                      <img src="/assets/card_comma.svg" className="cardComa" />
-                      <div className="d-flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <img
-                            key={i}
-                            src="/assets/white_star.svg"
-                            style={{ height: "24px" }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <h5 className="medium-bolder text-white mb-sm-4 mb-2 mt-sm-5 mt-2 pt-3">
-                      Finally Understood !
-                    </h5>
-                    <p className="small-bold text-white mb-sm-5 mb-2 pb-5">
-                      Every doctor dismissed my symptoms. ESSI took me
-                      seriously, explained everything clearly, and treated me
-                      like a person—not just a patient.
-                    </p>
-
-                    <div className="d-flex align-items-center gap-3 ">
-                      <img
-                        src="/assets/homepage/Testi_review_3.png"
-                        className="reviewImg"
-                      />
-                      <div>
-                        <p className="para text-white mb-1">Gurleen Kaur</p>
-                        <p
-                          className="text-white mb-0"
-                          style={{ fontSize: "14px", fontWeight: "400" }}
-                        >
-                          Punjab, India
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </Slider>
-            </div>
-          </div>
-        </div>
+       <Reviews/>
 
         {/*ESSI Insights & Stories*/}
 

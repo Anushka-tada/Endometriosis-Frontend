@@ -111,7 +111,7 @@ const page = () => {
                   </div>
                 </a>
 
-                <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
+                {/* <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
                   <img
                     src="/assets/button_icon_2.svg"
                     style={{ width: "16px" }}
@@ -123,7 +123,7 @@ const page = () => {
                     style={{ width: "15px" }}
                     alt="arrow"
                   />
-                </div>
+                </div> */}
               </motion.div>
             </motion.div>
 
@@ -233,9 +233,11 @@ const page = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Andrea+Vidali+OR+Mauricio+Abr%C3%A3o+OR+Alessandra+Da+Giovanni+OR+Madhu+Bagaria+OR+Mallory+Stuparich+OR+Marcello+Ceccaroni+OR+Mario+Malzoni+OR+Alessio+Pigazzi+OR+Joseph+Raccuia+OR+Francesco+Di+Chiara+OR+Marco+Zoccali+OR+Henrique+Abr%C3%A3o" style={{textDecoration:"none"}} target="_blank">
           <p className="mb-0 text-white" style={{ whiteSpace: "nowrap" }}>
             Read All Of Our Published Work here
           </p>
+          </a>
           <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
         </motion.div>
       </motion.div>

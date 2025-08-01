@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Script from "next/script";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { LoggedDataProvider } from "./context/context";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 
 const geistSans = Geist({
@@ -36,12 +39,15 @@ export default function RootLayout({ children }) {
 
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <LoggedDataProvider>
         {children}
-
+         
+           <ToastContainer position="top-right" autoClose={3000} />
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
           strategy="afterInteractive"
         />
+        </LoggedDataProvider>
       </body>
     </html>
   );

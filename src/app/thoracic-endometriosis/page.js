@@ -371,6 +371,7 @@ const page = () => {
             sent for biopsy.
           </p>
 
+          <a href="/endometriosis-mapping" style={{textDecoration:"none"}}>
           <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2" style={{width:"fit-content"}}>
             <p
               className="mb-0 text-white"
@@ -382,7 +383,7 @@ const page = () => {
               src="/assets/white_arrow.svg"
               style={{ width: "15px" }}
             />
-          </div>
+          </div></a>
         </div>
       </motion.div>
 
@@ -402,6 +403,7 @@ const page = () => {
             Thoracic endometriosis frequently coexists with pelvic endometriosis, and the most effective surgical strategy aims to remove all abnormal tissue in a single procedure. ESSI consists of surgeons with multi-organ expertise who, in selected cases, can excise endometriosis lesions in both areas without the need for a second surgeon. However, this may necessitate collaboration between a thoracic surgeon and an endometriosis specialist, depending on the surgeon’s skill level and the complexity of the operation.
           </p>
 
+           <a href="/endometriosis-surgery" style={{textDecoration:"none"}}>
           <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2" style={{width:"fit-content"}}>
             <p
               className="mb-0 text-white"
@@ -414,6 +416,7 @@ const page = () => {
               style={{ width: "15px" }}
             />
           </div>
+              </a>
         </div>
       </motion.div>
     </div>

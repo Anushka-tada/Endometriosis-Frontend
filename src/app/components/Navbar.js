@@ -259,17 +259,19 @@
 "use client"
 import React from "react";
 import Link from "next/link";
-import { useState , useEffect} from "react";
+import { useState , useEffect , useContext} from "react";
+import { LoggedDataContext } from "../context/context";
+import { useRouter } from "next/navigation";
 
 
 const Navbar = () => {
+  const router = useRouter();
   const navArr = [
     {
       name: "Treatment",
       link: "/",
       icon: "/assets/Nav_icon_1.svg",
       subItems: [
-        { name: "Appointment Form", link: "/appointment-form" },
         { name: "Endometriosis Mapping", link: "endometriosis-mapping" },
         { name: "Endometriosis Surgery", link: "/endometriosis-surgery" },
         { name: "Endometriosis and infertility", link: "/endometriosis-and-fertility" },
@@ -316,6 +318,8 @@ const Navbar = () => {
       icon: "/assets/Nav_icon_5.svg",
     },
   ];
+
+  const { loggedUserData} = useContext(LoggedDataContext);
 
    const [activeDropdown, setActiveDropdown] = useState(null);
    const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
@@ -378,11 +382,21 @@ useEffect(() => {
 }, []);
 
 
+  const handleProfileClick = () => {
+    // console.log(loggedUserData);
+    if (loggedUserData) {
+      router.push("/profile");
+    } else {
+      router.push("/login");
+    }
+  };
+  
+
 
   return (
     
     <div className="position-fixed  w-100" style={{ zIndex:"999" , backgroundColor: "rgba(250, 250, 250, 1)" }}>
-      <div className="navbarOuter d-flex justify-content-between p-3 px-sm-5 px-3 " >
+      <div className="navbarOuter d-flex justify-content-between align-items-center  p-3 px-sm-5 px-3 " >
         <div className="logo">
           <a href="/"><img src="/assets/logo.png" alt="logo" className="logo-img" /></a>
         </div>
@@ -442,14 +456,20 @@ useEffect(() => {
           ))}
         </ul>
 
-        <a href="/login" style={{textDecoration:"none"}}>
-           <button
+        {/* <a href="/login" style={{textDecoration:"none"}}> */}
+          {loggedUserData ? (
+            <img src="/assets/homepage/profile.jpg" onClick={handleProfileClick}
+            className="d-none d-lg-flex justify-content-center align-items-center me-5" style={{height:"50px" , width:"50px" , cursor:"pointer"}}></img>
+          ):(
+             <button
+           onClick={handleProfileClick}
           className="px-3 py-3 text-white bgPrimary loginbtn border-0 d-none d-lg-block"
           style={{ borderRadius: "8px" }}
         >
           Login / Signup
          </button>
-        </a>
+          )}
+        {/* </a> */}
 
          <button
           className="d-lg-none bg-transparent border-0"
@@ -458,7 +478,7 @@ useEffect(() => {
           data-bs-target="#mobileMenu"
           aria-controls="mobileMenu"
         >
-          <img src="/assets/menu_icon.png" alt="menu" />
+          <img src="/assets/menu_icon.png" alt="menu" className="menuIcon" />
           
         </button>
 
@@ -523,12 +543,25 @@ useEffect(() => {
       </li>
     ))}
   </ul>
-          <button
+   
+          {loggedUserData ? (
+             <button
             className="px-3 py-2 text-white bgPrimary loginbtn border-0 mt-3"
             style={{ borderRadius: "8px" }}
+            onClick={handleProfileClick}
+          >
+           Profile
+          </button>
+          ):(
+            <button
+            className="px-3 py-2 text-white bgPrimary loginbtn border-0 mt-3"
+            style={{ borderRadius: "8px" }}
+            onClick={handleProfileClick}
           >
             Login / Signup
           </button>
+          )}
+        
         </div>
         </div>
     </div>

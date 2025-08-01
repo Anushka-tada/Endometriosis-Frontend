@@ -1,9 +1,32 @@
+
+"use client"
 import React from "react";
 import Navbar from "../components/Navbar";
 import ProfileSidebar from "../components/ProfileSidebar"
+import { LoggedDataContext } from '../context/context'
+import { useContext } from 'react'
+import { useRouter } from "next/navigation";
+
 
 const page = () => {
+
+   const router = useRouter();
+    const { setLoggedUserData, updateLoggedUserData } = useContext(LoggedDataContext);
+
+
+
+const handleLogut = () => {
+     console.log("Logging out..."); 
+         updateLoggedUserData(null);     
+    localStorage.removeItem("user");
+     console.log("Logged out...");    
+    router.push("/login");
+
+}
+
   return (
+
+
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
 
@@ -21,7 +44,7 @@ const page = () => {
             className="d-flex gap-sm-3 gap-1 align-items-center bookButton p-2 px-4 my-3"
             style={{ width: "fit-content" }}
           >
-            <p className="mb-0 text-white " style={{ whiteSpace: "nowrap" }}>
+            <p className="mb-0 text-white " style={{ whiteSpace: "nowrap" }} onClick={handleLogut}>
               Log out
             </p>
             <img src="https://cdn-icons-png.flaticon.com/128/10609/10609328.png" className="editIcon" style={{height:"19px"}}></img>
