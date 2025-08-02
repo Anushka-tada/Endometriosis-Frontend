@@ -3,6 +3,9 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+ import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const cardsData = [
   {
@@ -56,6 +59,19 @@ const cardsData = [
 ];
 
 const page = () => {
+    const { loggedUserData} = useContext(LoggedDataContext);
+               
+                 const router = useRouter();
+             
+                  const  handleBtnClick = () => {
+                 if(loggedUserData){ 
+                   router.push("/appointment-form")
+                 }else{
+                   router.push("/login?redirect=/appointment-form");
+                 }
+               }
+    
+
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
@@ -90,8 +106,8 @@ const page = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 
               >
-                <a href="/appointment-form" style={{ textDecoration: "none" }}>
-                  <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
+              
+                  <div className="d-flex gap-sm-3 gap-1 bookButton p-2" onClick={handleBtnClick} >
                     <img
                       src="/assets/button_icon_1.svg"
                       style={{ width: "16px" }}
@@ -109,7 +125,7 @@ const page = () => {
                       alt="arrow"
                     />
                   </div>
-                </a>
+                
 
                 {/* <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
                   <img

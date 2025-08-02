@@ -1,18 +1,30 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import RequestConsultation from '../components/RequestConsultation'
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
+
 
 const page = () => {
+   const { loggedUserData} = useContext(LoggedDataContext);
+       
+         const router = useRouter();
+
+  // useEffect(() => {
+  //   if(!loggedUserData){
+  //     router.push("/login?redirect=/appointment-form")
+  //   }
+  // },[])
+
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
     <Navbar/> 
 
     <div  className="pageOuter">
-
-
       {/* herosection */}
 
       <div className="container pb-sm-5 pb-0">

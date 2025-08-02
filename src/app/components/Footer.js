@@ -1,6 +1,24 @@
+"use client"
 import React from "react";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
+  
+      const { loggedUserData} = useContext(LoggedDataContext);
+       
+         const router = useRouter();
+     
+          const  handleBtnClick = () => {
+         if(loggedUserData){ 
+           router.push("/appointment-form")
+         }else{
+           router.push("/login?redirect=/appointment-form");
+         }
+       }
+     
+
   return (
     <div className="footer bg-white mb-5">
       <div
@@ -11,8 +29,8 @@ const Footer = () => {
           <h2 className="text-white text-md-start text-center">
             Interested in learning more about our offerings?
           </h2>
-          <a href="/appointment-form" style={{ textDecoration: "none" }}>
-            <div
+         
+            <div onClick={handleBtnClick}
               className="d-flex gap-sm-2 gap-1 viewButton bg-white p-3   align-items-center"
               style={{ height: "43px", width: "fit-content" }}
             >
@@ -29,7 +47,7 @@ const Footer = () => {
                 style={{ width: "15px" }}
               ></img>
             </div>
-          </a>
+        
         </div>
       </div>
       <div className="footer main pt-5 mt-4 pb-3">

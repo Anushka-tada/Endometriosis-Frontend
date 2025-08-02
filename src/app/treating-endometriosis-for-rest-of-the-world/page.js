@@ -7,6 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const stages = [
   {
@@ -65,6 +68,21 @@ const locations = [
 ];
 
 const page = () => {
+ 
+     const { loggedUserData} = useContext(LoggedDataContext);
+                  
+                    const router = useRouter();
+                
+                     const  handleBtnClick = () => {
+                    if(loggedUserData){ 
+                      router.push("/appointment-form")
+                    }else{
+                      router.push("/login?redirect=/appointment-form");
+                    }
+                  }
+       
+
+  
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
@@ -86,8 +104,8 @@ const page = () => {
                International patients can choose to seek treatment options in any of our current locations and receive best-in-class treatment from our world-class medical team
               </p>
 
-              <a href="/appointment-form" style={{ textDecoration: "none" }}>
-                <motion.div
+              
+                <motion.div  onClick={handleBtnClick}
                   className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
                   style={{ width: "fit-content" }}
 
@@ -104,7 +122,7 @@ const page = () => {
                     style={{ width: "15px" }}
                   />
                 </motion.div>
-              </a>
+             
             </motion.div>
 
             <motion.div
@@ -163,8 +181,9 @@ const page = () => {
          Rest of World patients can choose to be seen in any of our centers and get access to: expert diagnoistics, minimilaly invasive surgery, a dedicated multidisplinary team, and immidiate accces so specialzied care.
         </p>
 
-        <a href="/appointment-form" style={{ textDecoration: "none" }}>
-          <motion.div
+       
+          <motion.div  
+            onClick={handleBtnClick}
             className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
             style={{ width: "fit-content" }}
             transition={{ duration: 0.3, ease: "easIn" }}
@@ -181,7 +200,7 @@ const page = () => {
               alt="arrow"
             />
           </motion.div>
-        </a>
+        
       </motion.div>
 
       {/* Right Column with steps */}

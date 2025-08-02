@@ -877,8 +877,12 @@ import RequestConsultation from "./components/RequestConsultation";
 import Slider from "react-slick";
 import Reviews from "./components/Reviews"
 import DoctorSlider from "./components/DoctorSlider";
-// import CardSlider from "./components/cardSlider"
+import CardSlider from "./components/CardSlider"
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "./context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
+
 
 const reasons = [
   {
@@ -1014,6 +1018,10 @@ const stories = [
 ];
 
 const page = () => {
+
+  const { loggedUserData} = useContext(LoggedDataContext);
+
+  const router = useRouter();
   const settings = {
     dots: true,
     infinite: true,
@@ -1063,6 +1071,14 @@ const page = () => {
       },
     ],
   };
+
+ const  handleBtnClick = () => {
+    if(loggedUserData){ 
+      router.push("/appointment-form")
+    }else{
+      router.push("/login?redirect=/appointment-form");
+    }
+  }
 
   return (
     <>
@@ -1131,10 +1147,8 @@ const page = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
-                    <a
-                      href="/appointment-form"
-                      style={{ textDecoration: "none" }}
-                      className="bookOuter"
+                    <div
+                      className="bookOuter" onClick={handleBtnClick}
                     >
                       <div className="d-flex gap-3  bookButtonHero p-2">
                         <img
@@ -1152,7 +1166,7 @@ const page = () => {
                           style={{ width: "15px" }}
                         />
                       </div>
-                    </a>
+                    </div>
 
                     {/* <div className="d-flex gap-3  viewButtonHero p-2">
                       <img
@@ -1453,8 +1467,9 @@ const page = () => {
             ensuring lasting results.
           </p>
 
-          <a href="/appointment-form" style={{ textDecoration: "none" }}>
+         
             <div
+             onClick={handleBtnClick}
               className="d-flex gap-sm-3 gap-1 bookButton p-2 px-sm-3 mb-5"
               style={{ width: "fit-content" }}
             >
@@ -1472,7 +1487,7 @@ const page = () => {
                 alt="arrow"
               />
             </div>
-          </a>
+        
         </div>
 
         {/* explore section */}
@@ -1500,7 +1515,7 @@ const page = () => {
           </motion.p>
 
           <div className="row pb-5">
-            <Slider {...settings1}>
+            {/* <Slider {...settings1}>
               {EndometriosSteps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -1537,8 +1552,10 @@ const page = () => {
                   </div>
                 </motion.div>
               ))}
-            </Slider>
+            </Slider> */}
+            <CardSlider data={EndometriosSteps}/>
           </div>
+
         </div>
 
         {/* meet our team */}

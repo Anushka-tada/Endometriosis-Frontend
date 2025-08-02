@@ -3,8 +3,25 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+
+      const { loggedUserData} = useContext(LoggedDataContext);
+         
+           const router = useRouter();
+       
+            const  handleBtnClick = () => {
+           if(loggedUserData){ 
+             router.push("/appointment-form")
+           }else{
+             router.push("/login?redirect=/appointment-form");
+           }
+         }
+       
+
   return (
     <div div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
@@ -48,7 +65,7 @@ const page = () => {
                 outcomes.
               </motion.p>
 
-              <a href="/appointment-form" style={{ textDecoration: "none" }}>
+              <div onClick={handleBtnClick}>
                 <motion.div
                   className="d-flex gap-sm-3 gap-1 bookButton p-2"
                   style={{ width: "fit-content" }}
@@ -71,7 +88,7 @@ const page = () => {
                     alt=""
                   />
                 </motion.div>
-              </a>
+              </div>
             </motion.div>
 
             {/* Right Image */}

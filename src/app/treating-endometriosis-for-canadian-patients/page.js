@@ -3,6 +3,10 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
+
 
 const stages = [
   {
@@ -58,6 +62,20 @@ const reasonsColumn3 = [
 ];
 
 const page = () => {
+
+   const { loggedUserData} = useContext(LoggedDataContext);
+               
+                 const router = useRouter();
+             
+                  const  handleBtnClick = () => {
+                 if(loggedUserData){ 
+                   router.push("/appointment-form")
+                 }else{
+                   router.push("/login?redirect=/appointment-form");
+                 }
+               }
+    
+               
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
@@ -80,8 +98,9 @@ const page = () => {
         We provide specialized treatment packages for Canadian patients to fly to the United States and receive personalized endometriosis care
       </p>
 
-      <a href="/appointment-form" style={{ textDecoration: "none" }}>
+     
         <motion.div
+         onClick={handleBtnClick}
           className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
           style={{ width: "fit-content" }}
           transition={{ type: "spring", stiffness: 200, damping: 15 }}
@@ -94,7 +113,7 @@ const page = () => {
             style={{ width: "15px" }}
           />
         </motion.div>
-      </a>
+     
     </motion.div>
 
     <motion.div

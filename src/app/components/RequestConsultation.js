@@ -1,20 +1,70 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState , useContext} from "react";
 import { motion } from "framer-motion";
 import countryData from "country-telephone-data";
 import PhoneInput from "react-phone-input-2";
 import CountryPhoneInput from "./CountryPhoneInput";
 import countries from "i18n-iso-countries";
 import enLocale from "i18n-iso-countries/langs/en.json";
+import {appointmentCreateServ} from "../services/booking.service"
+import { toast } from "react-toastify";
+import { FaExclamationCircle } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
+import { LoggedDataContext } from "../context/context";
 
 const RequestConsultation = () => {
+
+   const { loggedUserData} = useContext(LoggedDataContext);
 
   countries.registerLocale(enLocale);
 
   const countryOptions = Object.entries(countries.getNames("en", { select: "official" }));
 
+  const [errors, setErrors] = useState({});
+
+const scrollToFirstError = (fieldsWithError) => {
+  const firstErrorKey = fieldsWithError[0];
+  const errorElement = document.getElementById(firstErrorKey);
+  if (errorElement) {
+    errorElement.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+};
+
+const validateForm = () => {
+    const newErrors = {};
+    const requiredFields = [
+      "location",
+      "firstName",
+      "lastName",
+      "email",
+      "phone",
+      "treatmentService",
+      "date",
+      "time",
+      "address",
+      "city",
+      "state",
+      "zip",
+      "country",
+      "dob",
+      "history",
+    ];
+
+    requiredFields.forEach((field) => {
+      if (!formData[field]?.trim()) newErrors[field] = `${field} is required.`;
+    });
+
+    if (!formData.gdpr) newErrors.gdpr = "GDPR agreement is required.";
+
+    setErrors(newErrors);
+    const keys = Object.keys(newErrors);
+    if (keys.length > 0) scrollToFirstError(keys);
+
+    return keys.length === 0;
+  };
   const [formData, setFormData] = useState({
+    userId: loggedUserData?._id,
     location: "",
     firstName: "",
     lastName: "",
@@ -35,6 +85,7 @@ const RequestConsultation = () => {
   });
 
   const handleChange = (e) => {
+   
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -44,8 +95,62 @@ const RequestConsultation = () => {
     setFormData((prev) => ({ ...prev, [name]: checked }));
   };
 
-  const handleSubmit = () => {
+  const renderError = (fieldName) => {
+  if (errors[fieldName]) {
+    return (
+      <div className="text-danger small mt-1">
+        {errors[fieldName]}
+      </div>
+    );
+  }
+  return null;
+};
+
+
+  const handleSubmit = async() => {
+     if (!validateForm()) return;
+
     console.log("Form Data:", formData);
+
+    try{
+      const res = await appointmentCreateServ(formData);
+      console.log("res " , res);
+      // if(res.statusCode == 200){
+         toast.success(res?.message || "Appointment created successfully!", {
+                  className: "custom-success-toast",
+                  icon: <FaCheckCircle color="#5F2D8B" />,
+                });
+                setFormData({
+  userId: loggedUserData?.id,
+  location: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  treatmentService: "",
+  date: "",
+  time: "",
+  address: "",
+  city: "",
+  state: "",
+  zip: "",
+  country: "",
+  dob: "",
+  history: "",
+  diagnosed: false,
+  gdpr: false,
+});
+
+      // }
+    }
+    catch(err){
+      console.log("appointment failed" , err);
+       toast.error(err?.response?.data?.message || "appointment failed", {
+                className: "custom-error-toast",
+                icon: <FaExclamationCircle color="#5F2D8B" />,
+              });
+    }
+
   };
 
   return (
@@ -112,6 +217,7 @@ const RequestConsultation = () => {
               <option value="Italy">Italy</option>
               <option value="Brazil">Brazil</option>
             </select>
+             {renderError("location")}
           </div>
         </div>
 
@@ -131,6 +237,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="First Name"
                   ></input>
+                  {renderError("firstName")}
                 </div>
                 <div className="col-6 mb-4">
                   <input
@@ -141,6 +248,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="Last Name"
               />
+                        {renderError("lastName")}
                 </div>
                 <div className="col-6 mb-4">
                   <input
@@ -151,6 +259,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="Email"
               />
+                        {renderError("email")}
                 </div>
 
                 <div className="col-6 mb-4">
@@ -158,6 +267,7 @@ const RequestConsultation = () => {
                 value={formData.phone}
                 onChange={(phone) => setFormData((prev) => ({ ...prev, phone }))}
               />
+                        {renderError("phone")}
                 </div>
 
                 <div className="col-12 mb-4">
@@ -179,7 +289,9 @@ const RequestConsultation = () => {
                     <option value="adolescent endometriosis">Adolescent Endometriosis</option>
                     <option value="adenomyosis">Adenomyosis</option>
                   </select>
+                            {renderError("treatmentService")}
                 </div>
+
                 <div className="col-6 mb-4">
                   <input
                 className="form-input py-3 px-3 w-100"
@@ -189,6 +301,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="Date"
               />
+              {renderError("date")}
                 </div>
                 <div className="col-6 mb-4">
                  <input
@@ -199,6 +312,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="Time"
               />
+               {renderError("time")}
                 </div>
                 <div className="col-6 mb-4">
                   <input
@@ -209,6 +323,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="Street Address Only"
               />
+               {renderError("address")}
                 </div>
                 <div className="col-6 mb-4">
                   <input
@@ -219,6 +334,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="City"
               />
+               {renderError("city")}
                 </div>
                 <div className="col-6 mb-4">
                   <input
@@ -229,6 +345,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="State / Province"
               />
+               {renderError("state")}
                 </div>
                 <div className="col-6 mb-4">
                   <input
@@ -239,6 +356,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="Zip Code"
               />
+               {renderError("zip")}
                 </div>
 
                 <div className="col-6 mb-4">
@@ -255,6 +373,7 @@ const RequestConsultation = () => {
     </option>
   ))}
                   </select>
+                   {renderError("country")}
                 </div>
                 <div className="col-6 mb-4">
                   <input
@@ -265,6 +384,7 @@ const RequestConsultation = () => {
                 onChange={handleChange}
                 placeholder="Date Of Birth"
               />
+               {renderError("dob")}
                 </div>
                 <div className="col-12 mb-4">
                   <textarea
@@ -275,6 +395,7 @@ const RequestConsultation = () => {
                 rows={3}
                 placeholder="Please Provide a Brief History about your Situation..."
               />
+               {renderError("history")}
                 </div>
               </div>
             </div>

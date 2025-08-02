@@ -225,6 +225,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 
 const TeamMember = [
@@ -354,6 +357,21 @@ const mapToFiveDots = (index, total, slidesToShow) => {
 };
 
 const DoctorSlider = () => {
+   
+  
+    const { loggedUserData} = useContext(LoggedDataContext);
+     
+       const router = useRouter();
+   
+        const  handleBtnClick = () => {
+       if(loggedUserData){ 
+         router.push("/appointment-form")
+       }else{
+         router.push("/login?redirect=/appointment-form");
+       }
+     }
+   
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3); // default fallback
 
@@ -443,8 +461,8 @@ useEffect(() => {
           <p className="teamSubtitle">{member.subtitle}</p>
           <p className="para text-black">{member.para}</p>
           <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
-            <a href="/appointment-form" style={{ textDecoration: "none" }}>
-              <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3">
+           
+              <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3" onClick={handleBtnClick}>
                 <img
                   src="/assets/button_icon_1.svg"
                   style={{ width: "16px" }}
@@ -460,7 +478,7 @@ useEffect(() => {
                   style={{ width: "15px" }}
                 />
               </div>
-            </a>
+          
             <a href="/our-team" style={{ textDecoration: "none" }}>
               <div className="d-flex gap-sm-2 gap-1 viewButton p-2 px-3">
                 <p

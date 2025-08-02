@@ -91,7 +91,7 @@ const [mixedReviews, setMixedReviews] = useState([]);
   <div key={review._id}>
     {review.type === "text" ? (
       <motion.div
-        className="p-3"
+        className="p-3 reviewCard"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -132,7 +132,7 @@ const [mixedReviews, setMixedReviews] = useState([]);
       </motion.div>
     ) : (
       <motion.div
-        className="p-3 h-100"
+        className="p-3 h-100 reviewCard"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}

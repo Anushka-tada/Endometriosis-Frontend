@@ -7,6 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const stages = [
   {
@@ -79,6 +82,20 @@ const locations = [
 ];
 
 const page = () => {
+
+   const { loggedUserData} = useContext(LoggedDataContext);
+               
+                 const router = useRouter();
+             
+                  const  handleBtnClick = () => {
+                 if(loggedUserData){ 
+                   router.push("/appointment-form")
+                 }else{
+                   router.push("/login?redirect=/appointment-form");
+                 }
+               }
+    
+
   const settings = {
     dots: true,
     infinite: true,
@@ -125,8 +142,8 @@ const page = () => {
         We provide specialized treatment packages for patients in Europe at an Endometriosis center in Salerno, Italy
       </p>
 
-      <a href="/appointment-form" style={{ textDecoration: "none" }}>
-        <motion.div
+
+        <motion.div onClick={handleBtnClick}
           className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
           style={{ width: "fit-content" }}
           transition={{ type: "spring", stiffness: 200, damping: 15 }}
@@ -139,7 +156,7 @@ const page = () => {
             style={{ width: "15px" }}
           />
         </motion.div>
-      </a>
+  
     </motion.div>
 
     <motion.div
@@ -204,8 +221,8 @@ const page = () => {
           immediate access to specialized care.
         </p>
 
-        <a href="/appointment-form" style={{ textDecoration: "none" }}>
-          <motion.div
+       
+          <motion.div onClick={handleBtnClick}
             className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3"
             style={{ width: "fit-content" }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
@@ -215,7 +232,7 @@ const page = () => {
             </p>
             <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
           </motion.div>
-        </a>
+     
       </motion.div>
 
       {/* Right Column */}

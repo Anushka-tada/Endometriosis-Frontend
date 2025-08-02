@@ -3,8 +3,25 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+
+    const { loggedUserData} = useContext(LoggedDataContext);
+     
+       const router = useRouter();
+   
+        const  handleBtnClick = () => {
+       if(loggedUserData){ 
+         router.push("/appointment-form")
+       }else{
+         router.push("/login?redirect=/appointment-form");
+       }
+     }
+   
+
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
@@ -79,16 +96,13 @@ const page = () => {
                   occurring even before menarche
                 </p>
 
-                <div className="d-flex gap-sm-3 gap-2 align-items-center mb-sm-5 mb-0">
-                  <a
-                    href="/appointment-form"
-                    style={{ textDecoration: "none" }}
-                  >
+                <div className="d-flex gap-sm-3 gap-2 align-items-center mb-sm-5 mb-0" onClick={handleBtnClick}>
+                  
                     {" "}
                     <p className="learnMore mb-0">
                       Searching for a qualified Endometriosis Specialist?
                     </p>
-                  </a>
+                
                   <img
                     src="/assets/purple_Arrow.svg"
                     style={{ width: "22px" }}
@@ -117,8 +131,8 @@ const page = () => {
                 Dr. Mallory Stuparich, MD | ESSI California
               </p>
 
-              <a href="/appointment-form" style={{ textDecoration: "none" }}>
-                <div
+            
+                <div onClick={handleBtnClick}
                   className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2"
                   style={{ width: "fit-content" }}
                 >
@@ -133,7 +147,7 @@ const page = () => {
                     style={{ width: "15px" }}
                   />
                 </div>
-              </a>
+            
             </motion.div>
 
             <motion.div
@@ -241,8 +255,9 @@ const page = () => {
                 Dr. Madhu Bagaria, MD | ESSI New York <br /> and New Jersey
               </p>
 
-              <a href="/appointment-form" style={{ textDecoration: "none" }}>
+            
                 <div
+                onClick={handleBtnClick}
                   className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3 mb-2"
                   style={{ width: "fit-content" }}
                 >
@@ -257,7 +272,7 @@ const page = () => {
                     style={{ width: "15px" }}
                   />
                 </div>
-              </a>
+            
             </motion.div>
           </div>
         </div>
@@ -385,8 +400,8 @@ const page = () => {
 
               <p className="small-bold">Ready to talk about your options?</p>
 
-              <a href="/appointment-form" style={{ textDecoration: "none" }}>
-                <motion.div
+             
+                <motion.div onClick={handleBtnClick}
                   className="d-flex gap-3 viewButton p-2 px-3"
                   style={{ width: "fit-content" }}
                   initial={{ opacity: 0, y: 20 }}
@@ -402,7 +417,7 @@ const page = () => {
                     style={{ width: "15px" }}
                   />
                 </motion.div>
-              </a>
+           
             </motion.div>
           </div>
         </motion.div>

@@ -61,7 +61,7 @@ const handleSignup =  async () => {
          className: "custom-success-toast",
          icon: <FaCheckCircle color="#5F2D8B" />
        });
-        updateLoggedUserData(res?.data);
+        updateLoggedUserData(res?.data, true);
        router.push("/");
     }
     catch(error){

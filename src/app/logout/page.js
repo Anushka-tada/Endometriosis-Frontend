@@ -13,15 +13,13 @@ const page = () => {
    const router = useRouter();
     const { setLoggedUserData, updateLoggedUserData } = useContext(LoggedDataContext);
 
-
-
 const handleLogut = () => {
      console.log("Logging out..."); 
-         updateLoggedUserData(null);     
-    localStorage.removeItem("user");
+         updateLoggedUserData(null);    
+           localStorage.removeItem('user');
+  sessionStorage.removeItem('user');
      console.log("Logged out...");    
     router.push("/login");
-
 }
 
   return (

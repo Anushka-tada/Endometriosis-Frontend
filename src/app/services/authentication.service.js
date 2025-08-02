@@ -27,9 +27,14 @@ export const loginServ = async (formData) => {
 
 
 // user details update
-export const userDetailsUpdateServ = async (formData) => {
+export const userDetailsUpdateServ = async (formData , token) => {
   try {
-    const response = await axios.put(BASE_URL + "user/update",formData );
+    const response = await axios.put(BASE_URL + "user/update",formData , {
+    headers: {
+      Authorization: `Bearer ${token}`,  // <-- very important
+    },
+  }
+ );
     return response.data;
   } catch (error) {
     console.error("login error:", error);

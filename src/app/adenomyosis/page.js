@@ -3,6 +3,9 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const options = [
   {
@@ -41,6 +44,19 @@ const ESSIPoints = [
 ];
 
 const page = () => {
+
+   const { loggedUserData} = useContext(LoggedDataContext);
+  
+    const router = useRouter();
+
+     const  handleBtnClick = () => {
+    if(loggedUserData){ 
+      router.push("/appointment-form")
+    }else{
+      router.push("/login?redirect=/appointment-form");
+    }
+  }
+
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
@@ -417,8 +433,9 @@ const page = () => {
           uterine preservation.
         </motion.p>
 
-        <a href="/appointment-form" style={{ textDecoration: "none" }}>
+       
           <motion.div
+          onClick={handleBtnClick}
             className="d-flex gap-3 bookButton p-2 px-3 mb-3 mb-md-0"
             style={{ width: "fit-content" }}
             initial={{ opacity: 0, y: 10 }}
@@ -432,7 +449,7 @@ const page = () => {
               style={{ width: "15px" }}
             />
           </motion.div>
-        </a>
+       
       </motion.div>
 
       <motion.div

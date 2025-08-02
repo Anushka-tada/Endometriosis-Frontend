@@ -3,6 +3,9 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const doctors = [
   {
@@ -122,6 +125,19 @@ const doctors = [
 ];
 
 const page = () => {
+
+    const { loggedUserData} = useContext(LoggedDataContext);
+           
+             const router = useRouter();
+         
+              const  handleBtnClick = () => {
+             if(loggedUserData){ 
+               router.push("/appointment-form")
+             }else{
+               router.push("/login?redirect=/appointment-form");
+             }
+           }
+
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
@@ -230,6 +246,7 @@ const page = () => {
                 <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">{doc.description}</p>
 
                 <div
+                onClick={handleBtnClick}
                   className="d-flex gap-sm-3 gap-1 bookButton p-2"
                   style={{ width: "fit-content" }}
                 >
@@ -248,8 +265,8 @@ const page = () => {
                 <p className="medium-bold mb-lg-4 mb-1 pb-sm-2">{doc.about}</p>
                 <p className="whyChoose-line mb-lg-4 mb-1 pb-sm-2">{doc.description}</p>
 
-                <a href="/appointment-form" style={{ textDecoration: "none" }}>
-                  <div
+              
+                  <div onClick={handleBtnClick}
                     className="d-flex gap-sm-3 gap-1 bookButton p-2"
                     style={{ width: "fit-content" }}
                   >
@@ -259,7 +276,7 @@ const page = () => {
                     </p>
                     <img src="/assets/white_arrow.svg" style={{ width: "15px" }} />
                   </div>
-                </a>
+               
               </div>
               <div className="col-md-6 col-12 order-md-2 order-1 mb-md-3">
                 <img

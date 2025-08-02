@@ -5,6 +5,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
+import { LoggedDataContext } from "../context/context";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 const symptoms = [
   {
@@ -82,6 +85,19 @@ const stages = [
 ];
 
 const page = () => {
+
+    const { loggedUserData} = useContext(LoggedDataContext);
+           
+             const router = useRouter();
+         
+              const  handleBtnClick = () => {
+             if(loggedUserData){ 
+               router.push("/appointment-form")
+             }else{
+               router.push("/login?redirect=/appointment-form");
+             }
+           }
+
   const settings = {
     dots: true,
     infinite: true,
@@ -433,8 +449,8 @@ const page = () => {
               </p>
 
               <div className="d-flex d-lg-none gap-sm-4 gap-3 pt-sm-4 pt-4">
-                   <a href="/appointment-form" style={{textDecoration:"none"}}>
-                <div className="d-flex gap-sm-3 gap-1 bookButton p-2">
+                
+                <div className="d-flex gap-sm-3 gap-1 bookButton p-2" onClick={handleBtnClick}>
                   <img
                     src="/assets/button_icon_1.svg"
                     style={{ width: "16px" }}
@@ -450,7 +466,7 @@ const page = () => {
                     style={{ width: "15px" }}
                   />
                 </div>
-                  </a>
+             
 
                <a href="/endometriosis-mapping" style={{textDecoration:"none"}}>
                  <div className="d-flex gap-sm-3 gap-1 viewButton p-2">
