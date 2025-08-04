@@ -278,16 +278,16 @@ const validateForm = () => {
                 onChange={handleChange}
               >
                     <option value="">Treatment Services</option>
-                    <option value="endometriosis mapping">Endometriosis Mapping</option>
-                    <option value="endometriosis surgery">Endometriosis Surgery</option>
-                    <option value="endometriosis and infertility">
+                    <option value="Endometriosis mapping">Endometriosis Mapping</option>
+                    <option value="Endometriosis surgery">Endometriosis Surgery</option>
+                    <option value="Endometriosis and infertility">
                       Endometriosis and Infertility
                     </option>
-                    <option value="thoracic and diaphragamatic endometriosis">
+                    <option value="Thoracic and Diaphragamatic Endometriosis">
                       Thoracic and Diaphragmatic Endometriosis
                     </option>
-                    <option value="adolescent endometriosis">Adolescent Endometriosis</option>
-                    <option value="adenomyosis">Adenomyosis</option>
+                    <option value="Adolescent Endometriosis">Adolescent Endometriosis</option>
+                    <option value="Adenomyosis">Adenomyosis</option>
                   </select>
                             {renderError("treatmentService")}
                 </div>

@@ -307,15 +307,18 @@ const Navbar = () => {
       name: "Support",
       link: "/support",
       icon: "/assets/Nav_icon_4.svg",
-      subItems: [
-        { name: "support", link: "/support" },
-      ],
+      // subItems: [
+      //   { name: "support", link: "/support" },
+      // ],
     },
 
     {
       name: "Blog",
-      link: "/",
+      link: "/blog",
       icon: "/assets/Nav_icon_5.svg",
+      // subItems: [
+      //   { name: "blog", link: "/blog" },
+      // ],
     },
   ];
 
@@ -410,16 +413,29 @@ useEffect(() => {
           {navArr.map((v, i) => (
             <li key={i} className="position-relative d-flex align-items-center">
               <div
-                onClick={() => v.subItems ? handleDropdownToggle(i) : null}
+                onClick={() => {
+    if (v.subItems) {
+      handleDropdownToggle(i);
+    } else {
+      router.push(v.link); 
+    }
+  }}
                 className="d-flex align-items-center gap-2 px-3 py-2 cursor-pointer"
-                style={{ cursor: v.subItems ? "pointer" : "default" }}
+                style={{ cursor:"pointer" }}
               >
                 <img src={v?.icon} alt={v.name} />
                 <p className="mb-0 nav-link text-black">{v.name}</p>
-               <img src="/assets/Nav_dropdown.svg" alt="dropdown"   style={{
-                transform: activeDropdown === i ? "rotate(180deg)" : "rotate(0)",
-                transition: "0.3s",
-              }} />
+              {v.subItems && (
+  <img
+    src="/assets/Nav_dropdown.svg"
+    alt="dropdown"
+    style={{
+      transform: activeDropdown === i ? "rotate(180deg)" : "rotate(0)",
+      transition: "0.3s",
+    }}
+  />
+)}
+
               </div>
 
               {/* Submenu dropdown */}
@@ -505,7 +521,14 @@ useEffect(() => {
       <li key={i} className="mb-3">
         <div
           className="d-flex align-items-center gap-2 justify-content-between"
-          onClick={() => v.subItems ? handleMobileDropdownToggle(i) : null}
+         onClick={() => {
+  if (v.subItems) {
+    handleMobileDropdownToggle(i);
+  } else {
+    router.push(v.link);
+    closeOffcanvas(); // to close the menu after navigation
+  }
+}}
           style={{ cursor: v.subItems ? "pointer" : "default" }}
         >
           <div className="d-flex align-items-center gap-2">

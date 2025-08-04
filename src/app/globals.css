@@ -1033,7 +1033,7 @@ background: #8E44AD;
   filter: brightness(0) invert(1);
 }
 
-@media (max-width:800px) {
+@media (max-width:990px) {
   .profile-options{
   overflow-x: scroll !important;
 }
@@ -1106,4 +1106,39 @@ background: #8E44AD;
   .swiper{
   padding-bottom: 8% !important;
 }
+}
+
+/* loading btn spiner */
+
+.spin {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* blog css */
+
+.aboutMissionCard{
+  padding: 6% !important;
+  border-radius: 16px;
+text-align: center;
+}
+.aboutMissionCard img{
+  opacity: 0.7;
+  height: 70px;
+}
+
+.emailCard{
+  border-radius: 12px;
+  padding: 5%;
+  width: fit-content;
 }

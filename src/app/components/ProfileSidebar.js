@@ -63,7 +63,7 @@ const ProfileSidebar = () => {
           return (
             <div
               key={index}
-              className={`px-md-5 px-3 py-md-3 py-2 `}
+              className={`px-lg-5 px-md-4 px-3 py-md-3 py-2 `}
               style={{
                 borderRadius: "18px",
                 cursor: "pointer",

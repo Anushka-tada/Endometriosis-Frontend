@@ -870,7 +870,7 @@
 // after animation added
 
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RequestConsultation from "./components/RequestConsultation";
@@ -882,6 +882,8 @@ import { motion } from "framer-motion";
 import { LoggedDataContext } from "./context/context";
 import { useContext } from "react";
 import { useRouter } from "next/navigation";
+import { getBlogListServ } from "./services/blog.service";
+import BlogSection from "./components/BlogSection"
 
 
 const reasons = [
@@ -990,32 +992,32 @@ const EndometriosSteps = [
   },
 ];
 
-const stories = [
-  {
-    img: "/assets/homepage/story_Image.png",
-    category: "Category Tag or Label",
-    views: "11k",
-    title: "Understanding Endometriosis  Treatment Options Today",
-    subtitle:
-      "Learn about the latest treatment options,  expert tips, and real patient outcomes… ",
-  },
-  {
-    img: "/assets/homepage/story_Image.png",
-    category: "Category Tag or Label",
-    views: "11k",
-    title: "Understanding Endometriosis  Treatment Options Today",
-    subtitle:
-      "Learn about the latest treatment options,  expert tips, and real patient outcomes… ",
-  },
-  {
-    img: "/assets/homepage/story_Image.png",
-    category: "Category Tag or Label",
-    views: "11k",
-    title: "Understanding Endometriosis  Treatment Options Today",
-    subtitle:
-      "Learn about the latest treatment options,  expert tips, and real patient outcomes… ",
-  },
-];
+// const stories = [
+//   {
+//     img: "/assets/homepage/story_Image.png",
+//     category: "Category Tag or Label",
+//     views: "11k",
+//     title: "Understanding Endometriosis  Treatment Options Today",
+//     subtitle:
+//       "Learn about the latest treatment options,  expert tips, and real patient outcomes… ",
+//   },
+//   {
+//     img: "/assets/homepage/story_Image.png",
+//     category: "Category Tag or Label",
+//     views: "11k",
+//     title: "Understanding Endometriosis  Treatment Options Today",
+//     subtitle:
+//       "Learn about the latest treatment options,  expert tips, and real patient outcomes… ",
+//   },
+//   {
+//     img: "/assets/homepage/story_Image.png",
+//     category: "Category Tag or Label",
+//     views: "11k",
+//     title: "Understanding Endometriosis  Treatment Options Today",
+//     subtitle:
+//       "Learn about the latest treatment options,  expert tips, and real patient outcomes… ",
+//   },
+// ];
 
 const page = () => {
 
@@ -1152,6 +1154,7 @@ const page = () => {
                     >
                       <div className="d-flex gap-3  bookButtonHero p-2">
                         <img
+                          alt="book-appointment-icon"
                           src="/assets/button_icon_1.svg"
                           style={{ width: "16px" }}
                         />
@@ -1162,6 +1165,7 @@ const page = () => {
                           Book Appointment
                         </p>
                         <img
+                         alt="next-arrow"
                           src="/assets/white_arrow.svg"
                           style={{ width: "15px" }}
                         />
@@ -1192,6 +1196,7 @@ const page = () => {
                       {[1, 2, 3, 4].map((_, i) => (
                         <img
                           key={i}
+                          alt="rating-star"
                           src="/assets/star.svg"
                           style={{ width: "24px" }}
                         />
@@ -1217,11 +1222,13 @@ const page = () => {
 
                       <div className="d-flex">
                         <img
+                        alt="review"
                           src="/assets/homepage/hero-review1.jpg"
                           className="rounded-circle"
                           style={{ width: "34px", height: "34px" }}
                         />
                         <img
+                         alt="review"
                           src="/assets/homepage/hero-review2.jpg"
                           className="rounded-circle"
                           style={{
@@ -1231,6 +1238,7 @@ const page = () => {
                           }}
                         />
                         <img
+                         alt="review"
                           src="/assets/homepage/hero-review3.jpg"
                           className="rounded-circle"
                           style={{
@@ -1253,6 +1261,7 @@ const page = () => {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}>
 
                 <img
+               
                   src="/assets/homepage/dr-madhu.png"
                   alt="Dr Madhu Bagaria"
                   className="img-fluid heroSectionImage"
@@ -1262,6 +1271,7 @@ const page = () => {
           </div>
 
           <motion.img
+           alt="background-img"
             src="/assets/homepage/backround2.png"
             className="leftBackground"
             initial={{ opacity: 0 }}
@@ -1328,6 +1338,7 @@ const page = () => {
 
               <div className="col-lg-6 col-12">
                 <motion.img
+                  alt="about-section-image"
                   src="/assets/homepage/about.png"
                   className="img-fluid mb-sm-0 mb-3"
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -1374,6 +1385,7 @@ const page = () => {
                     <p className="learnMore mb-0">Learn More About Our Story</p>
                   </a>
                   <img
+                    
                     src="/assets/purple_Arrow.svg"
                     style={{ width: "22px" }}
                     alt="arrow"
@@ -1612,72 +1624,7 @@ const page = () => {
             </motion.p>
 
             <div className="row pb-5">
-              <Slider {...settings}>
-                {stories.map((story, index) => (
-                  <motion.div
-                    key={index}
-                    className="p-3"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div
-                      className="bg-white boxShadow p-3 py-4"
-                      style={{ borderRadius: "20px" }}
-                    >
-                      <div className="d-flex flex-column">
-                        <img
-                          src={story.img}
-                          className="img-fluid mb-3"
-                          style={{ borderRadius: "20px" }}
-                        />
-
-                        <div
-                          className="d-flex justify-content-between align-items-center mb-3"
-                          style={{ fontSize: "14px", fontWeight: "500" }}
-                        >
-                          <p className="mb-0">{story.category}</p>
-                          <div className="d-flex gap-2 align-items-center">
-                            <img
-                              src="/assets/eye_icon.svg"
-                              style={{ height: "16px" }}
-                            />
-                            <p className="mb-0">{story.views}</p>
-                          </div>
-                        </div>
-
-                        <h5 className="medium-text ">{story.title}</h5>
-                        <p className="para ">{story.subtitle}</p>
-                        <div className="d-flex gap-3 align-items-center mb-3">
-                          <p className="learnMore mb-0">Read More</p>
-                          <img
-                            src="/assets/purple_Arrow.svg"
-                            style={{ width: "22px" }}
-                          />
-                        </div>
-
-                        <div className="d-flex align-items-center gap-3">
-                          <img
-                            src="/assets/homepage/Testi_review_1.png"
-                            className="reviewImg"
-                          />
-                          <div>
-                            <p className="para text-black mb-1">Anjali Mehta</p>
-                            <p
-                              className="mb-0"
-                              style={{ fontSize: "14px", fontWeight: "400" }}
-                            >
-                              Delhi, India
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </Slider>
+            <BlogSection/>
             </div>
           </div>
         </div>

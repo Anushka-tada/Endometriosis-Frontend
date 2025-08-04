@@ -2,7 +2,11 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { motion , AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { supportContactServ } from "../services/booking.service";
+import { FaExclamationCircle } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const questions = [
   {
@@ -118,6 +122,71 @@ const Page = () => {
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.fullName.trim()) {
+      newErrors.name = "Name is required.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
+    ) {
+      newErrors.email = "Invalid email format.";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required.";
+    }
+
+    return newErrors;
+  };
+
+  const handleSubmit = async () => {
+    const validationErrors = validate();
+    setErrors(validationErrors);
+
+    try {
+      const res = await supportContactServ(formData);
+      console.log("res ", res);
+      setFormData({
+        fullName: "",
+        email: "",
+        message: "",
+      });
+
+      setErrors({});
+       toast.success(res?.message || "submited successfully", {
+          className: "custom-success-toast",
+          icon: <FaCheckCircle color="#5F2D8B" />,
+        });
+    } catch (err) {
+      console.log("err", err);
+        toast.error(error?.response?.data?.message || "sumbimission failed", {
+          className: "custom-error-toast",
+          icon: <FaExclamationCircle color="#5F2D8B" />,
+        });
+    }
+  };
+
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
       <Navbar />
@@ -130,7 +199,7 @@ const Page = () => {
             <motion.div
               className="col-lg-4 col-md-6 col-12 d-flex flex-column align-items-md-start align-items-center"
               initial={{ x: -50, opacity: 0 }}
-             animate={{ x: 0, opacity: 1 }}
+              animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
@@ -164,7 +233,6 @@ const Page = () => {
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
-           
             >
               {questions.map((question, index) => (
                 <div
@@ -308,28 +376,47 @@ const Page = () => {
                 <div className="div">
                   <label className="para mb-md-3 mb-2">Full name</label>
                   <input
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
                     className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
                     type="text"
-                    placeholder="Enter your name "
+                    placeholder="Enter your name"
                   />
+                  {errors.name && (
+                    <p className="text-danger small">{errors.name}</p>
+                  )}
 
                   <label className="para mb-md-3 mb-2">Email address</label>
                   <input
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
-                    type="text"
-                    placeholder="Enter your email address "
+                    type="email"
+                    placeholder="Enter your email address"
                   />
+                  {errors.email && (
+                    <p className="text-danger small">{errors.email}</p>
+                  )}
 
                   <label className="para mb-md-3 mb-2">Message</label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     className="form-input py-3 px-3 w-100 mb-md-4 mb-2"
                     rows={3}
-                    placeholder="Enter Your message"
+                    placeholder="Enter your message"
                   />
+                  {errors.message && (
+                    <p className="text-danger small">{errors.message}</p>
+                  )}
                 </div>
 
                 {/* Button with hover effect */}
                 <motion.div
+                  onClick={handleSubmit}
                   className="d-flex gap-sm-3 gap-1 bookButton p-2 px-3 mb-3"
                   style={{ width: "fit-content", cursor: "pointer" }}
                   transition={{ type: "spring", stiffness: 300 }}

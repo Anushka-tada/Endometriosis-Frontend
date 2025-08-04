@@ -4,18 +4,26 @@ import Navbar from "../../components/Navbar";
 import React, { useEffect, useState } from "react";
 import { appointmentDetailsServ } from "../../services/booking.service";
 import { useParams } from "next/navigation";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 
 const page = () => {
+
   const { id } = useParams();
   const [details, setDetails] = useState();
+    const [isLoading , setIsLoading] = useState([]);
 
   const getAppointmentDetails = async () => {
     try {
+       setIsLoading(true)
       const res = await appointmentDetailsServ(id);
       console.log("details fetched successfully", res);
       setDetails(res?.data);
+       setIsLoading(false)
     } catch (err) {
       console.log("get error while fetching details", err);
+       setIsLoading(false)
     }
   };
 
@@ -34,7 +42,70 @@ const page = () => {
         </a>
        </div>
         <h2 className="text-center mb-3">Appointment Details</h2>
-        <div
+       { isLoading == true ? (
+           <div
+    className="container bg-white p-sm-5 p-3"
+    style={{ borderRadius: "20px", border: "1px solid #faf0ff" }}
+  >
+    {/* Heading Skeleton */}
+    <div className="row mb-5">
+      <h3 className="medium-text my-3 textPrimary">
+        <Skeleton width={200} />
+      </h3>
+      <div className="col-12 col-md-8">
+        <div className="row gy-3">
+          {[...Array(5)].map((_, index) => (
+            <div className="col-12 col-sm-6" key={index}>
+              <p className="text-muted mb-2 para">
+                <Skeleton width={100} />
+              </p>
+              <p className="text-dark small-bold">
+                <Skeleton width={160} height={20} />
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* 3 Info Cards Skeletons */}
+    <div className="row">
+      {[...Array(3)].map((_, index) => (
+        <div className="col-lg-4 col-md-6 col-12 mb-3" key={index}>
+          <div
+            className="p-sm-4 p-3 boxShadow h-100"
+            style={{
+              backgroundColor: "#ECE6F3",
+              borderRadius: "16px",
+            }}
+          >
+            <div className="d-flex gap-3 mb-3">
+              <Skeleton circle width={32} height={32} />
+              <Skeleton width={150} height={20} />
+            </div>
+            <div className="row">
+              <div className="col-6">
+                {[...Array(4)].map((__, i) => (
+                  <p key={i} className="small-bold text-black">
+                    <Skeleton width={90} />
+                  </p>
+                ))}
+              </div>
+              <div className="col-6">
+                {[...Array(4)].map((__, i) => (
+                  <p key={i} className="para text-black">
+                    <Skeleton width={120} />
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+        ):(
+           <div
           className="container bg-white p-sm-5 p-3"
           style={{ borderRadius: "20px" , border:"1px solid #faf0ff "}}
         >
@@ -203,6 +274,8 @@ const page = () => {
             </div>
           </div>
         </div>
+        )
+       }
       </div>
 
       <Footer />

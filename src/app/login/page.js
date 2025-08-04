@@ -9,6 +9,7 @@ import { LoggedDataContext } from "../context/context";
 import { FaExclamationCircle } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
 import { useSearchParams } from 'next/navigation';
+import { FaSpinner } from "react-icons/fa";
 
 const page = () => {
   const router = useRouter();
@@ -25,6 +26,9 @@ const page = () => {
   const [rememberMe, setRememberMe] = useState(false);
 
   const [formErrors, setFormErrors] = useState({});
+
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +53,7 @@ const page = () => {
 
     if (Object.keys(errors).length === 0) {
       console.log("Login Form Data:", formData);
+       setIsLoggingIn(true);
       try {
         const res = await loginServ(formData);
         console.log("login success full", res);
@@ -67,6 +72,9 @@ const page = () => {
           icon: <FaExclamationCircle color="#5F2D8B" />,
         });
       }
+      finally {
+      setIsLoggingIn(false); 
+    }
     }
   };
 
@@ -124,20 +132,27 @@ const page = () => {
                     <p className="mb-0">Remember me</p>
                   </div>
 
-                  <p
+                 <a href="/forgot-password" style={{textDecoration:"none" , cursor:"pointer"}}>
+                   <p
                     className=" text-decoration-underline mb-0"
                     style={{ color: "rgba(142, 68, 173, 1)" }}
                   >
                     Forgot Password ?
                   </p>
+                 </a>
                 </div>
 
                 <button
                   className="p-2 medium-text text-white w-100 logInBtn"
                   onClick={handleSignup}
                 >
-                  Login
+                 {isLoggingIn ? (
+  <span>
+    <FaSpinner className="spin me-2" />
+  </span>
+) : "Login"}
                 </button>
+                
               </div>
 
               <div className="mt-4">

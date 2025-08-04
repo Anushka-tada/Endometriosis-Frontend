@@ -37,3 +37,16 @@ export const appointmentDetailsServ = async (id) => {
     throw error;
   }
 };
+
+
+// support api
+
+export const supportContactServ = async (formData) => {
+  try {
+    const response = await axios.post(BASE_URL + "support/add-contact-query", formData );
+    return response.data;
+  } catch (error) {
+    console.error("Contact Error:", error);
+    throw error;
+  }
+};

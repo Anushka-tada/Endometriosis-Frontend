@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { LoggedDataContext } from '../context/context';
 import { FaExclamationCircle } from "react-icons/fa";
 import { FaCheckCircle } from 'react-icons/fa';
-
+import { FaSpinner } from "react-icons/fa";
 
 const page = () => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const page = () => {
 //   const [showPassword, setShowPassword] = useState(false);
 
 const [formErrors, setFormErrors] = useState({});
-
+  const [isSignupIn, setIsSignupIn] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -53,7 +53,7 @@ const handleSignup =  async () => {
 
   if (Object.keys(errors).length === 0) {
     console.log("Form Data:", formData);
-
+    setIsSignupIn(true)
     try{
       const res = await signUp(formData);
       console.log("signup succesfull" , res);
@@ -70,6 +70,8 @@ const handleSignup =  async () => {
          className: "custom-error-toast",
          icon: <FaExclamationCircle color="#5F2D8B" />
        });
+    }finally{
+      setIsSignupIn(false)
     }
     // router.push("/profile");
   }
@@ -147,7 +149,12 @@ const handleSignup =  async () => {
                 </div>
 
                 <button className="p-2 medium-text text-white w-100 logInBtn" onClick={handleSignup}>
-                  Sign Up
+                  {isSignupIn ? (
+    <>
+      <FaSpinner className="spin" /></>
+  ) : (
+    "Sign Up"
+  )}
                 </button>
               </div>
 

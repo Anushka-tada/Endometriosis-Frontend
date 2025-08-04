@@ -52,8 +52,9 @@ const Footer = () => {
       </div>
       <div className="footer main pt-5 mt-4 pb-3">
         <div className="container">
-          <div className=" d-flex justify-content-between flex-wrap mb-3 px-md-0 px-3">
-            <div className="mb-4">
+          <div className="row ">
+            <div className="col-lg-8 d-flex justify-content-between flex-wrap mb-3 px-md-0 px-3">
+              <div className="mb-4">
               <img src="/assets/logo.png" className="footer-logo"></img>
 
               <div className="footer-link mt-3">
@@ -103,13 +104,13 @@ const Footer = () => {
                 >
                   <p>Endometriosis-and-infertility</p>
                 </a>
-                <a href="" style={{ textDecoration: "none", color: "#77808B" }}>
+                <a href="/thoracic-endometriosis" style={{ textDecoration: "none", color: "#77808B" }}>
                   <p>Thoracic-endometriosis</p>
                 </a>
-                <a href="" style={{ textDecoration: "none", color: "#77808B" }}>
+                <a href="/adenomyosis" style={{ textDecoration: "none", color: "#77808B" }}>
                   <p>Adenomyosis</p>
                 </a>
-                <a href="" style={{ textDecoration: "none", color: "#77808B" }}>
+                <a href="/adolescent-endometriosis" style={{ textDecoration: "none", color: "#77808B" }}>
                   <p>Adolescent-endometriosis</p>
                 </a>
               </div>
@@ -119,41 +120,42 @@ const Footer = () => {
               <p className="textPrimary footer-head mb-4">Company</p>
               <div className="footer-link">
                 <a
-                  href="how-we-help"
+                  href="/how-we-help"
                   style={{ textDecoration: "none", color: "#77808B" }}
                 >
                   {" "}
                   <p>How we help</p>
                 </a>
                 <a
-                  href="our-team"
+                  href="/our-team"
                   style={{ textDecoration: "none", color: "#77808B" }}
                 >
                   {" "}
                   <p>Meet Our Team</p>
                 </a>
                 <a
-                  href="why-essi"
+                  href="/why-essi"
                   style={{ textDecoration: "none", color: "#77808B" }}
                 >
                   <p>Why Us</p>
                 </a>
-                <a href="" style={{ textDecoration: "none", color: "#77808B" }}>
+                <a href="/blog" style={{ textDecoration: "none", color: "#77808B" }}>
                   {" "}
                   <p>Blog</p>
                 </a>
-                <a href="" style={{ textDecoration: "none", color: "#77808B" }}>
+                <a href="/support" style={{ textDecoration: "none", color: "#77808B" }}>
                   {" "}
                   <p>Support</p>
                 </a>
-                <a href="" style={{ textDecoration: "none", color: "#77808B" }}>
+                {/* <a href="" style={{ textDecoration: "none", color: "#77808B" }}>
                   {" "}
                   <p>Contact Us</p>
-                </a>
+                </a> */}
               </div>
             </div>
+            </div>
 
-            <div className="d-flex flex-column mb-4">
+            {/* <div className="d-flex flex-column mb-4">
               <p className="textPrimary footer-head mb-4">Join a Newsletter</p>
               <p className="footer-link">Your Email</p>
               <textarea
@@ -173,7 +175,7 @@ const Footer = () => {
               >
                 Subscribe
               </button>
-            </div>
+            </div> */}
           </div>
 
           <hr
