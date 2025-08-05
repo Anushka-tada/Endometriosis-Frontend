@@ -6,10 +6,15 @@ import Footer from "../components/Footer";
 import { toast } from "react-toastify";
 import { FaExclamationCircle } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+
 
 const page = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+
+  const router = useRouter();
+
 
   const handleSubmit = async () => {
     if (!email.trim()) {
@@ -37,7 +42,9 @@ const page = () => {
       <Navbar />
 
       <div className="pageOuter">
-        <div className="container mt-5 d-flex justify-content-center">
+        <div className="container mt-5 d-flex flex-column align-items-center justify-content-center">
+         
+
           <div className="bg-white emailCard boxShadow d-flex flex-column align-items-center mb-5">
             <h3>Forgot Password</h3>
             <input
@@ -54,7 +61,15 @@ const page = () => {
             >
               Send Reset Link
             </button>
+             <p 
+             style={{cursor:"pointer"}}
+  onClick={() => router.push("/login")}
+  className="mb-0 mt-3 text-start textPrimary"
+>
+  ← Back to Login
+</p>
           </div>
+          
         </div>
       </div>
       <Footer />
