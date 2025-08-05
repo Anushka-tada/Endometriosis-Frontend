@@ -1143,3 +1143,21 @@ text-align: center;
   padding: 3% 5%;
   width: fit-content;
 }
+
+
+
+.reviewCard{
+  min-height: 330px !important;
+}
+.vedioReview{
+  max-height: 330px !important;
+}
+
+@media (max-width:415px) {
+  .reviewCard{
+  min-height: 300px !important;
+}
+.vedioReview{
+  max-height: 300px !important;
+}
+}

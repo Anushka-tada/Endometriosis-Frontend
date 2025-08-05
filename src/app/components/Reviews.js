@@ -91,17 +91,15 @@ const [mixedReviews, setMixedReviews] = useState([]);
   <div key={review._id}>
     {review.type === "text" ? (
       <motion.div
-        className="p-3 reviewCard"
+        className=" reviewCard  boxShadow p-4 pb-5 d-flex flex-column justify-content-between"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        whileHover={{ scale: 1.03 }}
+        // whileHover={{ scale: 1.03 }}
+        style={{ borderRadius: "16px", backgroundColor: "#FF79E7" }}
       >
-        <div
-          className="boxShadow p-4 pb-5"
-          style={{ borderRadius: "16px", backgroundColor: "#FF79E7" }}
-        >
+     
           <div className="d-flex justify-content-between align-items-center">
             <img src="/assets/card_comma.svg" className="cardComa" />
             <div className="d-flex gap-1">
@@ -115,7 +113,7 @@ const [mixedReviews, setMixedReviews] = useState([]);
             </div>
           </div>
 
-          <p className="small-bold text-white  my-2 py-4">
+          <p className="small-bold text-white  ">
             {review?.review}
           </p>
 
@@ -128,27 +126,25 @@ const [mixedReviews, setMixedReviews] = useState([]);
               
             </div>
           </div>
-        </div>
+       
       </motion.div>
     ) : (
       <motion.div
-        className="p-3 h-100 reviewCard"
+        className="mx-3 reviewCard boxShadow middleTestimonial position-relative h-100 overflow-hidden"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
-        whileHover={{ scale: 1.02 }}
+        // whileHover={{ scale: 1.02 }}
+           style={{ borderRadius: "16px" }}
       >
-        <div
-          className="boxShadow middleTestimonial position-relative h-100 overflow-hidden"
-          style={{ borderRadius: "16px" }}
-        >
+       
           <video
             controls
             preload="metadata"
-            className="img-fluid w-100"
+            className="img-fluid w-100 vedioReview"
             // poster="/assets/homepage/testi_card_1.png" // fallback thumbnail
-            style={{ maxHeight: "300px", objectFit: "cover" }}
+            style={{  objectFit: "cover" }}
           >
             <source src={review.videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
@@ -171,7 +167,7 @@ const [mixedReviews, setMixedReviews] = useState([]);
              
             </div>
           </div>
-        </div>
+        
       </motion.div>
     )}
   </div>
