@@ -41,3 +41,16 @@ export const userDetailsUpdateServ = async (formData , token) => {
     throw error;
   }
 };
+
+
+// forget password 
+
+export const forgotPasswordServ = async (formData) => {
+  try {
+    const response = await axios.post(BASE_URL + "user/forgot-password", formData );
+    return response.data;
+  } catch (error) {
+    console.error("Signup Error:", error);
+    throw error;
+  }
+};

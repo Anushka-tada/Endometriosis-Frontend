@@ -145,6 +145,19 @@ const page = () => {
         {details?.date} | {details?.time}
       </p>
     </div>
+
+ <div className="col-12 col-sm-6">
+       {details?.status === "pending" && (
+  <div className="mb-2">
+    <button
+      className="viewButton textPrimary px-4 py-2"
+      onClick={() => window.location.href = `/review/${details?._id}`}
+    >
+      Add Review
+    </button>
+  </div>
+)}
+</div>
   </div>
 </div>
 
@@ -273,9 +286,14 @@ const page = () => {
               </div>
             </div>
           </div>
+
+       
+
         </div>
         )
        }
+       
+       
       </div>
 
       <Footer />
