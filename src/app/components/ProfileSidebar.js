@@ -42,7 +42,7 @@ const ProfileSidebar = () => {
   const menu = [
     { name: "Account Details", path: "/profile" },
     { name: "Bookings", path: "/bookings" },
-    { name: "Reviews", path: "/reviews" },
+    // { name: "Reviews", path: "/reviews" },
     { name: "Log out", path: "/logout" }, // you can change this later
   ];
 

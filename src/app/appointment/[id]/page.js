@@ -8,11 +8,13 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 
+
 const page = () => {
 
   const { id } = useParams();
   const [details, setDetails] = useState();
     const [isLoading , setIsLoading] = useState([]);
+        // const [showReviewPopup, setShowReviewPopup] = useState(false);
 
   const getAppointmentDetails = async () => {
     try {
@@ -146,23 +148,22 @@ const page = () => {
       </p>
     </div>
 
- <div className="col-12 col-sm-6">
+ {/* <div className="col-12 col-sm-6">
        {details?.status === "pending" && (
   <div className="mb-2">
     <button
-      className="viewButton textPrimary px-4 py-2"
-      onClick={() => window.location.href = `/review/${details?._id}`}
+      className="viewButton textPrimary bg-white px-4 py-2"
+      onClick={() => setShowReviewPopup(true)}
     >
       Add Review
     </button>
   </div>
 )}
-</div>
+</div> */}
   </div>
 </div>
 
           </div>
-
           <div className="row">
             <div className="col-lg-4 col-md-6 col-12 mb-3">
               <div
@@ -201,6 +202,48 @@ const page = () => {
                       {details?.treatmentService}
                     </p>
                     <p className="para text-black">{details?.dob}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+
+            <div className="col-lg-4 col-md-6 col-12 mb-3">
+              <div
+                className="p-sm-4 p-3 boxShadow h-100"
+                style={{
+                  backgroundColor: "#ECE6F3",
+                  rounded: "17px",
+                  borderRadius: "16px",
+                }}
+              >
+                <div className="d-flex gap-3">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/687/687529.png"
+                    style={{ height: "32px", width: "32px" }}
+                  ></img>
+                  <p
+                    className="medium-text pb-2"
+                    style={{ borderBottom: "1px solid #d9afe3" }}
+                  >
+                    Medical Info
+                  </p>
+                </div>
+                <div className="row">
+                  <div className="col-6">
+                    <p className="small-bold text-black">Diagnosed</p>
+                    <p className="small-bold text-black">GDPR Consent</p>
+                    <p className="small-bold text-black">Brief History</p>
+                  </div>
+                  <div className="col-6">
+                    <p className="para text-black">
+                      {details?.diagnosed ? "Yes" : "No"}
+                    </p>
+                    <p className="para text-black">
+                      {details?.gdpr ? "Yes" : "No"}
+                    </p>
+                    <p className="para text-black">{details?.history}</p>
                   </div>
                 </div>
               </div>
@@ -245,50 +288,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-
-            <div className="col-lg-4 col-md-6 col-12 mb-3">
-              <div
-                className="p-sm-4 p-3 boxShadow h-100"
-                style={{
-                  backgroundColor: "#ECE6F3",
-                  rounded: "17px",
-                  borderRadius: "16px",
-                }}
-              >
-                <div className="d-flex gap-3">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/128/687/687529.png"
-                    style={{ height: "32px", width: "32px" }}
-                  ></img>
-                  <p
-                    className="medium-text pb-2"
-                    style={{ borderBottom: "1px solid #d9afe3" }}
-                  >
-                    Medical Info
-                  </p>
-                </div>
-                <div className="row">
-                  <div className="col-6">
-                    <p className="small-bold text-black">Diagnosed</p>
-                    <p className="small-bold text-black">GDPR Consent</p>
-                    <p className="small-bold text-black">Brief History</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="para text-black">
-                      {details?.diagnosed ? "Yes" : "No"}
-                    </p>
-                    <p className="para text-black">
-                      {details?.gdpr ? "Yes" : "No"}
-                    </p>
-                    <p className="para text-black">{details?.history}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-
-       
-
         </div>
         )
        }

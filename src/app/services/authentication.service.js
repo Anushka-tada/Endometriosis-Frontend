@@ -46,7 +46,7 @@ export const userDetailsUpdateServ = async (formData , token) => {
 
 export const changePasswordServ = async (formData , token) => {
   try {
-    const response = await axios.post(BASE_URL + "user/change-password", formData , {
+    const response = await axios.put(BASE_URL + "user/change-password", formData , {
     headers: {
       Authorization: `Bearer ${token}`,  
     },

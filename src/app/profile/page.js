@@ -12,7 +12,6 @@
 //   console.log("loggedUserData profile", loggedUserData);
 // }, [loggedUserData]);
 
-
 //   const [isEditing, setIsEditing] = useState(false);
 //   const [formData, setFormData] = useState({
 //     name: "",
@@ -32,7 +31,7 @@
 //         _id:loggedUserData?._id,
 //         confirmPassword: loggedUserData?.password,
 //         //  token:loggedUserData?.token
-        
+
 //       });
 //     }
 //   }, [loggedUserData]);
@@ -58,7 +57,7 @@
 //        catch(err){
 //         console.log("error in update" , err)
 //        }
-       
+
 //     }
 //     setIsEditing(!isEditing);
 //   };
@@ -141,7 +140,6 @@
 
 // export default Page;
 
-
 // after adding password change option
 
 "use client";
@@ -149,24 +147,31 @@ import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import ProfileSidebar from "../components/ProfileSidebar";
 import { LoggedDataContext } from "../context/context";
-import {userDetailsUpdateServ} from "../services/authentication.service"
+import {
+  changePasswordServ,
+  resetPasswordServ,
+  userDetailsUpdateServ,
+} from "../services/authentication.service";
+import { toast } from "react-toastify";
+import { FaCheckCircle } from "react-icons/fa";
+import { FaExclamationCircle } from "react-icons/fa";
 
 const Page = () => {
-  const { loggedUserData , updateLoggedUserData  } = useContext(LoggedDataContext);
+  const { loggedUserData, updateLoggedUserData } =
+    useContext(LoggedDataContext);
 
   useEffect(() => {
-  console.log("loggedUserData profile", loggedUserData);
-}, [loggedUserData]);
-
+    console.log("loggedUserData profile", loggedUserData);
+  }, [loggedUserData]);
 
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-     password:loggedUserData?.password,
-        confirmPassword: loggedUserData?.password,
-        _id:loggedUserData?._id,
-        // token:loggedUserData?.token
+    password: loggedUserData?.password,
+    confirmPassword: loggedUserData?.password,
+    _id: loggedUserData?._id,
+    // token:loggedUserData?.token
   });
 
   useEffect(() => {
@@ -174,11 +179,10 @@ const Page = () => {
       setFormData({
         name: loggedUserData.name || "",
         email: loggedUserData.email || "",
-        password:loggedUserData.password,
-        _id:loggedUserData?._id,
+        password: loggedUserData.password,
+        _id: loggedUserData?._id,
         confirmPassword: loggedUserData?.password,
         //  token:loggedUserData?.token
-        
       });
     }
   }, [loggedUserData]);
@@ -189,81 +193,69 @@ const Page = () => {
       ...prev,
       [name]: value,
     }));
-    console.log("profile form data" , formData)
+    console.log("profile form data", formData);
   };
 
   const handleToggleEdit = async () => {
     if (isEditing) {
       // 🟡 Submit or update API call here
       console.log("Updated Data:", formData);
-       try{
-        const res = await userDetailsUpdateServ(formData , loggedUserData?.token);
-        console.log("updated successfully" , res);
-         updateLoggedUserData(res?.data);
-       }
-       catch(err){
-        console.log("error in update" , err)
-       }
-       
+      try {
+        const res = await userDetailsUpdateServ(
+          formData,
+          loggedUserData?.token
+        );
+        console.log("updated successfully", res);
+        updateLoggedUserData(res?.data);
+      } catch (err) {
+        console.log("error in update", err);
+      }
     }
     setIsEditing(!isEditing);
   };
 
+  // password change code
+
   const [showPasswordFields, setShowPasswordFields] = useState(false);
-const [passwordStep, setPasswordStep] = useState("current"); // "current" or "new"
-const [passwordForm, setPasswordForm] = useState({
-  currentPassword: "",
-  newPassword: "",
-  confirmPassword: "",
-});
 
-const handlePasswordChange = (e) => {
-  const { name, value } = e.target;
-  setPasswordForm((prev) => ({
-    ...prev,
-    [name]: value,
-  }));
-};
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [isResetting, setIsResetting] = useState(false);
 
-
-const handleChangePasswordSubmit = async () => {
-  if (passwordStep === "current") {
-    // 🔒 Validate current password
-    if (passwordForm.currentPassword !== loggedUserData.password) {
-      alert("Current password is incorrect.");
-      return;
-    }
-    setPasswordStep("new"); // go to next step
-    return;
-  }
-
-  if (passwordStep === "new") {
-    if (passwordForm.newPassword !== passwordForm.confirmPassword) {
-      alert("New and confirm password do not match.");
+  const handleChangePasswordSubmit = async () => {
+    if (!newPassword || !confirmPassword || !currentPassword) {
+      setMessage("Please fill in all fields.");
       return;
     }
 
-    // 🔁 Update API
-    const updatedData = {
-      ...formData,
-      password: passwordForm.newPassword,
-      confirmPassword: passwordForm.confirmPassword,
-    };
+    setMessage(""); // Clear error if valid
+    setIsResetting(true);
 
     try {
-      const res = await userDetailsUpdateServ(updatedData, loggedUserData?.token);
-      updateLoggedUserData(res?.data);
-      alert("Password updated successfully!");
-      setShowPasswordFields(false);
-      setPasswordForm({ currentPassword: "", newPassword: "", confirmPassword: "" });
-      setPasswordStep("current");
-    } catch (err) {
-      console.log("Error updating password", err);
-      alert("Something went wrong.");
-    }
-  }
-};
+      const res = await changePasswordServ(
+        { currentPassword, newPassword, confirmPassword },
+        loggedUserData?.token
+      );
+      toast.success(res?.message || "password updated successfully", {
+        className: "custom-success-toast",
+        icon: <FaCheckCircle color="#5F2D8B" />,
+      });
 
+      setShowPasswordFields(false);
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+      setIsResetting(false);
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "password updated failed", {
+        className: "custom-error-toast",
+        icon: <FaExclamationCircle color="#5F2D8B" />,
+      });
+      setIsResetting(false);
+    }
+  };
 
   return (
     <div style={{ backgroundColor: "rgba(250, 250, 250, 1)" }}>
@@ -337,66 +329,73 @@ const handleChangePasswordSubmit = async () => {
 
             {/* change password */}
 
-         {/* 🔘 Change Password Button */}
-<div
-  className="d-flex gap-2 align-items-center mt-4"
-  style={{ cursor: "pointer", color: "#8E44AD" }}
-  onClick={() => setShowPasswordFields(!showPasswordFields)}
->
-  <img src="https://cdn-icons-png.flaticon.com/128/2913/2913139.png" style={{ height: "18px" }} />
-  <p className="mb-0">Change Password</p>
-</div>
+            {/* 🔘 Change Password Button */}
+            <div
+              className="d-flex gap-2 align-items-center mt-4"
+              style={{ cursor: "pointer", color: "#8E44AD" }}
+              onClick={() => setShowPasswordFields(!showPasswordFields)}
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/6357/6357059.png"
+                style={{ height: "18px" }}
+              />
+              <p className="mb-0">Change Password</p>
+            </div>
 
-{/* 🔐 Password Fields */}
-{showPasswordFields && (
-  <div className="mt-3">
-    {passwordStep === "current" && (
-      <div className="mb-3">
-        <label className="small-medium mb-2">Current Password</label>
-        <input
-          type="password"
-          name="currentPassword"
-          value={passwordForm.currentPassword}
-          onChange={handlePasswordChange}
-          className="form-input py-3 px-3 w-100 text-black mb-0"
-        />
-      </div>
-    )}
+            {/* 🔐 Password Fields */}
+            {showPasswordFields && (
+              <div className="mt-3">
+                <div className="row ">
+                  <div className="mb-3 col-md-5 col-12 mb-sm-3">
+                    <label className="small-medium mb-2">
+                      Current Password
+                    </label>
+                    <input
+                      type="password"
+                      name="currentPassword"
+                      value={currentPassword}
+                      onChange={(e) => setCurrentPassword(e.target.value)}
+                      className="form-input py-3 px-3 w-100 text-black mb-0"
+                    />
+                  </div>
 
-    {passwordStep === "new" && (
-      <>
-        <div className="mb-3">
-          <label className="small-medium mb-2">New Password</label>
-          <input
-            type="password"
-            name="newPassword"
-            value={passwordForm.newPassword}
-            onChange={handlePasswordChange}
-            className="form-input py-3 px-3 w-100 text-black mb-0"
-          />
-        </div>
-        <div className="mb-3">
-          <label className="small-medium mb-2">Confirm Password</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={passwordForm.confirmPassword}
-            onChange={handlePasswordChange}
-            className="form-input py-3 px-3 w-100 text-black mb-0"
-          />
-        </div>
-      </>
-    )}
+                  <div className="mb-3 col-md-5 col-12 mb-sm-3">
+                    <label className="small-medium mb-2">New Password</label>
+                    <input
+                      type="password"
+                      name="newPassword"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      className="form-input py-3 px-3 w-100 text-black mb-0"
+                    />
+                  </div>
+                </div>
 
-    <button
-      className="p-2 px-4 mt-2 logInBtn text-white"
-      onClick={handleChangePasswordSubmit}
-    >
-      {passwordStep === "current" ? "Verify Current Password" : "Update Password"}
-    </button>
-  </div>
-)}
+                <div className="row">
+                  <div className="mb-3 col-md-5 col-12 mb-sm-3">
+                    <label className="small-medium mb-2">
+                      Confirm Password
+                    </label>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      className="form-input py-3 px-3 w-100 text-black mb-0"
+                    />
+                  </div>
+                </div>
 
+                {message && <p className="text-danger mb-3">{message}</p>}
+
+                <button
+                  className="p-2 px-4 mt-2 logInBtn text-white"
+                  onClick={handleChangePasswordSubmit}
+                >
+                  {isResetting ? "updating..." : "Update Password"}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -405,4 +404,3 @@ const handleChangePasswordSubmit = async () => {
 };
 
 export default Page;
-
