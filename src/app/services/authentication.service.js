@@ -70,3 +70,14 @@ export const forgotPasswordServ = async (formData) => {
   }
 };
 
+//reset password
+
+export const resetPasswordServ = async (formData , token) => {
+  try {
+    const response = await axios.post(BASE_URL + "user/reset-password", formData);
+    return response.data;
+  } catch (error) {
+    console.error("Reset Password Error:", error);
+    throw error;
+  }
+};

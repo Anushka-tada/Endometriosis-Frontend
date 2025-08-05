@@ -20,12 +20,12 @@ const page = () => {
     console.log(email);
     try {
       const res = await forgotPasswordServ({ email });
-      toast.success(res?.message || "Login successful", {
+      toast.success(res?.message || "Reset link sent on your email", {
         className: "custom-success-toast",
         icon: <FaCheckCircle color="#5F2D8B" />,
       });
     } catch (err) {
-      toast.error(error?.response?.data?.message || "Login failed", {
+      toast.error(error?.response?.data?.message || "link sent password", {
         className: "custom-error-toast",
         icon: <FaExclamationCircle color="#5F2D8B" />,
       });
