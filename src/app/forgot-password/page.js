@@ -24,8 +24,8 @@ const page = () => {
         className: "custom-success-toast",
         icon: <FaCheckCircle color="#5F2D8B" />,
       });
-    } catch (err) {
-      toast.error(error?.response?.data?.message || "link sent password", {
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "link sent failed", {
         className: "custom-error-toast",
         icon: <FaExclamationCircle color="#5F2D8B" />,
       });
