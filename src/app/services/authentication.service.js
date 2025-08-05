@@ -42,6 +42,21 @@ export const userDetailsUpdateServ = async (formData , token) => {
   }
 };
 
+//change password
+
+export const changePasswordServ = async (formData , token) => {
+  try {
+    const response = await axios.post(BASE_URL + "user/change-password", formData , {
+    headers: {
+      Authorization: `Bearer ${token}`,  
+    },
+  });
+    return response.data;
+  } catch (error) {
+    console.error("Signup Error:", error);
+    throw error;
+  }
+};
 
 // forget password 
 
@@ -54,3 +69,4 @@ export const forgotPasswordServ = async (formData) => {
     throw error;
   }
 };
+
