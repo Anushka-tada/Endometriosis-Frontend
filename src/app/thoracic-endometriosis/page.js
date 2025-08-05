@@ -178,7 +178,7 @@ const page = () => {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      {/* You can add image or content here if needed */}
+     <img src="http://localhost:3000/assets/option.png" className="img-fluid"></img>
     </motion.div>
 
     <motion.div
@@ -367,7 +367,7 @@ const page = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="mappingCard1 p-sm-5 p-3">
+        <div className="mappingCard1 p-sm-5 p-3 h-100">
           <h2 className="mb-3">Diagnosing Thoracic Endometriosis</h2>
           <p className="para text-black">
             Magnetic resonance imaging (MRI) is typically used for the
@@ -412,7 +412,7 @@ const page = () => {
         transition={{ duration: 0.6, delay: 0.1 }}
         viewport={{ once: true }}
       >
-        <div className="mappingCard2 p-sm-5 p-3">
+        <div className="mappingCard2 p-sm-5 p-3 h-100">
           <h2 className="mb-3">Treating Thoracic Endometriosis</h2>
           <p className="para text-black">
             Because thoracic endometriosis is potentially life-threatening, it should be treated by a qualified medical professional. Treatment for thoracic endometriosis typically involves a combination of minimally invasive surgery, hormonal therapy, NSAIDs, GnRH agonists, and/or alternative pain therapies.

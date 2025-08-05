@@ -375,7 +375,9 @@ const page = () => {
           viewport={{ once: true }}
         >
           <div className="row mb-sm-5">
-            <div className="col-md-6 col-12"></div>
+            <div className="col-md-6 col-12" >
+              <img src="http://localhost:3000/assets/option.png" className="img-fluid"></img>
+            </div>
 
             <motion.div
               className="col-md-6 col-12"
