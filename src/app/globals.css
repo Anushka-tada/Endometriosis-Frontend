@@ -442,7 +442,23 @@ h2 {
 .teamSubtitle{
   font-size: 16px;
   font-weight: 500;
+  min-height: 48px !important;
 }
+@media (max-width:950px) {
+  .teamSubtitle{
+    margin-top: 12px;
+    min-height: 72px !important;
+  }
+}
+
+@media (max-width:1400px) {
+  .sliderBtndoctor{
+  flex-wrap: wrap;
+}
+}
+
+
+
 /* home page responsive */
 
 @media (max-width:1024px) {

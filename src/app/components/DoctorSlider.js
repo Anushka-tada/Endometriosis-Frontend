@@ -230,6 +230,102 @@ import { useContext } from "react";
 import { useRouter } from "next/navigation";
 
 
+// const TeamMember = [
+//   {
+//     img: "/assets/homepage/Dr_Alessandra.png",
+//     title: "Dr. Alessandra Di Giovanni",
+//     subtitle: "Europe | ESSI Mentor",
+//     para: "Dr. Alessandra Da Giovanni is a consultant at the Center for Advanced Pelvic Surgery, Malzoni Research Hospital in Avellino, Italy, specializing in pelvic ultrasonography for gynecological conditions, with over 10,000 procedures and a diagnostic accuracy of over 95% for endometriosis... ",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Alessio.png",
+//     title: "Dr. Alessio Pigazzi",
+//     subtitle: "California | ESSI Mentor",
+//     para: "Dr. Alessio Pigazzi, MD, PhD, FACS, is a renowned colorectal surgeon currently serving as Chief of Colorectal Surgery at NewYork-Presbyterian/Weill Cornell Medical Center. He is highly specialized in minimally invasive techniques, including laparoscopic and robotic surgeries, particularly for complex colon...",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Francesco.png",
+//     title: "Dr. Francesco Di Chiara",
+//     subtitle: "Europe | ESSI Mentor",
+//     para: "Dr. Francesco Di Chiara is a leading thoracic surgeon known for pioneering uniportal VATS (Video-Assisted Thoracoscopic Surgery) at multiple institutions and performing complex procedures with this advanced technique. He serves as a proctor for minimally invasive thoracic surgery...",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Andrea.png",
+//     title: "Dr. Andrea Vidali",
+//     subtitle:
+//       "New York, New Jersey, Florida, Illinois, and Europe | ESSI Mentor  ",
+//     para: "Dr. Andrea Vidali, MD, is a world-renowned miscarriage specialist, reproductive immunologist, and endometriosis surgeon. He has extensive experience in minimally invasive and robotic surgery as well as multi-organ endometriosis surgery. As a founder of the...",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Henrique.png",
+//     title: "Dr. Henrique Abrão",
+//     subtitle: "Brazil/Latin America ",
+//     para: "Dr. Henrique Abrão is a gynecologist, gynecological surgeon, and a leading reference in neuropelveology in Brazil. Trained in São Paulo and certified as a Master in Neuropelveology in Switzerland under Dr. Marc Possover, he specializes in treating chronic pelvic pain linked to nerve conditions...",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Joseph.png",
+//     title: "Dr. Joseph Raccuia",
+//     subtitle: "New York and New Jersey | ESSI Mentor",
+//     para: "Dr. Joseph S. Raccuia, while primarily recognized for his expertise in general surgery and surgical oncology, also treats endometriosis, particularly its more complex forms, such as extrapelvic endometriosis. He has contributed to understanding and raising awareness around the disease...",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Madhu.png",
+//     title: "Dr. Madhu Bagaria",
+//     subtitle: "New York and New Jersey",
+//     para: "Dr. Bagaria, MD, is a highly skilled gynecological surgeon specializing in endometriosis and pelvic pain. Trained at the prestigious Mayo Clinic Arizona, she brings expertise in minimally invasive gynecological surgery and a patient-centered approach to care. With over six years of experience at Mayo...",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Mallory.png",
+//     title: "Dr. Mallory Stuparich",
+//     subtitle: "California",
+//     para: "Dr. Mallory Stuparich, MD, specializes in the surgical management of endometriosis and complex benign gynecologic conditions. She believes patients deserve expert, high-quality surgical care, employing a multidisciplinary team when necessary. Dr. Stuparich views the physician-patient... ",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Mamta.png",
+//     title: "Dr. Mamta Mamik",
+//     subtitle: "New York and New Jersey",
+//     para: "Dr. Mamta Mamik is a dedicated endometriosis specialist based in New York City, known for her expertise in excision surgery and comprehensive patient care. Dr. Mamta Mamik approaches endometriosis treatment with a deep understanding of the embryonic rest theory, coelomic metaplasia, and stem... ",
+//   },
+
+//   {
+//     img: "/assets/homepage/Dr_Marcello.png",
+//     title: "Dr. Marcello Ceccaroni",
+//     subtitle: "Europe | ESSI Mentor",
+//     para: "Prof. Marcello Ceccaroni is an internationally renowned expert in deep endometriosis management, gynecological oncology, and minimally invasive pelvic surgery, currently heading the Department of Obstetrics and Gynecology, Gynecological Oncology, and Minimally Invasive Pelvic Surgery at IRCCS... ",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Marco.png",
+//     title: "Dr. Marco Zoccali",
+//     subtitle: "New York | ESSI Mentor",
+//     para: "Dr. Zoccali is a leading colorectal surgeon specializing in minimally invasive and robotic-assisted surgery for colorectal cancer, inflammatory bowel diseases (IBD), and benign colorectal conditions. As faculty at Columbia University, he is dedicated to advancing surgical innovation... ",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Mario.png",
+//     title: "Dr. Mario Malzoni",
+//     subtitle: "Europe | ESSI Mentor",
+//     para: "Scientific Director and Chief of Advanced Gynecological Endoscopy, National Center for Endometriosis, and MACC (Malzoni Cancer Center) at Malzoni Research Hospital in Avellino, Italy, Dr. Mario Malzoni is recognized worldwide as a leading expert in minimally invasive surgery for severe... ",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Mauricio.png",
+//     title: "Dr. Mauricio Abrão",
+//     subtitle: "Brazil/Latin America | ESSI Mentor",
+//     para: "Dr. Abrão is a global leader in both surgery and research & development within the field of minimally invasive surgical techniques for endometriosis excision. He is also an established medical leader serving as the head of Gynecology at Hospital Beneficência Portuguesa de São Paulo and formerly acted... ",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Osbert.png",
+//     title: "Dr. Osbert Fernandez",
+//     subtitle: "Florida",
+//     para: "Dr. Osbert Fernandez, a native Floridian and proud second-generation Cuban-American doctor, is an expert in robotic-assisted surgery for complex endometriosis cases, including bowel invasion, rectal involvement, and frozen pelvis. Known for his compassionate, patient-centered approach... ",
+//   },
+//   {
+//     img: "/assets/homepage/Dr_Sallie.png",
+//     title: "Dr. Sallie Sarrel",
+//     subtitle: "Florida",
+//     para: "Dr. Sallie Sarrel, is a dedicated advocate for individuals with endometriosis, having lived with the condition herself for nearly two decades. She co-founded The Endometriosis Summit, the largest endometriosis-focused conference, which trains patients, practitioners, and surgeons  while fostering global...",
+//   },
+// ];
+
+
 const TeamMember = [
   {
     img: "/assets/homepage/Dr_Alessandra.png",
@@ -241,13 +337,13 @@ const TeamMember = [
     img: "/assets/homepage/Dr_Alessio.png",
     title: "Dr. Alessio Pigazzi",
     subtitle: "California | ESSI Mentor",
-    para: "Dr. Alessio Pigazzi, MD, PhD, FACS, is a renowned colorectal surgeon currently serving as Chief of Colorectal Surgery at NewYork-Presbyterian/Weill Cornell Medical Center. He is highly specialized in minimally invasive techniques, including laparoscopic and robotic surgeries, particularly for complex colon...",
+    para: "Dr. Alessio Pigazzi, MD, PhD, FACS, is a renowned colorectal surgeon currently serving as Chief of Colorectal Surgery at NewYork-Presbyterian/Weill Cornell Medical Center. He is highly specialized in minimally invasive techniques, including laparoscopic and robotic surgeries...",
   },
   {
     img: "/assets/homepage/Dr_Francesco.png",
     title: "Dr. Francesco Di Chiara",
     subtitle: "Europe | ESSI Mentor",
-    para: "Dr. Francesco Di Chiara is a leading thoracic surgeon known for pioneering uniportal VATS (Video-Assisted Thoracoscopic Surgery) at multiple institutions and performing complex procedures with this advanced technique. He serves as a proctor for minimally invasive thoracic surgery...",
+    para: "Dr. Francesco Di Chiara is a leading thoracic surgeon known for pioneering uniportal VATS (Video-Assisted Thoracoscopic Surgery) at multiple institutions and performing complex procedures with this advanced technique. He serves as a proctor for...",
   },
   {
     img: "/assets/homepage/Dr_Andrea.png",
@@ -260,38 +356,38 @@ const TeamMember = [
     img: "/assets/homepage/Dr_Henrique.png",
     title: "Dr. Henrique Abrão",
     subtitle: "Brazil/Latin America ",
-    para: "Dr. Henrique Abrão is a gynecologist, gynecological surgeon, and a leading reference in neuropelveology in Brazil. Trained in São Paulo and certified as a Master in Neuropelveology in Switzerland under Dr. Marc Possover, he specializes in treating chronic pelvic pain linked to nerve conditions...",
+    para: "Dr. Henrique Abrão is a gynecologist, gynecological surgeon, and a leading reference in neuropelveology in Brazil. Trained in São Paulo and certified as a Master in Neuropelveology in Switzerland under Dr. Marc Possover, he specializes in treating chronic pelvic pain...",
   },
   {
     img: "/assets/homepage/Dr_Joseph.png",
     title: "Dr. Joseph Raccuia",
     subtitle: "New York and New Jersey | ESSI Mentor",
-    para: "Dr. Joseph S. Raccuia, while primarily recognized for his expertise in general surgery and surgical oncology, also treats endometriosis, particularly its more complex forms, such as extrapelvic endometriosis. He has contributed to understanding and raising awareness around the disease...",
+    para: "Dr. Joseph S. Raccuia, while primarily recognized for his expertise in general surgery and surgical oncology, also treats endometriosis, particularly its more complex forms, such as extrapelvic endometriosis. He has contributed to understanding and raising...",
   },
   {
     img: "/assets/homepage/Dr_Madhu.png",
     title: "Dr. Madhu Bagaria",
     subtitle: "New York and New Jersey",
-    para: "Dr. Bagaria, MD, is a highly skilled gynecological surgeon specializing in endometriosis and pelvic pain. Trained at the prestigious Mayo Clinic Arizona, she brings expertise in minimally invasive gynecological surgery and a patient-centered approach to care. With over six years of experience at Mayo...",
+    para: "Dr. Bagaria, MD, is a highly skilled gynecological surgeon specializing in endometriosis and pelvic pain. Trained at the prestigious Mayo Clinic Arizona, she brings expertise in minimally invasive gynecological surgery and a patient-centered approach to care...",
   },
   {
     img: "/assets/homepage/Dr_Mallory.png",
     title: "Dr. Mallory Stuparich",
     subtitle: "California",
-    para: "Dr. Mallory Stuparich, MD, specializes in the surgical management of endometriosis and complex benign gynecologic conditions. She believes patients deserve expert, high-quality surgical care, employing a multidisciplinary team when necessary. Dr. Stuparich views the physician-patient... ",
+    para: "Dr. Mallory Stuparich, MD, specializes in the surgical management of endometriosis and complex benign gynecologic conditions. She believes patients deserve expert, high-quality surgical care, employing a multidisciplinary team when necessary. Dr. Stuparich views the... ",
   },
   {
     img: "/assets/homepage/Dr_Mamta.png",
     title: "Dr. Mamta Mamik",
     subtitle: "New York and New Jersey",
-    para: "Dr. Mamta Mamik is a dedicated endometriosis specialist based in New York City, known for her expertise in excision surgery and comprehensive patient care. Dr. Mamta Mamik approaches endometriosis treatment with a deep understanding of the embryonic rest theory, coelomic metaplasia, and stem... ",
+    para: "Dr. Mamta Mamik is a dedicated endometriosis specialist based in New York City, known for her expertise in excision surgery and comprehensive patient care. Dr. Mamta Mamik approaches endometriosis treatment with a deep understanding of the embryonic... ",
   },
 
   {
     img: "/assets/homepage/Dr_Marcello.png",
     title: "Dr. Marcello Ceccaroni",
     subtitle: "Europe | ESSI Mentor",
-    para: "Prof. Marcello Ceccaroni is an internationally renowned expert in deep endometriosis management, gynecological oncology, and minimally invasive pelvic surgery, currently heading the Department of Obstetrics and Gynecology, Gynecological Oncology, and Minimally Invasive Pelvic Surgery at IRCCS... ",
+    para: "Prof. Marcello Ceccaroni is an internationally renowned expert in deep endometriosis management, gynecological oncology, and minimally invasive pelvic surgery, currently heading the Department of Obstetrics and Gynecology, Gynecological Oncology, and... ",
   },
   {
     img: "/assets/homepage/Dr_Marco.png",
@@ -303,28 +399,27 @@ const TeamMember = [
     img: "/assets/homepage/Dr_Mario.png",
     title: "Dr. Mario Malzoni",
     subtitle: "Europe | ESSI Mentor",
-    para: "Scientific Director and Chief of Advanced Gynecological Endoscopy, National Center for Endometriosis, and MACC (Malzoni Cancer Center) at Malzoni Research Hospital in Avellino, Italy, Dr. Mario Malzoni is recognized worldwide as a leading expert in minimally invasive surgery for severe... ",
+    para: "Scientific Director and Chief of Advanced Gynecological Endoscopy, National Center for Endometriosis, and MACC (Malzoni Cancer Center) at Malzoni Research Hospital in Avellino, Italy, Dr. Mario Malzoni is recognized worldwide as a leading expert in minimally invasive... ",
   },
   {
     img: "/assets/homepage/Dr_Mauricio.png",
     title: "Dr. Mauricio Abrão",
     subtitle: "Brazil/Latin America | ESSI Mentor",
-    para: "Dr. Abrão is a global leader in both surgery and research & development within the field of minimally invasive surgical techniques for endometriosis excision. He is also an established medical leader serving as the head of Gynecology at Hospital Beneficência Portuguesa de São Paulo and formerly acted... ",
+    para: "Dr. Abrão is a global leader in both surgery and research & development within the field of minimally invasive surgical techniques for endometriosis excision. He is also an established medical leader serving as the head of Gynecology at Hospital Beneficência Portuguesa de... ",
   },
   {
     img: "/assets/homepage/Dr_Osbert.png",
     title: "Dr. Osbert Fernandez",
     subtitle: "Florida",
-    para: "Dr. Osbert Fernandez, a native Floridian and proud second-generation Cuban-American doctor, is an expert in robotic-assisted surgery for complex endometriosis cases, including bowel invasion, rectal involvement, and frozen pelvis. Known for his compassionate, patient-centered approach... ",
+    para: "Dr. Osbert Fernandez, a native Floridian and proud second-generation Cuban-American doctor, is an expert in robotic-assisted surgery for complex endometriosis cases, including bowel invasion, rectal involvement, and frozen pelvis. Known for his compassionate... ",
   },
   {
     img: "/assets/homepage/Dr_Sallie.png",
     title: "Dr. Sallie Sarrel",
     subtitle: "Florida",
-    para: "Dr. Sallie Sarrel, is a dedicated advocate for individuals with endometriosis, having lived with the condition herself for nearly two decades. She co-founded The Endometriosis Summit, the largest endometriosis-focused conference, which trains patients, practitioners, and surgeons  while fostering global...",
+    para: "Dr. Sallie Sarrel, is a dedicated advocate for individuals with endometriosis, having lived with the condition herself for nearly two decades. She co-founded The Endometriosis Summit, the largest endometriosis-focused conference, which trains patients...",
   },
 ];
-
 const NextArrow = ({ onClick }) => (
   <div className="custom-arrow next-arrow" onClick={onClick}>
     <img src="https://cdn-icons-png.flaticon.com/128/2985/2985179.png" alt="Next"  />
@@ -421,7 +516,7 @@ useEffect(() => {
     ),
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 1025,
         settings: {
           slidesToShow: 2,
         },
@@ -460,7 +555,7 @@ useEffect(() => {
           <h5 className="medium-text mb-2">{member.title}</h5>
           <p className="teamSubtitle">{member.subtitle}</p>
           <p className="para text-black">{member.para}</p>
-          <div className="d-flex flex-lg-nowrap flex-wrap gap-sm-4 gap-2 mb-3 mt-3">
+          <div className="d-flex sliderBtndoctor gap-sm-4 gap-2 mb-3 mt-3">
            
               <div className="d-flex gap-sm-2 gap-1 bookButton p-2 px-3" onClick={handleBtnClick}>
                 <img

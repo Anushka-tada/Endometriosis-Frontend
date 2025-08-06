@@ -1468,7 +1468,7 @@ const page = () => {
 
         {/* reasons Endometriosis ... are related section */}
 
-        <div className="container mt-sm-5 mt-0 d-flex flex-column align-items-center">
+        <div className="container mt-5 d-flex flex-column align-items-center">
           <h1 className="text-center mb-3">
             Reasons Endometriosis, Infertility, and <br /> Miscarriage are Often
             Related
@@ -1504,7 +1504,7 @@ const page = () => {
 
         {/* explore section */}
 
-        <div className="container py-5">
+        <div className="container py-sm-5 pb-5 pt-0">
           <motion.h1
             className="text-center"
             initial={{ opacity: 0, y: 40 }}
@@ -1571,7 +1571,7 @@ const page = () => {
         </div>
 
         {/* meet our team */}
-        <div className="py-5 bg-white">
+        <div className="py-sm-5 pt-0 pb-5 bg-white">
           <div className="container ">
             <div className="d-flex justify-content-center mb-4">
               <h1 className="tilt tilt-primary text-white text-center">
